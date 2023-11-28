@@ -7,68 +7,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Black Bike</title>
 
-    {{-- bootstrap links --}}
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
+    {{--  --}}
 </head>
 
 <body>
     {{-- header starts --}}
-    <header class="container-fluid">
-        <div class="row align-items-center nav-container">
-            <div class="col-md-4">
-                <a href="">
-                    <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="Logo" class="img-fluid">
-                </a>
+    <header>
+        <div>
+            {{-- right logo wrapper --}}
+            <div>
+                <div>
+                    <a href=""><img src="{{ asset('assets/frontend/images/logo.jpg') }}" alt=""></a>
+                </div>
             </div>
-            <nav class="col-md-8">
-                <ul class="nav justify-content-end align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Merchs</a>
-                    </li>
-                    <li>
-                        <a class="get-ticket-btn" href="">Get Your Tickets</a>
-                    </li>
+
+            <div>
+                <ul>
+                    <li><a href="">login</a></li>
+                    <li><a href="">Schedule</a></li>
+                    <li><a href="">Merchs</a></li>
+                    <li><a href="">Get your Tickets</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </header>
-
     {{-- haeader ends --}}
 
     {{-- hero section starts --}}
-    <section class="hero-section"">
-       <div class="container">
-        <div class="row hero-content">
-            <div class="col-md-6 hero_left-content">
-                    <h1>Unity of Two <br> Wheels!</h1>
-                    <a href="#" class="get-ticket-btn">Get Your Tickets</a>
-            </div>
-            <div class="col-md-6 hero_right-content">
+    <section>
+        <div>
+            <div>
+                <div>
+                    <h1> Unity of Two Wheels</h1>
+                    <a href="">Get Your Tickets</a>
+                </div>
+
+                <div>
                     <span class="time">9:00AM - 11:00AM</span> <br>
-                    <span class="date">24TH NOVEMBER, 2023</span>
-                    <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant landscapes of Ghana.</p>
+                    <span class="date">24TH NOBEMBER, 2023</span>
+                </div>
             </div>
         </div>
-       </div>
     </section>
     {{-- hero section ends --}}
 
-    <section class="container ticket-strock-section">
-        <div class="row ticket-strocks">
-            <div class="purple-text">
-                <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW</h1>
-            </div>
-            <div class="yellow-text">
-                <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW</h1>
-            </div>
+    <section>
+        <div>
+            <h1>TICKETS NOW AVAILABLE</h1>
+        </div>
+        <div>
+            <h1>TICKETS NOW AVAILABLE</h1>
         </div>
     </section>
 
@@ -352,30 +340,14 @@
 
         {{-- sponsors --}}
         <div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
+            <div><h2>RACELORDS</h2></div>
+            <div><h2>RITROFITS</h2></div>
+            <div><h2>RACELORDS</h2></div>
+            <div><h2>RITROFITS</h2></div>
+            <div><h2>RACELORDS</h2></div>
+            <div><h2>RITROFITS</h2></div>
+            <div><h2>RACELORDS</h2></div>
+            <div><h2>RITROFITS</h2></div>
         </div>
     </section>
 
@@ -387,9 +359,8 @@
                     <img src="{{ asset('assets/frontend/images/logo.jpg') }}" alt="">
                     <pre>Asamoah Gyan Centre,
                         Kumasi, Ghana.</pre>
-                    <p><span class="event-time">9:00AM - 10:00AM</span> <br>
-                        <span class="event-date">11th November, 2023</span>
-                    </p>
+                        <p><span class="event-time">9:00AM - 10:00AM</span> <br>
+                        <span class="event-date">11th November, 2023</span></p>
                 </div>
 
                 <div>
@@ -412,9 +383,6 @@
             </div>
         </div>
     </section>
-
-
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>

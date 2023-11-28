@@ -1,0 +1,110 @@
+a {
+    text-decoration: none;
+}
+
+header {
+    z-index: 1;
+    position: absolute;
+}
+.nav-container {
+    padding: 15px 250px;
+}
+
+.nav-item {
+    font-family: Oswald;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.nav-item a {
+    color: #dfdfdf;
+}
+
+section {
+    padding: 30px 150px;
+}
+
+.get-ticket-btn {
+    background-color: #ddfe01;
+    padding: 10px 24px;
+    text-transform: uppercase;
+    border-right: 5px solid #f12e94;
+    border-bottom: 5px solid #f12e94;
+    border-bottom-right-radius: 4px;
+    color: black;
+}
+
+.hero-section {
+    padding-top: 15rem;
+    background: url("../frontend/images/hero-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-left: 15%;
+    height: 70vh;
+    position: relative;
+}
+
+.hero_left-content h1 {
+    color: #f6f6f6;
+    font-size: 70px;
+    font-family: Oswald;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 5rem;
+}
+
+.time {
+    color: #efefef;
+
+    font-family: Space Grotesk;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 24px; /* 75% */
+    text-transform: uppercase;
+}
+
+.date {
+    color: #ddfe01;
+    font-family: Space Grotesk;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 24px; /* 75% */
+    text-transform: uppercase;
+}
+
+.hero_right-content {
+    padding-top: 5rem;
+    padding-left: 5rem;
+}
+
+.hero_right-content p {
+    color: #fff;
+    padding-top: 5rem;
+    position: absolute;
+    width: 21%;
+    left: 50%;
+}
+
+.ticket-strocks {
+    position: relative;
+    height: 314px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.purple-text {
+    background: #b771f4;
+    text-align: center;
+    transform: rotate(-7deg);
+    width: fit-content;
+    position: absolute;
+}
+
+.yellow-text {
+    background: #ddfe01;
+    transform: rotate(7deg);
+    width: fit-content;
+}
