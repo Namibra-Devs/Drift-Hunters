@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.index');
+});
+
+/*=======================================================
+******************** Admin Routes **********************
+=======================================================*/
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/admin', 'login')->name('admin.auth');
 });
