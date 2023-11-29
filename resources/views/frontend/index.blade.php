@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    {{-- header starts --}}
+    <!-- header starts -->
     <header class="container-fluid">
         <div class="row align-items-center nav-container">
             <div class="col-md-4">
@@ -34,7 +34,7 @@
                         <a class="nav-link" href="">Merchs</a>
                     </li>
                     <li>
-                        <a class="get-ticket-btn" href="">Get Your Tickets</a>
+                        <a class="get-ticket-btn bg-white" href="">Get Your Tickets</a>
                     </li>
                 </ul>
             </nav>
@@ -45,141 +45,184 @@
 
     {{-- hero section starts --}}
     <section class="hero-section"">
-       <div class="container">
-        <div class="row hero-content">
-            <div class="col-md-6 hero_left-content">
+        <div class="container">
+            <div class="row hero-content">
+                <div class="col-md-6 hero_left-content">
                     <h1>Unity of Two <br> Wheels!</h1>
                     <a href="#" class="get-ticket-btn">Get Your Tickets</a>
-            </div>
-            <div class="col-md-6 hero_right-content">
+                </div>
+                <div class="col-md-6 hero_right-content">
                     <span class="time">9:00AM - 11:00AM</span> <br>
                     <span class="date">24TH NOVEMBER, 2023</span>
-                    <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant landscapes of Ghana.</p>
+                    <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
+                        a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
+                        landscapes of Ghana.</p>
+                </div>
             </div>
         </div>
-       </div>
     </section>
     {{-- hero section ends --}}
 
-    <section class="container ticket-strock-section">
+    <section class="ticket-strock-section">
         <div class="row ticket-strocks">
             <div class="purple-text">
-                <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW</h1>
+                <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</h1>
             </div>
             <div class="yellow-text">
-                <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW</h1>
+                <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</h1>
             </div>
         </div>
     </section>
 
     {{-- feacturing section --}}
-    <section>
-        <div class="section-title">
-            <div>
-                <img src="{{ asset('assets/frontend/images/white-play.jpg') }}" alt="">
-                <h2>FEATURING</h2>
+    <section class="featuring-section">
+        <div class="container">
+            <div class="section-title text-center mb-4">
+                <div class="row">
+                    <div class="col-md-8 left">
+                        <img src="{{ asset('assets/frontend/images/white-play.png') }}" alt="" class="py-3">
+                        <h2 class="text-white">FEATURING</h2>
+                    </div>
+                    <div class="col-md-4 right">
+                        <img src="{{ asset('assets/frontend/images/rider.png') }}" alt="" width="250px">
+                    </div>
+                </div>
             </div>
-            <div>
-                <img src="{{ asset('assets/frontend/images/rider.jpg') }}" alt="">
-            </div>
-        </div>
 
-        <div>
-            <div>
-                <div>
-                    <div class="feature-image">
-                        <img src="{{ asset('assets/frontend/images/feature-img1.jpg') }}" alt="">
-                    </div>
-                    <div class="content">
-                        <h2 class="feature-title">VENDOR EXPO</h2>
-                        <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations, and the
-                            scent of leather and engine oil in the air. It's not just a shopping excursion; it's a
-                            sensory journey that adds an extra layer of excitement to the overall experience.</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="row featuring-card">
+                        <div class="col-auto">
+                            <div class="feature-image">
+                                <img src="{{ asset('assets/frontend/images/feature-img1.jpg') }}" alt=""
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="featuring_card-content content1">
+                                <h3 class="text-center">VENDOR EXPO</h3>
+                                <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
+                                    and the scent
+                                    of leather and engine oil in the air. It's not just a shopping excursion; it's a
+                                    sensory journey
+                                    that adds an extra layer of excitement to the overall experience.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <div class="feature-image">
-                        <img src="{{ asset('assets/frontend/images/feature-img2.jpg') }}" alt="">
-                    </div>
-                    <div class="content">
-                        <h2 class="feature-title">VENDOR EXPO</h2>
-                        <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations, and the
-                            scent of leather and engine oil in the air. It's not just a shopping excursion; it's a
-                            sensory journey that adds an extra layer of excitement to the overall experience.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="feature-image">
-                        <img src="{{ asset('assets/frontend/images/feature-img3.jpg') }}" alt="">
-                    </div>
-                    <div class="content">
-                        <h2 class="feature-title">VENDOR EXPO</h2>
-                        <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations, and the
-                            scent of leather and engine oil in the air. It's not just a shopping excursion; it's a
-                            sensory journey that adds an extra layer of excitement to the overall experience.</p>
+                <div class="col-md-4 mb-4">
+                    <div class="row featuring-card">
+                        <div class="col-auto">
+                            <div class="feature-image">
+                                <img src="{{ asset('assets/frontend/images/feature-img2.jpg') }}" alt=""
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="featuring_card-content content2">
+                                <h3 class="text-center">CUSTOM BIKE SHOWS</h3>
+                                <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
+                                    and the scent
+                                    of leather and engine oil in the air. It's not just a shopping excursion; it's a
+                                    sensory journey
+                                    that adds an extra layer of excitement to the overall experience.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <div class="col-md-4 mb-4">
+                    <div class="row featuring-card">
+                        <div class="col-auto">
+                            <div class="feature-image">
+                                <img src="{{ asset('assets/frontend/images/feature-img3.jpg') }}" alt=""
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="featuring_card-content content3">
+                                <h3 class="text-center">VENDOR EXPO</h3>
+                                <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
+                                    and the scent
+                                    of leather and engine oil in the air. It's not just a shopping excursion; it's a
+                                    sensory journey
+                                    that adds an extra layer of excitement to the overall experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
     {{-- featuring section ends --}}
 
     {{-- tickets section --}}
-    <section>
-        <div class="section-title">
-            <h1>COUPE YOUR TICKET</h1>
-        </div>
+    <div class="tickets-section-title row align-items-center text-center">
+        <h1>
+            <span class="coupe">COUPE</span>
+            <span class="your">YOUR</span>
+            <span class="tickets">TICKETS!</span>
+        </h1>
+    </div>
+    <section class="tickets-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gold-ticket">
+                        <div class="ticket-header">
+                            <h3>GOLD</h3>
+                            <h2>$100</h2>
+                        </div>
+                        <div class="description">
+                            <span> <i></i>Entry to all areas</span><br>
+                            <span> <i></i>Participated in non tickets</span><br>
+                            <span> <i></i>Access to live entertainment</span><br>
+                            <span> <i></i>Activities and access to live entertainment</span>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="get-ticket-btn">BUY NOW</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div>
-            <div>
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <h2>GOLD</h2>
-                        <h1>$100</h1>
-                    </div>
-                    <div class="description">
-                        <span> <i></i>Entry to all areas</span>
-                        <span> <i></i>Participated in non tickets</span>
-                        <span> <i></i>Acess to live entertainment</span>
-                        <span> <i></i>Activities and access to live entertainment</span>
-                    </div>
-                    <div>
-                        <a href="">BUY NOW</a>
-                    </div>
-                </div>
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <h2>PLATINUM</h2>
-                        <h1>$200</h1>
-                    </div>
-                    <div class="description">
-                        <span> <i></i>Entry to all areas</span>
-                        <span> <i></i>Participated in non tickets</span>
-                        <span> <i></i>Acess to live entertainment</span>
-                        <span> <i></i>Activities and access to live entertainment</span>
-                    </div>
-                    <div>
-                        <a href="">BUY NOW</a>
+                <div class="col-md-4">
+                    <div class="platinum-ticket">
+                        <div class="ticket-header">
+                            <h3>PLATINUM</h3>
+                            <h2>$200</h2>
+                        </div>
+                        <div class="description">
+                            <span> <i></i>Entry to all areas</span><br>
+                            <span> <i></i>Participated in non tickets</span><br>
+                            <span> <i></i>Access to live entertainment</span><br>
+                            <span> <i></i>Activities and access to live entertainment</span>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="get-ticket-btn">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <h2>DIAMOND</h2>
-                        <h1>$500</h1>
-                    </div>
-                    <div class="description">
-                        <span> <i></i>Entry to all areas</span>
-                        <span> <i></i>Participated in non tickets</span>
-                        <span> <i></i>Acess to live entertainment</span>
-                        <span> <i></i>Activities and access to live entertainment</span>
-                    </div>
-                    <div>
-                        <a href="">BUY NOW</a>
+
+                <div class="col-md-4">
+                    <div class="diamond-ticket">
+                        <div class="ticket-header">
+                            <h3>DIAMOND</h3>
+                            <h2>$500</h2>
+                        </div>
+                        <div class="description">
+                            <span> <i></i>Entry to all areas</span><br>
+                            <span> <i></i>Participated in non tickets</span><br>
+                            <span> <i></i>Access to live entertainment</span>bra
+                            <span> <i></i>Activities and access to live entertainment</span>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="get-ticket-btn">BUY NOW</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -380,38 +423,46 @@
     </section>
 
     {{-- footer starts --}}
-    <section>
-        <div>
-            <div>
-                <div>
-                    <img src="{{ asset('assets/frontend/images/logo.jpg') }}" alt="">
-                    <pre>Asamoah Gyan Centre,
-                        Kumasi, Ghana.</pre>
-                    <p><span class="event-time">9:00AM - 10:00AM</span> <br>
-                        <span class="event-date">11th November, 2023</span>
-                    </p>
-                </div>
-
-                <div>
-                    <h2>STAY CONNECTED</h2>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 d-flex flex-column justify-content-between">
                     <div>
-                        <i>twitter</i>
-                        <i>linkedin</i>
-                        <i>instagram</i>
+                        <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="">
+                    </div>
+                    <div class="footer-location">
+                        <span>
+                            Asamoah Gyan Centre, <br>
+                            Kumasi, Ghana.
+                        </span>
+                    </div>
+                    <div>
+                        <p><span class="event-time">9:00AM - 10:00AM</span> <br>
+                            <span class="event-date">11th November, 2023</span>
+                        </p>
                     </div>
                 </div>
 
-                <div>
-                    <h2>REGISTER FOR THE EVENT</h2>
-                    <a href="">GET YOUR TICKETS</a>
+                <div class="col-md-4">
+                    <h3>STAY CONNECTED</h3>
+                    <div>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
                 </div>
-                <hr>
-                <div>
-                    <p>&copy; Black Bike 2023</p>
+
+                <div class="col-md-4">
+                    <h3>REGISTER FOR THE EVENT</h3>
+                    <a href="#" class="get-ticket-btn bg-white">GET YOUR TICKETS</a>
                 </div>
             </div>
+            <hr>
+                <div class="col-md-12 text-center" style="padding: 2rem 0">
+                    <p>&copy; Black Bike 2023</p>
+                </div>
         </div>
-    </section>
+    </footer>
 
 
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
