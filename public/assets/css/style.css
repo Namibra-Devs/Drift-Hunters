@@ -228,6 +228,31 @@ section {
 }
 
 
+/* celebrity section */
+
+.celebrity-section {
+    background: url('../frontend/images/celeb-bg.png');
+    padding: 5rem 0 5rem 18rem;
+}
+
+.celebrity-text {
+    color: #FFF;
+}
+
+.celebrity-text p {
+    padding: 20px 0;
+}
+
+.celebrity-text a {
+    position: absolute;
+    transform: rotate(-7deg);
+}
+
+.celebrity-images img {
+    max-width: 245px;
+}
+
+
 /* footer styles starts */
 
 footer {

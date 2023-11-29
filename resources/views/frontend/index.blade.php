@@ -228,29 +228,25 @@
     </section>
     {{-- Tickets section end --}}
 
-    <section>
-        <div>
-            <div>
-                <div>
-                    <h1>LIVE GUEST CELEBRITY LINE UP</h1>
+    <section class="celebrity-section">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 celebrity-text">
+                    <h1>LIVE GUEST CELEBRITY <br> LINE UP</h1>
                     <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
                         a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
                         landscapes of Ghana.</p>
+                    <a href="#" class="get-ticket-btn">GET YOUR TICKET</a>
                 </div>
-                <div>
-                    <a href="">GET YOUR TICKET</a>
-                </div>
-            </div>
 
-            <div>
-                <div><img src="{{ asset('assets/frontend/images/celeb-img1.png') }}" alt=""></div>
-                <div><img src="{{ asset('assets/frontend/images/celeb-img2.png') }}" alt=""></div>
-                <div><img src="{{ asset('assets/frontend/images/celeb-img3.png') }}" alt=""></div>
-                <div><img src="{{ asset('assets/frontend/images/celeb-img4.png') }}" alt=""></div>
-                <div><img src="{{ asset('assets/frontend/images/celeb-img5.png') }}" alt=""></div>
-                <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
+                <div class="col-md-6 celebrity-images d-flex flex-wrap justify-content-end">
+                    <div><img src="{{ asset('assets/frontend/images/celeb-img7.png') }}" alt=""></div>
+                    <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
+                    <div><img src="{{ asset('assets/frontend/images/celeb-img3.png') }}" alt=""></div>
+                    <div><img src="{{ asset('assets/frontend/images/celeb-img4.png') }}" alt=""></div>
+                    <div><img src="{{ asset('assets/frontend/images/celeb-img5.png') }}" alt=""></div>
+                    <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
+                </div>
             </div>
-        </div>
     </section>
 
     <section>
