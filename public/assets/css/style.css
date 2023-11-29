@@ -272,6 +272,27 @@ section {
 }
 
 
+.products-section {
+    background: #212121;
+}
+
+.product_image-wrap {
+    background: linear-gradient(112deg, #BAC0C9 0%, #BCC2CC 100%);;
+}
+
+.product-description {
+    color: #FFF;
+    padding: 30px 0 30px 0;
+}
+
+.product-item {
+    padding: 30px;
+}
+
+.product-price {
+    color: #DBFE01;
+}
+
 /* sponsors section styles */
 .sponsors-section {
     background: #252525;

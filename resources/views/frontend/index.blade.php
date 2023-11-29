@@ -228,7 +228,6 @@
     </section>
     {{-- Tickets section end --}}
 
-    celebrity section
     <section class="celebrity-section">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 celebrity-text">
@@ -311,103 +310,133 @@
     </section>
 
     {{-- products section --}}
-    <section>
-        <div class="section-title">
-            <div>
-                <h1>BIKE IN <span>STYLE!</span></h1>
-                <h1>ROKE IN <span>STYLE</span></h1>
+    <section class="products-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <div>
+                    <h1>BIKE IN <span>STYLE!</span></h1>
+                    <h1>ROKE IN <span>STYLE</span></h1>
+                </div>
+    
+                <div>
+                    <img src="{{ asset('assets/frontend/images/rider.png') }}" alt="" class="img-fluid">
+                </div>
             </div>
-
-            <div>
-                <img src="{{ asset('assets/frontend/images/rider.jpg') }}" alt="">
+    
+            <div class="row">
+                {{-- products --}}
+                <div class="col-md-4 mb-4">
+                    {{-- product --}}
+                    <div class="product-item">
+                        <div class="product_image-wrap">
+                           <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-3 product-description">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
+                                <h3 class="product-price">$50</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-md-4 mb-4">
+                    {{-- product --}}
+                    <div class="product-item">
+                        <div class="product_image-wrap">
+                           <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-3 product-description">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
+                                <h3 class="product-price">$50</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-md-4 mb-4">
+                    {{-- product --}}
+                    <div class="product-item">
+                        <div class="product_image-wrap">
+                           <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-3 product-description">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
+                                <h3 class="product-price">$50</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-md-4 mb-4">
+                    {{-- product --}}
+                    <div class="product-item">
+                        <div class="product_image-wrap">
+                           <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-3 product-description">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
+                                <h5 class="product-price">$50</h5>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-md-4 mb-4">
+                    {{-- product --}}
+                    <div class="product-item">
+                        <div class="product_image-wrap">
+                           <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-3 product-description">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
+                                <h5 class="product-price">$50</h5>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-md-4 mb-4">
+                    {{-- product --}}
+                    <div class="product-item">
+                        <div class="product_image-wrap">
+                           <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="mt-3 product-description">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
+                                <h5 class="product-price">$50</h5>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                </div>    
             </div>
         </div>
-
-        <div>
-            {{-- products --}}
-            <div>
-                {{-- product --}}
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="">
-                    </div>
-                    <div>
-                        <h2 class="product-name">Bike Life Dream Chasers Short Sleeves</h2>
-                        <h3 class="product-price">$50</h3>
-                    </div>
-                    <div>
-                        <a href="">VIEW PRODUCT</a>
-                    </div>
-                </div>
-                {{-- product --}}
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="">
-                    </div>
-                    <div>
-                        <h2 class="product-name">Bike Life Detached Armless Jacket 1</h2>
-                        <h3 class="product-price">$50</h3>
-                    </div>
-                    <div>
-                        <a href="">VIEW PRODUCT</a>
-                    </div>
-                </div>
-                {{-- product --}}
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="">
-                    </div>
-                    <div>
-                        <h2 class="product-name">Bike Life Detached Armless Jacket 2</h2>
-                        <h3 class="product-price">$50</h3>
-                    </div>
-                    <div>
-                        <a href="">VIEW PRODUCT</a>
-                    </div>
-                </div>
-                {{-- product --}}
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="">
-                    </div>
-                    <div>
-                        <h2 class="product-name">Bike Life Dream Chasers Short Sleeves</h2>
-                        <h3 class="product-price">$50</h3>
-                    </div>
-                    <div>
-                        <a href="">VIEW PRODUCT</a>
-                    </div>
-                </div>
-                {{-- product --}}
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="">
-                    </div>
-                    <div>
-                        <h2 class="product-name">Bike Life Dream Chasers Short Sleeves</h2>
-                        <h3 class="product-price">$50</h3>
-                    </div>
-                    <div>
-                        <a href="">VIEW PRODUCT</a>
-                    </div>
-                </div>
-                {{-- product --}}
-                <div>
-                    <div>
-                        <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="">
-                    </div>
-                    <div>
-                        <h2 class="product-name">Bike Life Pants</h2>
-                        <h3 class="product-price">$50</h3>
-                    </div>
-                    <div>
-                        <a href="">VIEW PRODUCT</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </section>
+    
 
     {{-- sponsors section --}}
     <section class="sponsors-section">
