@@ -228,58 +228,84 @@
     </section>
     {{-- Tickets section end --}}
 
+    celebrity section
     <section class="celebrity-section">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-6 celebrity-text">
-                    <h1>LIVE GUEST CELEBRITY <br> LINE UP</h1>
-                    <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
-                        a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
-                        landscapes of Ghana.</p>
-                    <a href="#" class="get-ticket-btn">GET YOUR TICKET</a>
-                </div>
-
-                <div class="col-md-6 celebrity-images d-flex flex-wrap justify-content-end">
-                    <div><img src="{{ asset('assets/frontend/images/celeb-img7.png') }}" alt=""></div>
-                    <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
-                    <div><img src="{{ asset('assets/frontend/images/celeb-img3.png') }}" alt=""></div>
-                    <div><img src="{{ asset('assets/frontend/images/celeb-img4.png') }}" alt=""></div>
-                    <div><img src="{{ asset('assets/frontend/images/celeb-img5.png') }}" alt=""></div>
-                    <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
-                </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 celebrity-text">
+                <h1>LIVE GUEST CELEBRITY <br> LINE UP</h1>
+                <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
+                    a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
+                    landscapes of Ghana.</p>
+                <a href="#" class="get-ticket-btn">GET YOUR TICKET</a>
             </div>
+
+            <div class="col-md-6 celebrity-images d-flex flex-wrap justify-content-end">
+                <div><img src="{{ asset('assets/frontend/images/celeb-img7.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/frontend/images/celeb-img3.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/frontend/images/celeb-img4.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/frontend/images/celeb-img5.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
+            </div>
+        </div>
     </section>
 
-    <section>
-        <div class="section-title">
-            <img src="{{ asset('assets/frontend/images/wine-play.png') }}" alt="">
-            <h1>GET INVOLVED</h1>
-        </div>
-
-        <div>
-            <div>
-                <div>
-                    <img src="{{ asset('assets/frontend/images/bike1.png') }}" alt="">
-                </div>
-                <div>
-                    <h2>BECOME A SPONSOR</h2>
-                    <p> Become a sponsor and align your brand with the spirit of adventure, unity, and freedom that
-                        defines this extraordinary event.</p>
-
-                    <a href="">REGISTER YOUR INTEREST</a>
-                </div>
+    <section class="get-involved-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <img src="{{ asset('assets/frontend/images/wine-play.png') }}" alt="">
+                <h2>GET INVOLVED</h2>
             </div>
 
-            <div>
-                <div>
-                    <img src="{{ asset('assets/frontend/images/bike2.png') }}" alt="">
-                </div>
-                <div>
-                    <h2>EXHIBIT LIVE</h2>
-                    <p>Join the vibrant Vendor Expo at Ghana Black Bike Week and put your products or services in front
-                        of a diverse and engaged audience.</p>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="row flex-column get-involved-card">
+                        <div class="col">
+                            <div>
+                                <img src="{{ asset('assets/frontend/images/bike1.png') }}" alt=""
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="get-involved_card-content content1">
+                                <div>
+                                    <h3 class="text-center">BECOME A SPONSOR</h3>
+                                    <p> Become a sponsor and align your brand with the spirit of adventure, unity, and
+                                        freedom that defines this extraordinary event.</p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#" class="get-ticket-btn bg-black text-white">REGISTER YOUR INTERESTS</a>
+                                </div>
+                            </div>
 
-                    <a href="">APPLY NOW</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="row flex-column get-involved-card">
+                        <div class="col-auto">
+                            <div>
+                                <img src="{{ asset('assets/frontend/images/bike2.png') }}" alt=""
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="get-involved_card-content content2">
+                                <div>
+                                    <h3 class="text-center">EXHIBIT LIVE</h3>
+                                    <p>Join the vibrant Vendor Expo at Ghana Black Bike Week and put your products or
+                                        services in front of a diverse and engaged audience.</p>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#" class="get-ticket-btn bg-black text-white">BUY NOW</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -384,39 +410,42 @@
     </section>
 
     {{-- sponsors section --}}
-    <section>
-        <div class="section-title">
-            <h1>OUR SPONSORS</h1>
-        </div>
-
-        {{-- sponsors --}}
-        <div>
-            <div>
-                <h2>RACELORDS</h2>
+    <section class="sponsors-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>OUR SPONSORS</h2>
             </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
-            </div>
-            <div>
-                <h2>RACELORDS</h2>
-            </div>
-            <div>
-                <h2>RITROFITS</h2>
+    
+            {{-- sponsors --}}
+            <div class="row sponsors">
+                <div class="col-md-3">
+                    <h2>RACELORDS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RITROFITS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RACELORDS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RITROFITS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RACELORDS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RITROFITS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RACELORDS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>RITROFITS</h2>
+                </div>
             </div>
         </div>
     </section>
+    
 
     {{-- footer starts --}}
     <footer>
@@ -454,9 +483,9 @@
                 </div>
             </div>
             <hr>
-                <div class="col-md-12 text-center" style="padding: 2rem 0">
-                    <p>&copy; Black Bike 2023</p>
-                </div>
+            <div class="col-md-12 text-center" style="padding: 2rem 0">
+                <p>&copy; Black Bike 2023</p>
+            </div>
         </div>
     </footer>
 

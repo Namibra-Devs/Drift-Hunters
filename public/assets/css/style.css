@@ -253,6 +253,39 @@ section {
 }
 
 
+/* Get involved section */
+.get-involved-section {
+    background: url('../frontend/images/blackbike-icon.png');
+}
+
+.get-involved-card img {
+    width: 100%;
+}
+
+.get-involved-section .section-title {
+    color: #FFF;
+    padding-bottom: 30px;
+}
+
+.get-involved_card-content {
+    padding: 50px;
+}
+
+
+/* sponsors section styles */
+.sponsors-section {
+    background: #252525;
+    color: #FFF;
+}
+
+.sponsors-section .section-title {
+    padding: 50px 0;
+}
+
+.sponsors {
+    padding-bottom: 20px;
+}
+
 /* footer styles starts */
 
 footer {
