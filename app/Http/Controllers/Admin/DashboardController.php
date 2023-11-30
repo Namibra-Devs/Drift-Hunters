@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function dashboard()
     {
         $data['porders'] = ProductOrder::orderBy('id', 'DESC')->limit(10)->get();
-        $data['default'] = Language::where('is_default', 1)->first();
+        // $data['default'] = Language::where('is_default', 1)->first();
         return view('admin.dashboard', $data);
     }
 }
