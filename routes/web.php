@@ -45,7 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus',
 
 if (!app()->runningInConsole()) {
   // Dynamic Routes
-  Route::group(['middleware' => ['setlang']], function () {
+  Route::group([], function () {
 
     $wdPermalinks = Permalink::where('details', 0)->get();
     foreach ($wdPermalinks as $pl) {
