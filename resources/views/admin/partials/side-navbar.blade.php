@@ -98,11 +98,10 @@
 @elseif(request()->path() == 'admin/shipping') active
 @elseif(request()->routeIs('admin.shipping.edit')) active
 @elseif(request()->routeIs('admin.product.tags')) active
-@elseif(request()->routeIs('admin.product.settings')) active
 @elseif(request()->path() == 'admin/product/orders/report') active @endif">
                         <a data-toggle="collapse" href="#category">
                             <i class="fas fa-store-alt"></i>
-                            <p>Shop Management</p>
+                            <p>Merch Management</p>
                             <span class="caret"></span>
                         </a>
                         <div class="collapse
@@ -123,21 +122,9 @@
 @elseif(request()->path() == 'admin/shipping') show
 @elseif(request()->routeIs('admin.shipping.edit')) show
 @elseif(request()->routeIs('admin.product.tags')) show
-@elseif(request()->routeIs('admin.product.settings')) show
 @elseif(request()->path() == 'admin/product/orders/report') show @endif"
                             id="category">
                             <ul class="nav nav-collapse">
-                                <li class="@if (request()->routeIs('admin.product.settings')) active @endif">
-                                    <a href="{{ route('admin.product.settings') }}">
-                                        <span class="sub-item">Settings</span>
-                                    </a>
-                                </li>
-                                <li class="@if (request()->routeIs('admin.product.tags')) active @endif">
-                                    <a href="{{ route('admin.product.tags') . '?language=' . $default->code }}">
-                                        <span class="sub-item">Popular Tags</span>
-                                    </a>
-                                </li>
-
                                 {{-- @if ($bex->catalog_mode == 0) --}}
                                 <li
                                     class="
@@ -151,7 +138,7 @@
                                 <li class="submenu">
                                     <a data-toggle="collapse" href="#productManagement"
                                         aria-expanded="{{ request()->path() == 'admin/category' || request()->is('admin/category/*/edit') || request()->routeIs('admin.product.type') || request()->routeIs('admin.product.create') || request()->routeIs('admin.product.index') || request()->routeIs('admin.product.edit') ? 'true' : 'false' }}">
-                                        <span class="sub-item">Manage Products</span>
+                                        <span class="sub-item">Manage Merchs</span>
                                         <span class="caret"></span>
                                     </a>
                                     <div class="collapse
@@ -167,8 +154,7 @@
                                                 class="
     @if (request()->path() == 'admin/category') active
     @elseif(request()->is('admin/category/*/edit')) active @endif">
-                                                <a
-                                                    href="{{ route('admin.category.index') . '?language=' . $default->code }}">
+                                                <a href="{{ route('admin.category.index') }}">
                                                     <span class="sub-item">Category</span>
                                                 </a>
                                             </li>
@@ -176,17 +162,16 @@
                                                 class="
 @if (request()->routeIs('admin.product.type')) active
 @elseif(request()->routeIs('admin.product.create')) active @endif">
-                                                <a href="{{ route('admin.product.type') }}">
-                                                    <span class="sub-item">Add Product</span>
+                                                <a href="{{ route('admin.product.create') }}">
+                                                    <span class="sub-item">Add Merch</span>
                                                 </a>
                                             </li>
                                             <li
                                                 class="
 @if (request()->path() == 'admin/product') active
 @elseif(request()->is('admin/product/*/edit')) active @endif">
-                                                <a
-                                                    href="{{ route('admin.product.index') . '?language=' . $default->code }}">
-                                                    <span class="sub-item">Products</span>
+                                                <a href="{{ route('admin.product.index') }}">
+                                                    <span class="sub-item">Merchs</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -256,7 +241,6 @@
                     <li
                         class="nav-item
 @if (request()->path() == 'admin/event/categories') active
-@elseif(request()->path() == 'admin/event/settings') active
 @elseif(request()->path() == 'admin/events') active
 @elseif(request()->path() == 'admin/events/payment-log') active
 @elseif(request()->is('admin/event/*/edit')) active
@@ -268,18 +252,12 @@
                         </a>
                         <div class="collapse
 @if (request()->path() == 'admin/event/categories') show
-@elseif(request()->path() == 'admin/event/settings') show
 @elseif(request()->path() == 'admin/events') show
 @elseif(request()->path() == 'admin/events/payment-log') show
 @elseif(request()->is('admin/event/*/edit')) show
 @elseif(request()->path() == 'admin/events/report') show @endif"
                             id="event_manage">
                             <ul class="nav nav-collapse">
-                                <li class="@if (request()->path() == 'admin/event/settings') active @endif">
-                                    <a href="{{ route('admin.event.settings') }}">
-                                        <span class="sub-item">Settings</span>
-                                    </a>
-                                </li>
                                 <li class="@if (request()->path() == 'admin/event/categories') active @endif">
                                     <a
                                         href="{{ route('admin.event.category.index') . '?language=' . $default->code }}">
@@ -315,13 +293,7 @@
                         class="nav-item
 @if (request()->routeIs('admin.register.user')) active
 @elseif(request()->routeIs('register.user.view')) active
-@elseif(request()->routeIs('register.user.changePass')) active
-
-@elseif(request()->path() == 'admin/pushnotification/settings') active
-@elseif(request()->path() == 'admin/pushnotification/send') active
-
-@elseif(request()->path() == 'admin/subscribers') active
-@elseif(request()->path() == 'admin/mailsubscriber') active @endif">
+@elseif(request()->routeIs('register.user.changePass')) active @endif">
                         <a data-toggle="collapse" href="#usersManagement">
                             <i class="la flaticon-users"></i>
                             <p>Users Management</p>
@@ -330,13 +302,7 @@
                         <div class="collapse
 @if (request()->routeIs('admin.register.user')) show
 @elseif(request()->routeIs('register.user.view')) show
-@elseif(request()->routeIs('register.user.changePass')) show
-
-@elseif(request()->path() == 'admin/pushnotification/settings') show
-@elseif(request()->path() == 'admin/pushnotification/send') show
-
-@elseif(request()->path() == 'admin/subscribers') show
-@elseif(request()->path() == 'admin/mailsubscriber') show @endif"
+@elseif(request()->routeIs('register.user.changePass')) show @endif"
                             id="usersManagement">
                             <ul class="nav nav-collapse">
 
@@ -395,13 +361,11 @@
                 @endif
 
 
-
-                @if (empty($admin->role) || (!empty($permissions) && in_array('Client Feedbacks', $permissions)))
-                    {{-- Client Feedbacks --}}
-                    <li class="nav-item @if (request()->path() == 'admin/feedbacks') active @endif">
-                        <a href="{{ route('admin.client_feedbacks') }}">
-                            <i class="fas fa-pen-fancy"></i>
-                            <p>Client Feedbacks</p>
+                @if (empty($admin->role) || (!empty($permissions) && in_array('Events Management', $permissions)))
+                    <li class="nav-item @if (request()->path() == 'admin/file-manager') active @endif">
+                        <a href="{{ route('admin.file-manager') }}">
+                            <i class="la flaticon-list"></i>
+                            <span class="sub-item">File Manager</span>
                         </a>
                     </li>
                 @endif

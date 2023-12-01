@@ -16,7 +16,7 @@
         @if (empty($admin->role) || (!empty($permissions) && in_array('Shop Management', $permissions)))
             {{-- @if ($bex->is_shop == 1) --}}
             <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.product.index', ['language' => $default->code]) }}" class="d-block">
+                <a href="{{ route('admin.product.index') }}" class="d-block">
                     <div class="card card-stats card-danger card-round">
                         <div class="card-body">
                             <div class="row">
@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="col-9 col-stats">
                                     <div class="numbers">
-                                        <p class="card-category">Products</p>
+                                        <p class="card-category">Merch</p>
                                         <h4 class="card-title">{{ $default->products()->count() }}</h4>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-9 col-stats">
                                     <div class="numbers">
-                                        <p class="card-category">Product Orders</p>
+                                        <p class="card-category">Merch Orders</p>
                                         <h4 class="card-title">{{ \App\ProductOrder::count() }}</h4>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
         @if (empty($admin->role) || (!empty($permissions) && in_array('Events Management', $permissions)))
             {{-- @if ($bex->is_event == 1) --}}
             <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.event.index', ['language' => $default->code]) }}" class="d-block">
+                <a href="{{ route('admin.event.index') }}" class="d-block">
                     <div class="card card-stats card-info card-round">
                         <div class="card-body ">
                             <div class="row">
@@ -118,7 +118,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-head-row">
-                                <h4 class="card-title">Product Orders</h4>
+                                <h4 class="card-title">Merch Orders</h4>
                             </div>
                             <p class="card-category">
                                 Top 10 latest orders

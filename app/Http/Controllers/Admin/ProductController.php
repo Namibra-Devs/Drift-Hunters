@@ -22,28 +22,15 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $lang = Language::where('code', $request->language)->first();
-
-        $lang_id = $lang->id;
-        $data['products'] = Product::where('language_id', $lang_id)->orderBy('id', 'DESC')->get();
-        $data['lang_id'] = $lang_id;
+        $data['products'] = Product::orderBy('id', 'DESC')->get();
         return view('admin.product.index',$data);
-    }
-
-
-    public function type(Request $request) {
-        $data['digitalCount'] = Product::where('type', 'digital')->count();
-        $data['physicalCount'] = Product::where('type', 'physical')->count();
-        return view('admin.product.type', $data);
     }
 
 
     public function create(Request $request)
     {
-        $lang = Language::where('code', $request->language)->first();
-        $abx = $lang->basic_extra;
         $categories = Pcategory::where('status',1)->get();
-        return view('admin.product.create',compact('categories','abx'));
+        return view('admin.product.create', compact('categories'));
     }
 
 
@@ -243,10 +230,11 @@ class ProductController extends Controller
     public function edit(Request $request, $id)
     {
         $lang = Language::where('code', $request->language)->first();
-        $abx = $lang->basic_extra;
-        $categories = $lang->pcategories()->where('status',1)->get();
+        // $abx = $lang->basic_extra;
+        // $categories = $lang->pcategories()->where('status',1)->get();
+        $categories = Pcategory::where('status',1)->get();
         $data = Product::findOrFail($id);
-        return view('admin.product.edit',compact('categories','data','abx'));
+        return view('admin.product.edit',compact('categories','data'));
     }
 
     public function images($portid)
@@ -435,7 +423,7 @@ class ProductController extends Controller
 
     public function deleteFromMegaMenu($product) {
         // unset service from megamenu for service_category = 1
-        $megamenu = Megamenu::where('language_id', $product->language_id)->where('category', 1)->where('type', 'products');
+        $megamenu = Megamenu::where('category', 1)->where('type', 'products');
         if ($megamenu->count() > 0) {
             $megamenu = $megamenu->first();
             $menus = json_decode($megamenu->menus, true);

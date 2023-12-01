@@ -19,6 +19,12 @@ Route::get('/', function () {
 });
 
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin', 'setLfmPath']], function () {
+  \UniSharp\LaravelFilemanager\Lfm::routes();
+  Route::post('summernote/upload', 'Admin\SummernoteController@uploadFileManager')->name('lfm.summernote.upload');
+});
+
+
 /*=======================================================
 ******************** Admin Routes **********************
 =======================================================*/
@@ -39,6 +45,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
 
   // Summernote image upload
   Route::post('/summernote/upload', 'Admin\SummernoteController@upload')->name('admin.summernote.upload');
+
+  // Admin File Manager Routes
+  Route::get('/file-manager', 'Admin\SummernoteController@fileManager')->name('admin.file-manager');
 
   // Admin logout Route
   Route::get('/logout', 'Admin\LoginController@logout')->name('admin.logout');
@@ -106,7 +115,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
 
 
 
-  // Admin shop Management Routes
+  // Admin Merch Management Routes
   Route::group(['middleware' => 'checkpermission:Shop Management'], function () {
     Route::get('/category', 'Admin\ProductCategory@index')->name('admin.category.index');
     Route::post('/category/store', 'Admin\ProductCategory@store')->name('admin.category.store');
@@ -118,7 +127,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     Route::post('/category/bulk-delete', 'Admin\ProductCategory@bulkDelete')->name('admin.pcategory.bulk.delete');
 
     Route::get('/product', 'Admin\ProductController@index')->name('admin.product.index');
-    Route::get('/product/type', 'Admin\ProductController@type')->name('admin.product.type');
     Route::get('/product/create', 'Admin\ProductController@create')->name('admin.product.create');
     Route::post('/product/store', 'Admin\ProductController@store')->name('admin.product.store');
     Route::get('/product/{id}/edit', 'Admin\ProductController@edit')->name('admin.product.edit');
@@ -151,7 +159,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     // Admin Coupon Routes End
 
 
-    // Product Order
+    // Merch Order
     Route::get('/product/all/orders', 'Admin\ProductOrderController@all')->name('admin.all.product.orders');
     Route::get('/product/pending/orders', 'Admin\ProductOrderController@pending')->name('admin.pending.product.orders');
     Route::get('/product/processing/orders', 'Admin\ProductOrderController@processing')->name('admin.processing.product.orders');
@@ -163,7 +171,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     Route::post('/product/order/bulk-delete', 'Admin\ProductOrderController@bulkOrderDelete')->name('admin.product.order.bulk.delete');
     Route::get('/product/orders/report', 'Admin\ProductOrderController@report')->name('admin.orders.report');
     Route::get('/product/export/report', 'Admin\ProductOrderController@exportReport')->name('admin.orders.export');
-    // Product Order end
+    // Merch Order end
   });
 
 

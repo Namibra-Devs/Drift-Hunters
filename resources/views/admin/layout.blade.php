@@ -48,7 +48,10 @@
 
 <body data-background-color="dark">
 
-    <div class="wrapper">
+    <div class="wrapper
+    @if(request()->routeIs('admin.file-manager'))
+    overlay-sidebar
+    @endif">
         {{-- top navbar area start --}}
         @includeif('admin.partials.top-navbar')
         {{-- top navbar area end --}}
