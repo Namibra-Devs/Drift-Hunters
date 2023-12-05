@@ -1,25 +1,5 @@
 @extends('admin.layout')
 
-@php
-$selLang = \App\Language::where('code', request()->input('language'))->first();
-@endphp
-@if(!empty($selLang) && $selLang->rtl == 1)
-@section('styles')
-<style>
-    form:not(.modal-form) input,
-    form:not(.modal-form) textarea,
-    form:not(.modal-form) select,
-    select[name='language'] {
-        direction: rtl;
-    }
-    form:not(.modal-form) .note-editor.note-frame .note-editing-area .note-editable {
-        direction: rtl;
-        text-align: right;
-    }
-</style>
-@endsection
-@endif
-
 @section('content')
   <div class="page-header">
     <h4 class="page-title">Merchs</h4>
@@ -58,16 +38,6 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                 <div class="col-lg-4">
                     <div class="card-title d-inline-block">Merchs</div>
                 </div>
-                <div class="col-lg-3">
-                    @if (!empty($langs))
-                        <select name="language" class="form-control" onchange="window.location='{{url()->current() . '?language='}}'+this.value">
-                            <option value="" selected disabled>Select a Language</option>
-                            @foreach ($langs as $lang)
-                                <option value="{{$lang->code}}" {{$lang->code == request()->input('language') ? 'selected' : ''}}>{{$lang->name}}</option>
-                            @endforeach
-                        </select>
-                    @endif
-                </div>
                 <div class="col-lg-4 offset-lg-1 mt-2 mt-lg-0">
                     <a href="{{route('admin.product.create')}}" class="btn btn-primary float-right btn-sm"><i class="fas fa-plus"></i> Add Merch</a>
                     <button class="btn btn-danger float-right btn-sm mr-2 d-none bulk-delete" data-href="{{route('admin.product.bulk.delete')}}"><i class="flaticon-interface-5"></i> Delete</button>
@@ -89,7 +59,6 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                         </th>
                         <th scope="col">Title</th>
                         <th>Price</th>
-                        <th scope="col">Type</th>
                         <th scope="col">Category</th>
                         <th scope="col">Actions</th>
                       </tr>
@@ -104,7 +73,6 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                               {{strlen($product->title) > 30 ? mb_substr($product->title,0,30,'utf-8') . '...' : $product->title}}
                           </td>
                                 <td>{{$product->current_price}}</td>
-                          <td class="text-capitalize">{{$product->type}}</td>
                           <td>
                             @if (!empty($product->category))
                             {{$product->category ? $product->category->name : ''}}

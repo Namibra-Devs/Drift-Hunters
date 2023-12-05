@@ -45,9 +45,9 @@ class ProfileController extends Controller
         return response()->json(['errors' => $validator->errors(), 'id' => 'image']);
       }
 
-      @unlink("assets/admin/img/propics/".Auth::guard('admin')->user()->image);
+      @unlink("assets/admin/images/propics/".Auth::guard('admin')->user()->image);
       $fileName = uniqid() . '.jpg';
-      $request->file('file')->move('assets/admin/img/propics/', $fileName);
+      $request->file('file')->move('assets/admin/images/propics/', $fileName);
       $admin = Admin::findOrFail(Auth::guard('admin')->user()->id);
       $admin->image = $fileName;
       $admin->save();

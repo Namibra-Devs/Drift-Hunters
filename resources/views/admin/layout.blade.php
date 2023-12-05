@@ -27,20 +27,6 @@
     @php
     $selLang = \App\Language::where('code', request()->input('language'))->first();
     @endphp
-    @if (!empty($selLang) && $selLang->rtl == 1)
-    <style>
-        #editModal form input,
-        #editModal form textarea,
-        #editModal form select {
-            direction: rtl;
-        }
-
-        #editModal form .note-editor.note-frame .note-editing-area .note-editable {
-            direction: rtl;
-            text-align: right;
-        }
-    </style>
-    @endif
 
     @yield('styles')
 

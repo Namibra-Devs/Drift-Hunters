@@ -14,7 +14,6 @@
     </div>
     <div class="row">
         @if (empty($admin->role) || (!empty($permissions) && in_array('Shop Management', $permissions)))
-            {{-- @if ($bex->is_shop == 1) --}}
             <div class="col-sm-6 col-md-3">
                 <a href="{{ route('admin.product.index') }}" class="d-block">
                     <div class="card card-stats card-danger card-round">
@@ -36,8 +35,7 @@
                     </div>
                 </a>
             </div>
-            {{-- @endif --}}
-            {{-- @if ($bex->is_shop == 1) --}}
+
             <div class="col-sm-6 col-md-3">
                 <a href="{{ route('admin.all.product.orders') }}" class="d-block">
                     <div class="card card-stats card-warning card-round">
@@ -64,7 +62,6 @@
 
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Events Management', $permissions)))
-            {{-- @if ($bex->is_event == 1) --}}
             <div class="col-sm-6 col-md-3">
                 <a href="{{ route('admin.event.index') }}" class="d-block">
                     <div class="card card-stats card-info card-round">
@@ -107,7 +104,6 @@
                     </div>
                 </a>
             </div>
-            {{-- @endif --}}
         @endif
 
     </div>
@@ -140,9 +136,8 @@
                                                 @foreach ($porders as $key => $porder)
                                                     <tr>
                                                         <td>#{{ $porder->order_number }}</td>
-                                                        <td>{{ $bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : '' }}
+                                                        <td>
                                                             {{ round($porder->total, 2) }}
-                                                            {{ $bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : '' }}
                                                         </td>
 
                                                         <td>
@@ -159,7 +154,7 @@
                                                                         href="{{ route('admin.product.details', $porder->id) }}"
                                                                         target="_blank">Details</a>
                                                                     <a class="dropdown-item"
-                                                                        href="{{ asset('assets/front/invoices/product/' . $porder->invoice_number) }}"
+                                                                        href="{{ asset('assets/frontend/invoices/product/' . $porder->invoice_number) }}"
                                                                         target="_blank">Invoice</a>
                                                                     <form class="deleteform d-block"
                                                                         action="{{ route('admin.product.order.delete') }}"

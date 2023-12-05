@@ -14,7 +14,7 @@
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
                     {{-- @if (!empty(Auth::guard('admin')->user()->image))
-                        <img src="{{ asset('assets/admin/img/propics/' . Auth::guard('admin')->user()->image) }}"
+                        <img src="{{ asset('assets/admin/images/propics/' . Auth::guard('admin')->user()->image) }}"
                             alt="..." class="avatar-img rounded">
                     @else --}}
                     <img src="{{ asset('assets/admin/images/blank_user.jpg') }}" alt="..." class="avatar-img rounded">
@@ -126,14 +126,14 @@
                             id="category">
                             <ul class="nav nav-collapse">
                                 {{-- @if ($bex->catalog_mode == 0) --}}
-                                <li
+                                {{-- <li
                                     class="
 @if (request()->path() == 'admin/coupon') active
 @elseif(request()->routeIs('admin.coupon.edit')) active @endif">
                                     <a href="{{ route('admin.coupon.index') }}">
                                         <span class="sub-item">Coupons</span>
                                     </a>
-                                </li>
+                                </li> --}}
                                 {{-- @endif --}}
                                 <li class="submenu">
                                     <a data-toggle="collapse" href="#productManagement"
@@ -247,7 +247,7 @@
 @elseif(request()->path() == 'admin/events/report') active @endif">
                         <a data-toggle="collapse" href="#event_manage">
                             <i class="fas fa-calendar-alt"></i>
-                            <p>Events Management</p>
+                            <p>Ticket Management</p>
                             <span class="caret"></span>
                         </a>
                         <div class="collapse
@@ -260,7 +260,7 @@
                             <ul class="nav nav-collapse">
                                 <li class="@if (request()->path() == 'admin/event/categories') active @endif">
                                     <a
-                                        href="{{ route('admin.event.category.index') . '?language=' . $default->code }}">
+                                        href="{{ route('admin.event.category.index') }}">
                                         <span class="sub-item">Category</span>
                                     </a>
                                 </li>
@@ -268,12 +268,12 @@
                                     class="
     @if (request()->path() == 'admin/events') active
     @elseif(request()->is('admin/event/*/edit')) active @endif">
-                                    <a href="{{ route('admin.event.index') . '?language=' . $default->code }}">
-                                        <span class="sub-item">All Events</span>
+                                    <a href="{{ route('admin.event.index') }}">
+                                        <span class="sub-item">Event</span>
                                     </a>
                                 </li>
                                 <li class="@if (request()->path() == 'admin/events/payment-log') active @endif">
-                                    <a href="{{ route('admin.event.payment.log') . '?language=' . $default->code }}">
+                                    <a href="{{ route('admin.event.payment.log') }}">
                                         <span class="sub-item">Bookings</span>
                                     </a>
                                 </li>

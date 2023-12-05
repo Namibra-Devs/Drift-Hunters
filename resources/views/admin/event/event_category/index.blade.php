@@ -3,22 +3,6 @@
 @php
 $selLang = \App\Language::where('code', request()->input('language'))->first();
 @endphp
-@if(!empty($selLang) && $selLang->rtl == 1)
-@section('styles')
-<style>
-    form:not(.modal-form) input,
-    form:not(.modal-form) textarea,
-    form:not(.modal-form) select,
-    select[name='language'] {
-        direction: rtl;
-    }
-    form:not(.modal-form) .note-editor.note-frame .note-editing-area .note-editable {
-        direction: rtl;
-        text-align: right;
-    }
-</style>
-@endsection
-@endif
 
 @section('content')
   <div class="page-header">
@@ -33,7 +17,7 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Events</a>
+        <a href="#">Event</a>
       </li>
       <li class="separator">
         <i class="flaticon-right-arrow"></i>
@@ -52,18 +36,8 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                 <div class="col-lg-4">
                     <div class="card-title d-inline-block">Categories</div>
                 </div>
-                <div class="col-lg-3">
-                    @if (!empty($langs))
-                        <select name="language" class="form-control" onchange="window.location='{{url()->current() . '?language='}}'+this.value">
-                            <option value="" selected disabled>Select a Language</option>
-                            @foreach ($langs as $lang)
-                                <option value="{{$lang->code}}" {{$lang->code == request()->input('language') ? 'selected' : ''}}>{{$lang->name}}</option>
-                            @endforeach
-                        </select>
-                    @endif
-                </div>
                 <div class="col-lg-4 offset-lg-1 mt-2 mt-lg-0">
-                    <a href="#" class="btn btn-primary float-right btn-sm" data-toggle="modal" data-target="#createModal"><i class="fas fa-plus"></i> Add Event Category</a>
+                    <a href="#" class="btn btn-primary float-right btn-sm" data-toggle="modal" data-target="#createModal"><i class="fas fa-plus"></i> Add Ticket Category</a>
                     <button class="btn btn-danger float-right btn-sm mr-2 d-none bulk-delete" data-href="{{route('admin.event.category.bulk.delete')}}"><i class="flaticon-interface-5"></i> Delete</button>
                 </div>
             </div>
@@ -72,7 +46,7 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
           <div class="row">
             <div class="col-lg-12">
               @if (count($event_categories) == 0)
-                <h3 class="text-center">NO EVENT CATEGORY FOUND</h3>
+                <h3 class="text-center">NO TICKET CATEGORY FOUND</h3>
               @else
                 <div class="table-responsive">
                   <table class="table table-striped mt-3">
@@ -92,7 +66,7 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                           <td>
                             <input type="checkbox" class="bulk-check" data-val="{{$event_category->id}}">
                           </td>
-                          <td>{{convertUtf8($event_category->name)}}</td>
+                          <td>{{$event_category->name}}</td>
                           <td>
                             @if ($event_category->status == "1")
                               <h2 class="d-inline-block"><span class="badge badge-success">Active</span></h2>
@@ -152,16 +126,6 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
         <div class="modal-body">
           <form id="ajaxForm" class="modal-form create" action="{{route('admin.event.category.store')}}" method="POST">
             @csrf
-            <div class="form-group">
-                <label for="">Language **</label>
-                <select name="lang_id" class="form-control">
-                    <option value="" selected disabled>Select a language</option>
-                    @foreach ($langs as $lang)
-                        <option value="{{$lang->id}}">{{$lang->name}}</option>
-                    @endforeach
-                </select>
-                <p id="errlang_id" class="mb-0 text-danger em"></p>
-            </div>
             <div class="form-group">
               <label for="">Name **</label>
               <input type="text" class="form-control" name="name" value="" placeholder="Enter name">
@@ -226,43 +190,5 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
 @endsection
 
 @section('scripts')
-  <script>
-    $(document).ready(function() {
 
-        // make input fields RTL
-        $("select[name='language_id']").on('change', function() {
-            $(".request-loader").addClass("show");
-            let url = "{{url('/')}}/admin/rtlcheck/" + $(this).val();
-            console.log(url);
-            $.get(url, function(data) {
-                $(".request-loader").removeClass("show");
-                if (data == 1) {
-                    $("form.create input").each(function() {
-                        if (!$(this).hasClass('ltr')) {
-                            $(this).addClass('rtl');
-                        }
-                    });
-                    $("form.create select").each(function() {
-                        if (!$(this).hasClass('ltr')) {
-                            $(this).addClass('rtl');
-                        }
-                    });
-                    $("form.create textarea").each(function() {
-                        if (!$(this).hasClass('ltr')) {
-                            $(this).addClass('rtl');
-                        }
-                    });
-                    $("form.create .summernote").each(function() {
-                        $(this).addClass('rtl text-right');
-                    });
-
-                } else {
-                    $("form.create input, form.create select, form.create textarea").removeClass('rtl');
-                    $("form.create .summernote").removeClass('rtl text-right');
-                }
-            })
-        });
-
-    });
-  </script>
 @endsection

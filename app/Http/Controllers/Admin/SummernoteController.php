@@ -10,9 +10,9 @@ class SummernoteController extends Controller
     public function upload(Request $request) {
         $img = $request->file('image');
         $filename = uniqid() . '.' . $img->getClientOriginalExtension();
-        $img->move('assets/front/img/summernote/', $filename);
+        $img->move('assets/frontend/images/summernote/', $filename);
 
-        return url('/') . "/assets/front/img/summernote/" . $filename;
+        return url('/') . "/assets/frontend/images/summernote/" . $filename;
     }
     public function uploadFileManager(Request $request) {
         $items = $request->items;
@@ -29,8 +29,8 @@ class SummernoteController extends Controller
         foreach ($items as $key => $item) {
             $ext = pathinfo($item, PATHINFO_EXTENSION);
             $filename = uniqid() . '.' . $ext;
-            @copy($item, 'assets/front/img/summernote/' . $filename);
-            $urls[] = url('assets/front/img/summernote/' . $filename);
+            @copy($item, 'assets/frontend/images/summernote/' . $filename);
+            $urls[] = url('assets/frontend/images/summernote/' . $filename);
         }
 
         return response()->json(['status' => 'success', 'urls' => $urls]);

@@ -37,10 +37,10 @@
                         <div class="card-body text-center py-4">
                             @if (strpos($user->photo, 'facebook') !== false || strpos($user->photo, 'google'))
                                 <img class="rounded-circle"
-                                    src="{{ $user->photo ? $user->photo : asset('assets/front/img/user/profile.jpg') }}"
+                                    src="{{ $user->photo ? $user->photo : asset('assets/frontend/images/user/profile.jpg') }}"
                                     alt="" width="150">
                             @else
-                                <img src="{{ !empty($user->photo) ? asset('assets/front/img/user/' . $user->photo) : '' }}"
+                                <img src="{{ !empty($user->photo) ? asset('assets/frontend/images/user/' . $user->photo) : '' }}"
                                     alt="" width="150">
                             @endif
                         </div>

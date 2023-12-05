@@ -83,24 +83,22 @@ class ProductOrderController extends Controller
         $po->save();
 
         $user = User::findOrFail($po->user_id);
-        $be = BasicExtended::first();
         $sub = 'Order Status Update';
 
         $to = $user->email;
          // Send Mail to Buyer
          $mail = new PHPMailer(true);
-         if ($be->is_smtp == 1) {
              try {
-                 $mail->isSMTP();
-                 $mail->Host       = $be->smtp_host;
-                 $mail->SMTPAuth   = true;
-                 $mail->Username   = $be->smtp_username;
-                 $mail->Password   = $be->smtp_password;
-                 $mail->SMTPSecure = $be->encryption;
-                 $mail->Port       = $be->smtp_port;
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = 'jobid@ubids.edu.gh';
+                $mail->Password   = 'b7ye6z9h1';
+                $mail->SMTPSecure = 'TLS';
+                $mail->Port       = '587';
 
                  //Recipients
-                 $mail->setFrom($be->from_mail, $be->from_name);
+                 $mail->setFrom('jobid@ubids.edu.gh', 'Black Bike');
                  $mail->addAddress($user->email, $user->fname);
 
                  // Content
@@ -111,24 +109,6 @@ class ProductOrderController extends Controller
              } catch (Exception $e) {
                  // die($e->getMessage());
              }
-         } else {
-             try {
-
-                 //Recipients
-                 $mail->setFrom($be->from_mail, $be->from_name);
-                 $mail->addAddress($user->email, $user->fname);
-
-
-                 // Content
-                 $mail->isHTML(true);
-                 $mail->Subject = $sub ;
-                 $mail->Body    = 'Hello <strong>' . $user->fname . '</strong>,<br/>Your order status is '.$request->order_status.'.<br/>Thank you.';
-
-                 $mail->send();
-             } catch (Exception $e) {
-                 // die($e->getMessage());
-             }
-         }
 
 
         Session::flash('success', 'Order status changed successfully!');
@@ -148,8 +128,8 @@ class ProductOrderController extends Controller
 
         foreach ($ids as $id) {
             $order = ProductOrder::findOrFail($id);
-            @unlink('assets/front/invoices/product/'.$order->invoice_number);
-            @unlink('assets/front/receipt/'.$order->receipt);
+            @unlink('assets/frontend/invoices/product/'.$order->invoice_number);
+            @unlink('assets/frontend/receipt/'.$order->receipt);
             foreach($order->orderitems as $item){
                 $item->delete();
             }
@@ -163,8 +143,8 @@ class ProductOrderController extends Controller
     public function orderDelete(Request $request)
     {
         $order = ProductOrder::findOrFail($request->order_id);
-        @unlink('assets/front/invoices/product/'.$order->invoice_number);
-        @unlink('assets/front/receipt/'.$order->receipt);
+        @unlink('assets/frontend/invoices/product/'.$order->invoice_number);
+        @unlink('assets/frontend/receipt/'.$order->receipt);
         foreach($order->orderitems as $item){
             $item->delete();
         }
@@ -192,7 +172,7 @@ class ProductOrderController extends Controller
                 return $query->where('payment_status', $paymentStatus);
             })->when($orderStatus, function ($query, $orderStatus) {
                 return $query->where('order_status', $orderStatus);
-            })->select('order_number','billing_fname','billing_email','billing_number','billing_city','billing_country','shpping_fname','shpping_email','shpping_number','shpping_city','shpping_country','method','shipping_method','cart_total','discount','tax','shipping_charge','total','created_at', 'payment_status', 'order_status')
+            })->select('order_number','billing_fname','billing_email','billing_number','billing_city','billing_country','method','cart_total','discount','tax','total','created_at', 'payment_status', 'order_status')
             ->orderBy('id', 'DESC');
 
             Session::put('product_orders_report', $orders->get());

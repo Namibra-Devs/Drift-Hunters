@@ -120,7 +120,7 @@
                           </td>
                           <td>#{{$order->order_number}}</td>
                           <td>{{$order->method}}</td>
-                          <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{round($order->total,2)}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
+                          <td>{{round($order->total,2)}}</td>
                           <td>
                             <form id="statusForm{{$order->id}}" class="d-inline-block" action="{{route('admin.product.orders.status')}}" method="post">
                               @csrf
@@ -184,7 +184,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="{{route('admin.product.details', $order->id)}}" target="_blank">Details</a>
-                                  <a class="dropdown-item" href="{{asset('assets/front/invoices/product/'.$order->invoice_number)}}" target="_blank">Invoice</a>
+                                  <a class="dropdown-item" href="{{asset('assets/frontend/invoices/product/'.$order->invoice_number)}}" target="_blank">Invoice</a>
                                     <form class="deleteform d-block" action="{{route('admin.product.order.delete')}}" method="post">
                                         @csrf
                                         <input type="hidden" name="order_id" value="{{$order->id}}">
@@ -209,7 +209,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="{{asset('assets/front/receipt/' . $order->receipt)}}" alt="Receipt" width="100%">
+                                    <img src="{{asset('assets/frontend/receipt/' . $order->receipt)}}" alt="Receipt" width="100%">
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

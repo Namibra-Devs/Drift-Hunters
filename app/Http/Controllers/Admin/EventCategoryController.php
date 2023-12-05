@@ -22,10 +22,7 @@ class EventCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $lang = Language::where('code', $request->language)->first();
-        $lang_id = $lang->id;
-        $data['lang_id'] = $lang_id;
-        $data['event_categories'] = EventCategory::where('lang_id', $lang_id)->orderBy('id', 'DESC')->paginate(10);
+        $data['event_categories'] = EventCategory::orderBy('id', 'DESC')->paginate(10);
         return view('admin.event.event_category.index', $data);
     }
 
@@ -48,7 +45,7 @@ class EventCategoryController extends Controller
     public function store(EventCategoryStoreRequest $request)
     {
         EventCategory::create($request->all()+[
-                'slug' => make_slug($request->name)
+                'slug' => make_slug($request->name),
             ]);
         Session::flash('success', 'Event category added successfully!');
         return "success";
@@ -93,7 +90,7 @@ class EventCategoryController extends Controller
     }
 
     public function deleteFromMegaMenu($ecat) {
-        $megamenu = Megamenu::where('language_id', $ecat->lang_id)->where('category', 1)->where('type', 'events');
+        $megamenu = Megamenu::where('category', 1)->where('type', 'events');
         if ($megamenu->count() > 0) {
             $megamenu = $megamenu->first();
             $menus = json_decode($megamenu->menus, true);

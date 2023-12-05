@@ -1,23 +1,5 @@
 @extends('admin.layout')
 
-{{-- @php
-$selLang = \App\Language::where('code', request()->input('language'))->first();
-@endphp
-@section('styles')
-<style>
-    form:not(.modal-form) input,
-    form:not(.modal-form) textarea,
-    form:not(.modal-form) select,
-    select[name='language'] {
-        direction: rtl;
-    }
-    form:not(.modal-form) .note-editor.note-frame .note-editing-area .note-editable {
-        direction: rtl;
-        text-align: right;
-    }
-</style>
-@endsection --}}
-
 @section('content')
   <div class="page-header">
     <h4 class="page-title">Product Categories</h4>
@@ -56,16 +38,6 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
                 <div class="col-lg-4">
                     <div class="card-title d-inline-block">Categories</div>
                 </div>
-                {{-- <div class="col-lg-3">
-                    @if (!empty($langs))
-                        <select name="language" class="form-control" onchange="window.location='{{url()->current() . '?language='}}'+this.value">
-                            <option value="" selected disabled>Select a Language</option>
-                            @foreach ($langs as $lang)
-                                <option value="{{$lang->code}}" {{$lang->code == request()->input('language') ? 'selected' : ''}}>{{$lang->name}}</option>
-                            @endforeach
-                        </select>
-                    @endif
-                </div> --}}
                 <div class="col-lg-4 offset-lg-1 mt-2 mt-lg-0">
                     <a href="#" class="btn btn-primary float-right btn-sm" data-toggle="modal" data-target="#createModal"><i class="fas fa-plus"></i> Add Category</a>
                     <button class="btn btn-danger float-right btn-sm mr-2 d-none bulk-delete" data-href="{{route('admin.pcategory.bulk.delete')}}"><i class="flaticon-interface-5"></i> Delete</button>
@@ -200,42 +172,5 @@ $selLang = \App\Language::where('code', request()->input('language'))->first();
 @endsection
 
 @section('scripts')
-<script>
-$(document).ready(function() {
-
-    // make input fields RTL
-    $("select[name='language_id']").on('change', function() {
-        $(".request-loader").addClass("show");
-        let url = "{{url('/')}}/admin/rtlcheck/" + $(this).val();
-        console.log(url);
-        $.get(url, function(data) {
-            $(".request-loader").removeClass("show");
-            if (data == 1) {
-                $("form.modal-form input").each(function() {
-                    if (!$(this).hasClass('ltr')) {
-                        $(this).addClass('rtl');
-                    }
-                });
-                $("form.modal-form select").each(function() {
-                    if (!$(this).hasClass('ltr')) {
-                        $(this).addClass('rtl');
-                    }
-                });
-                $("form.modal-form textarea").each(function() {
-                    if (!$(this).hasClass('ltr')) {
-                        $(this).addClass('rtl');
-                    }
-                });
-                $("form.modal-form .nicEdit-main").each(function() {
-                    $(this).addClass('rtl text-right');
-                });
-
-            } else {
-                $("form.modal-form input, form.modal-form select, form.modal-form textarea").removeClass('rtl');
-                $("form.modal-form .nicEdit-main").removeClass('rtl text-right');
-            }
-        })
-    });
-});
 </script>
 @endsection

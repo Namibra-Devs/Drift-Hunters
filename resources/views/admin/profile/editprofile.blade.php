@@ -40,9 +40,9 @@
                 <div class="form-row">
                   <div class="col-md-12 d-md-block d-sm-none mb-3">
                     @if (!empty(Auth::guard('admin')->user()->image))
-                      <img src="{{asset('assets/admin/img/propics/'.Auth::guard('admin')->user()->image)}}" alt="..." class="img-thumbnail">
+                      <img src="{{asset('assets/admin/images/propics/'.Auth::guard('admin')->user()->image)}}" alt="..." class="img-thumbnail">
                     @else
-                      <img src="{{asset('assets/admin/img/propics/blank_user.jpg')}}" alt="..." class="img-thumbnail">
+                      <img src="{{asset('assets/admin/images/propics/blank_user.jpg')}}" alt="..." class="img-thumbnail">
                     @endif
                   </div>
                   <div class="col-sm-12">

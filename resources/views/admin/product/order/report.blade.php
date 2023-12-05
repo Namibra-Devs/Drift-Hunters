@@ -168,11 +168,11 @@
                               <span class="badge badge-danger">Rejected</span>
                             @endif
                           </td>
-                          <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}}{{round($order->cart_total,2)}}{{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
-                          <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}}{{round($order->discount,2)}}{{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
-                          <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}}{{round($order->tax,2)}}{{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
-                          <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{round($order->shipping_charge,2)}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
-                          <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}}{{round($order->total,2)}}{{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
+                          <td>{{round($order->cart_total,2)}}</td>
+                          <td>{{round($order->discount,2)}}</td>
+                          <td>{{round($order->tax,2)}}</td>
+                          <td> {{round($order->shipping_charge,2)}} </td>
+                          <td>{{round($order->total,2)}}</td>
                           <td>
                               {{$order->created_at}}
                           </td>
@@ -190,7 +190,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="{{asset('assets/front/receipt/' . $order->receipt)}}" alt="Receipt" width="100%">
+                                    <img src="{{asset('assets/frontend/receipt/' . $order->receipt)}}" alt="Receipt" width="100%">
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

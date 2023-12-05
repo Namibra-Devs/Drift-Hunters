@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Front\EventController as FrontEventController;
 use App\Megamenu;
-use App\OfflineGateway;
 use App\PaymentGateway;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
@@ -21,7 +20,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use Validator;
 use DB;
 use Maatwebsite\Excel\Facades\Excel;
-use PDF;
 
 class EventController extends Controller
 {
@@ -32,12 +30,8 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $lang = Language::where('code', $request->language)->first();
-        $lang_id = $lang->id;
-        $data['lang_id'] = $lang_id;
-        $data['abx'] = $lang->basic_extra;
-        $data['events'] = Event::where('lang_id', $lang_id)->orderBy('id', 'DESC')->get();
-        $data['event_categories'] = EventCategory::where('lang_id', $lang_id)->where('status', '1')->get();
+        $data['events'] = Event::orderBy('id', 'DESC')->get();
+        $data['event_categories'] = EventCategory::where('status', '1')->get();
         return view('admin.event.event.index', $data);
     }
 
@@ -61,9 +55,6 @@ class EventController extends Controller
     {
         $slug = make_slug($request->title);
 
-        $video = $request->video;
-        $videoExts = array('mp4');
-        $extVideo = pathinfo($video, PATHINFO_EXTENSION);
         $sliders = !empty($request->slider) ? explode(',', $request->slider) : [];
         $allowedExts = array('jpg', 'png', 'jpeg');
 
@@ -84,22 +75,10 @@ class EventController extends Controller
             'time' => 'required',
             'cost' => 'required',
             'available_tickets' => 'required',
-            'organizer' => 'required',
             'venue' => 'required',
-            'lang_id' => 'required',
             'cat_id' => 'required',
             'slider' => 'required',
-            'video' => 'required'
         ];
-        if ($request->filled('video')) {
-            $rules['video'] = [
-                function ($attribute, $value, $fail) use ($extVideo, $videoExts) {
-                    if (!in_array($extVideo, $videoExts)) {
-                        return $fail("Only mp4 video is allowed");
-                    }
-                }
-            ];
-        }
 
         if ($request->filled('slider')) {
             $rules['slider'] = [
@@ -120,9 +99,7 @@ class EventController extends Controller
             'time.required' => 'The time field is required',
             'cost.required' => 'The cost field is required',
             'available_tickets.required' => 'Number of tickets field is required',
-            'organizer.required' => 'The organizer name field is required',
             'venue.required' => 'The venue field is required',
-            'lang_id.required' => 'The language field is required',
             'cat_id.required' => 'The category field is required'
         ];
 
@@ -137,25 +114,17 @@ class EventController extends Controller
             $extSlider = pathinfo($slider, PATHINFO_EXTENSION);
             $filename = uniqid() .'.'. $extSlider;
 
-            $directory = 'assets/front/img/events/sliders/';
+            $directory = 'assets/frontend/images/events/sliders/';
             @mkdir($directory, 0775, true);
 
             @copy($slider, $directory . $filename);
             $images[] = $filename;
         }
 
-        if ($request->filled('video')) {
-            $videoFile = uniqid() .'.'. $extVideo;
-            $directory = "assets/front/img/events/videos/";
-            @mkdir($directory, 0775, true);
-            @copy($video, $directory . $videoFile);
-        }
-
-        $event = Event::create($request->except('image', 'video', 'content') + [
+        $event = Event::create($request->except('image', 'content') + [
                 'slug' => $slug,
                 'image' => json_encode($images),
-                'content' => str_replace(url('/') . '/assets/front/img/', "{base_url}/assets/front/img/", $request->content),
-                'video' => $videoFile
+                'content' => str_replace(url('/') . '/assets/frontend/images/', "{base_url}/assets/frontend/images/", $request->content),
             ]);
         Session::flash('success', 'Event added successfully!');
         return "success";
@@ -181,8 +150,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $data['event'] = Event::findOrFail($id);
-        $data['event_categories'] = EventCategory::where('lang_id', $data['event']->lang_id)->where('status', '1')->get();
-        $data['abx'] = BasicExtra::select('base_currency_text')->where('language_id', $data['event']->lang_id)->first();
+        $data['event_categories'] = EventCategory::where('status', '1')->get();
         return view('admin.event.event.edit', $data);
     }
 
@@ -200,10 +168,6 @@ class EventController extends Controller
 
         $sliders = !empty($request->slider) ? explode(',', $request->slider) : [];
         $allowedExts = array('jpg', 'png', 'jpeg');
-
-        $video = $request->video;
-        $videoExts = array('mp4');
-        $extVideo = pathinfo($video, PATHINFO_EXTENSION);
 
         $rules = [
             'slider' => 'required',
@@ -223,20 +187,9 @@ class EventController extends Controller
             'time' => 'required',
             'cost' => 'required',
             'available_tickets' => 'required',
-            'organizer' => 'required',
             'venue' => 'required',
             'cat_id' => 'required',
         ];
-
-        if ($request->filled('video')) {
-            $rules['video'] = [
-                function ($attribute, $value, $fail) use ($extVideo, $videoExts) {
-                    if (!in_array($extVideo, $videoExts)) {
-                        return $fail("Only mp4 video is allowed");
-                    }
-                }
-            ];
-        }
 
         if ($request->filled('slider')) {
             $rules['slider'] = [
@@ -257,7 +210,6 @@ class EventController extends Controller
             'time.required' => 'The time field is required',
             'cost.required' => 'The cost field is required',
             'available_tickets.required' => 'Number of tickets field is required',
-            'organizer.required' => 'The organizer name field is required',
             'venue.required' => 'The venue field is required',
             'cat_id.required' => 'The category field is required'
         ];
@@ -269,18 +221,9 @@ class EventController extends Controller
         }
 
         $event = Event::findOrFail($request->event_id);
-        if ($request->filled('video')) {
-            @unlink('assets/front/img/events/videos/' . $event->video);
-            $videoFile = uniqid() .'.'. $extVideo;
-            @copy($video, 'assets/front/img/events/videos/' . $videoFile);
-            $videoFile = $videoFile;
-        } else {
-            $videoFile = $event->video;
-        }
         $event->update($request->except('image', 'video', 'content') + [
                 'slug' => $slug,
-                'content' => str_replace(url('/') . '/assets/front/img/', "{base_url}/assets/front/img/", $request->content),
-                'video' => $videoFile
+                'content' => str_replace(url('/') . '/assets/frontend/images/', "{base_url}/assets/frontend/images/", $request->content),
             ]);
         $event = Event::findOrFail($request->event_id);
 
@@ -290,14 +233,14 @@ class EventController extends Controller
         foreach ($sliders as $key => $slider) {
             $extSlider = pathinfo($slider, PATHINFO_EXTENSION);
             $filename = uniqid() .'.'. $extSlider;
-            @copy($slider, 'assets/front/img/events/sliders/' . $filename);
+            @copy($slider, 'assets/frontend/images/events/sliders/' . $filename);
             $fileNames[] = $filename;
         }
 
         // delete & unlink previous slider images
         $preImages = json_decode($event->image, true);
         foreach ($preImages as $key => $pi) {
-            @unlink('assets/front/img/events/sliders/' . $pi);
+            @unlink('assets/frontend/images/events/sliders/' . $pi);
         }
 
         $event->image = json_encode($fileNames);
@@ -321,8 +264,8 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         if ($request->hasFile('file')) {
             $filename = time() . '.' . $img->getClientOriginalExtension();
-            $request->file('file')->move('assets/front/img/events/', $filename);
-            @unlink('assets/front/img/events/' . $event->image);
+            $request->file('file')->move('assets/frontend/images/events/', $filename);
+            @unlink('assets/frontend/images/events/' . $event->image);
             $event->image = $filename;
             $event->save();
         }
@@ -341,9 +284,9 @@ class EventController extends Controller
         //
     }
 
-    public function getCategories($lang_id)
+    public function getCategories()
     {
-        return EventCategory::where('lang_id', $lang_id)->where('status', '1')->get();
+        return EventCategory::where('status', '1')->get();
     }
 
     public function upload(Request $request)
@@ -357,7 +300,7 @@ class EventController extends Controller
         $img = $request->file('upload_video');
         $filename = uniqid("event-") . '.' . $img->getClientOriginalExtension();
         //if directory not exist than create directory with permission
-        $directory = "assets/front/img/events/videos/";
+        $directory = "assets/frontend/images/events/videos/";
         if (!file_exists($directory)) mkdir($directory, 0777, true);
         $img->move($directory, $filename);
         return response()->json(['filename' => $filename, 'status' => 200]);
@@ -367,7 +310,7 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($request->id);
         $images = json_decode($event->image, true);
-        @unlink('assets/front/img/events/sliders/' . $images["$request->key"]);
+        @unlink('assets/frontend/images/events/sliders/' . $images["$request->key"]);
         unset($images["$request->key"]);
         $newImages = array_values($images);
         $event->image = json_encode($newImages);
@@ -377,7 +320,7 @@ class EventController extends Controller
 
     public function deleteFromMegaMenu($event) {
         // unset service from megamenu for service_category = 1
-        $megamenu = Megamenu::where('language_id', $event->lang_id)->where('category', 1)->where('type', 'events');
+        $megamenu = Megamenu::where('category', 1)->where('type', 'events');
         if ($megamenu->count() > 0) {
             $megamenu = $megamenu->first();
             $menus = json_decode($megamenu->menus, true);
@@ -403,14 +346,14 @@ class EventController extends Controller
         $images = json_decode($event->image, true);
         if (count($images) > 0) {
             foreach ($images as $image) {
-                $directory = 'assets/front/img/events/sliders/' . $image;
+                $directory = 'assets/frontend/images/events/sliders/' . $image;
                 if (file_exists($directory)) {
                     @unlink($directory);
                 }
             }
         }
         if (!is_null($event->video)) {
-            $directory = "assets/front/img/events/videos/" . $event->video;
+            $directory = "assets/frontend/images/events/videos/" . $event->video;
             if (file_exists($directory)) {
                 @unlink($directory);
             }
@@ -418,7 +361,7 @@ class EventController extends Controller
         $event_details = EventDetail::query()->where('event_id',$event->id)->get();
         foreach ($event_details as $event_detail){
             if(!is_null($event_detail->receipt)){
-                $directory = "assets/front/img/events/receipt/".$event_detail->receipt;
+                $directory = "assets/frontend/images/events/receipt/".$event_detail->receipt;
                 if (file_exists($directory)) {
                     @unlink($directory);
                 }
@@ -442,14 +385,14 @@ class EventController extends Controller
                 $images = json_decode($event->image, true);
                 if (count($images) > 0) {
                     foreach ($images as $image) {
-                        $directory = 'assets/front/img/events/sliders/' . $image;
+                        $directory = 'assets/frontend/images/events/sliders/' . $image;
                         if (file_exists($directory)) {
                             @unlink($directory);
                         }
                     }
                 }
                 if (!is_null($event->video)) {
-                    $directory = "assets/front/img/events/videos/" . $event->video;
+                    $directory = "assets/frontend/images/events/videos/" . $event->video;
                     if (file_exists($directory)) {
                         @unlink($directory);
                     }
@@ -457,7 +400,7 @@ class EventController extends Controller
                 $event_details = EventDetail::where('event_id',$event->id)->get();
                 foreach ($event_details as $event_detail){
                     if(!is_null($event_detail->receipt)){
-                        $directory = "assets/front/img/events/receipt/".$event_detail->receipt;
+                        $directory = "assets/frontend/images/events/receipt/".$event_detail->receipt;
                         if (file_exists($directory)) {
                             @unlink($directory);
                         }
@@ -487,7 +430,7 @@ class EventController extends Controller
 
     public function paymentLogDelete(Request $request) {
         $payment = EventDetail::findOrFail($request->payment_id);
-        @unlink('assets/front/img/events/receipt', $payment->receipt);
+        @unlink('assets/frontend/images/events/receipt', $payment->receipt);
         $payment->delete();
 
         $request->session()->flash('success', 'Payment deleted successfully!');
@@ -501,7 +444,7 @@ class EventController extends Controller
 
         foreach ($ids as $id) {
             $payment = EventDetail::findOrFail($id);
-            @unlink('assets/front/img/events/receipt', $payment->receipt);
+            @unlink('assets/frontend/images/events/receipt', $payment->receipt);
             $payment->delete();
         }
 
@@ -612,7 +555,7 @@ class EventController extends Controller
         $convImages = [];
 
         foreach ($images as $key => $image) {
-            $convImages[] = url("assets/front/img/events/sliders/$image");
+            $convImages[] = url("assets/frontend/images/events/sliders/$image");
         }
 
         return $convImages;
@@ -642,7 +585,6 @@ class EventController extends Controller
         }
 
         $data['onPms'] = PaymentGateway::where('status', 1)->get();
-        $data['offPms'] = OfflineGateway::where('event_checkout_status', 1)->get();
 
 
         return view('admin.event.report', $data);

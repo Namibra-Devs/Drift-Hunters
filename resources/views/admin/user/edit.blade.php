@@ -49,7 +49,7 @@
                             <label for="">Image ** </label>
                             <br>
                             <div class="thumb-preview" id="thumbPreview1">
-                                <img src="{{asset('assets/admin/img/propics/'.$user->image)}}" alt="User Image">
+                                <img src="{{asset('assets/admin/images/propics/'.$user->image)}}" alt="User Image">
                             </div>
                             <br>
                             <br>

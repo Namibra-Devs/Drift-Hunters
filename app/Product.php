@@ -9,7 +9,6 @@ class Product extends Model
     protected $fillable = [
         'title',
         'slug',
-        // 'language_id',
         'stock',
         'sku',
         'category_id',
@@ -35,8 +34,4 @@ class Product extends Model
     public function product_images() {
         return $this->hasMany('App\ProductImage');
     }
-
-    // public function language() {
-    //     return $this->belongsTo('App\Language');
-    // }
 }

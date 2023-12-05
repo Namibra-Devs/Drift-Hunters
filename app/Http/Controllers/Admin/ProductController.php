@@ -61,8 +61,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         if ($request->hasFile('file')) {
             $filename = time() . '.' . $img->getClientOriginalExtension();
-            $request->file('file')->move('assets/front/img/product/featured/', $filename);
-            @unlink('assets/front/img/product/featured/' . $product->feature_image);
+            $request->file('file')->move('assets/frontend/images/product/featured/', $filename);
+            @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
             $product->feature_image = $filename;
             $product->save();
         }
@@ -71,9 +71,9 @@ class ProductController extends Controller
     }
 
 
-    public function getCategory($langid)
+    public function getCategory()
     {
-        $category = Pcategory::where('language_id', $langid)->get();
+        $category = Pcategory::get();
         return $category;
     }
 
@@ -81,8 +81,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $slug = make_slug($request->title);
-        $bex = BasicExtra::firstOrFail();
-
         $sliders = !empty($request->slider) ? explode(',', $request->slider) : [];
         $featredImg = $request->featured_image;
         $extFeatured = pathinfo($featredImg, PATHINFO_EXTENSION);
@@ -92,7 +90,6 @@ class ProductController extends Controller
 
         $rules = [
             'slider' => 'required',
-            'language_id' => 'required',
             'title' => [
                 'required',
                 'max:255',
@@ -110,10 +107,8 @@ class ProductController extends Controller
             'status' => 'required'
         ];
 
-        if ($bex->catalog_mode == 0) {
             $rules['current_price'] = 'required|numeric';
             $rules['previous_price'] = 'nullable|numeric';
-        }
 
         if ($request->filled('slider')) {
             $rules['slider'] = [
@@ -138,38 +133,10 @@ class ProductController extends Controller
             ];
         }
 
-        // if product type is 'physical'
-        if ($request->type == 'physical') {
             $rules['stock'] = 'required';
             $rules['sku'] = 'required|unique:products';
-        }
-
-        // if product type is 'digital'
-        if ($request->type == 'digital') {
-            $rules['file_type'] = 'required';
-
-            // if 'file upload' is chosen
-            if ($request->has('file_type') && $request->file_type == 'upload') {
-                $allowedExts = array('zip');
-                $rules['download_file'] = [
-                    'required',
-                    function ($attribute, $value, $fail) use ($request, $allowedExts) {
-                        $file = $request->file('download_file');
-                        $ext = $file->getClientOriginalExtension();
-                        if (!in_array($ext, $allowedExts)) {
-                            return $fail("Only zip file is allowed");
-                        }
-                    }
-                ];
-            }
-            // if 'file donwload link' is chosen
-            elseif ($request->has('file_type') && $request->file_type == 'link') {
-                $rules['download_link'] = 'required';
-            }
-        }
 
         $messages = [
-            'language_id.required' => 'The language field is required',
             'category_id.required' => 'Category is required'
         ];
 
@@ -181,40 +148,24 @@ class ProductController extends Controller
         }
 
         $in = $request->all();
-        $in['language_id'] = $request->language_id;
         $in['slug'] = $slug;
 
         // store featured image
         $filename = uniqid() .'.'. $extFeatured;
-        @copy($featredImg, 'assets/front/img/product/featured/' . $filename);
+        @copy($featredImg, 'assets/frontend/images/product/featured/' . $filename);
         $in['feature_image'] = $filename;
 
-        // if the type is digital && 'upload file' method is selected, then store the downloadable file
-        if ($request->type == 'digital' && $request->file_type == 'upload') {
-            if ($request->hasFile('download_file')) {
-                $digitalFile = $request->file('download_file');
-                $filename = $slug . '-' . uniqid() . "." . $digitalFile->extension();
-                $directory = 'core/storage/digital_products/';
-                @mkdir($directory, 0775, true);
-                $digitalFile->move($directory, $filename);
-
-                $in['download_file'] = $filename;
-            }
-        }
-
-        if ($request->type == 'physical') {
             $in['stock'] = $request->stock;
             $in['sku'] = $request->sku;
-        }
 
-        $in['description'] = str_replace(url('/') . '/assets/front/img/', "{base_url}/assets/front/img/", $request->description);
+        $in['description'] = str_replace(url('/') . '/assets/frontend/images/', "{base_url}/assets/frontend/images/", $request->description);
 
         $product = Product::create($in);
 
         foreach ($sliders as $key => $slider) {
             $extSlider = pathinfo($slider, PATHINFO_EXTENSION);
             $filename = uniqid() .'.'. $extSlider;
-            @copy($slider, 'assets/front/img/product/sliders/' . $filename);
+            @copy($slider, 'assets/frontend/images/product/sliders/' . $filename);
 
             $pi = new ProductImage;
             $pi->product_id = $product->id;
@@ -229,9 +180,6 @@ class ProductController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $lang = Language::where('code', $request->language)->first();
-        // $abx = $lang->basic_extra;
-        // $categories = $lang->pcategories()->where('status',1)->get();
         $categories = Pcategory::where('status',1)->get();
         $data = Product::findOrFail($id);
         return view('admin.product.edit',compact('categories','data'));
@@ -243,7 +191,7 @@ class ProductController extends Controller
         $convImages = [];
 
         foreach ($images as $key => $image) {
-            $convImages[] = url("assets/front/img/product/sliders/$image->image");
+            $convImages[] = url("assets/frontend/images/product/sliders/$image->image");
         }
 
         return $convImages;
@@ -380,13 +328,13 @@ class ProductController extends Controller
                 $in['download_link'] = NULL;
             }
         }
-        $in['description'] = str_replace(url('/') . '/assets/front/img/', "{base_url}/assets/front/img/", $request->description);
+        $in['description'] = str_replace(url('/') . '/assets/frontend/images/', "{base_url}/assets/frontend/images/", $request->description);
 
         // update featured image
         if ($request->filled('featured_image')) {
-            @unlink('assets/front/img/product/featured/' . $product->feature_image);
+            @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
             $filename = uniqid() .'.'. $extFeatured;
-            @copy($featredImg, 'assets/front/img/product/featured/' . $filename);
+            @copy($featredImg, 'assets/frontend/images/product/featured/' . $filename);
             $in['feature_image'] = $filename;
         }
 
@@ -397,14 +345,14 @@ class ProductController extends Controller
         foreach ($sliders as $key => $slider) {
             $extSlider = pathinfo($slider, PATHINFO_EXTENSION);
             $filename = uniqid() .'.'. $extSlider;
-            @copy($slider, 'assets/front/img/product/sliders/' . $filename);
+            @copy($slider, 'assets/frontend/images/product/sliders/' . $filename);
             $fileNames[] = $filename;
         }
 
         // delete & unlink previous slider images
         $pis = ProductImage::where('product_id', $product->id)->get();
         foreach ($pis as $key => $pi) {
-            @unlink('assets/front/img/product/sliders/' . $pi->image);
+            @unlink('assets/frontend/images/product/sliders/' . $pi->image);
             $pi->delete();
         }
 
@@ -464,11 +412,11 @@ class ProductController extends Controller
         $product = Product::findOrFail($request->product_id);
 
         foreach ($product->product_images as $key => $pi) {
-            @unlink('assets/front/img/product/sliders/' . $pi->image);
+            @unlink('assets/frontend/images/product/sliders/' . $pi->image);
             $pi->delete();
         }
 
-        @unlink('assets/front/img/product/featured/' . $product->feature_image);
+        @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
         @unlink('core/storage/digital_products/' . $product->download_file);
 
         $this->deleteFromMegaMenu($product);
@@ -487,14 +435,14 @@ class ProductController extends Controller
         foreach ($ids as $id) {
             $product = Product::findOrFail($id);
             foreach ($product->product_images as $key => $pi) {
-                @unlink('assets/front/img/product/sliders/' . $pi->image);
+                @unlink('assets/frontend/images/product/sliders/' . $pi->image);
                 $pi->delete();
             }
         }
 
         foreach ($ids as $id) {
             $product = product::findOrFail($id);
-            @unlink('assets/front/img/product/featured/' . $product->feature_image);
+            @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
 
             $this->deleteFromMegaMenu($product);
 
@@ -504,38 +452,6 @@ class ProductController extends Controller
         Session::flash('success', 'Product deleted successfully!');
         return "success";
     }
-
-
-    public function populerTag(Request $request)
-    {
-        $lang = Language::where('code', $request->language)->first();
-        $lang_id = $lang->id;
-        $data = BE::where('language_id',$lang_id)->first();
-        return view('admin.product.tag.index',compact('data'));
-    }
-
-    public function populerTagupdate(Request $request)
-    {
-        $rules = [
-            'language_id' => 'required',
-            'popular_tags' => 'required',
-        ];
-
-        $validator = Validator::make($request->all(), $rules);
-
-        if ($validator->fails()) {
-            $errmsgs = $validator->getMessageBag()->add('error', 'true');
-            return response()->json($validator->errors());
-        }
-
-        $lang = Language::where('code', $request->language_id)->first();
-        $be = BE::where('language_id',$lang->id)->first();
-        $be->popular_tags = $request->popular_tags;
-        $be->save();
-        Session::flash('success', 'Populer tags update successfully!');
-        return "success";
-    }
-
     public function paymentStatus(Request $request) {
         $order = ProductOrder::find($request->order_id);
         $order->payment_status = $request->payment_status;

@@ -16,11 +16,8 @@ class ProductCategory extends Controller
 {
     public function index(Request $request)
     {
-        // $lang = Language::where('code', $request->language)->first();
-        // $lang_id = $lang->id;
         $data['pcategories'] = Pcategory::orderBy('id', 'DESC')->paginate(10);
 
-        // $data['lang_id'] = $lang_id;
         return view('admin.product.category.index',$data);
     }
 
@@ -28,13 +25,7 @@ class ProductCategory extends Controller
     public function store(Request $request)
     {
 
-
-        // $messages = [
-        //     'language_id.required' => 'The language field is required'
-        // ];
-
         $rules = [
-            // 'language_id' => 'required',
             'name' => 'required|max:255',
             'status' => 'required',
         ];
@@ -79,16 +70,6 @@ class ProductCategory extends Controller
         $data = Pcategory::findOrFail($request->category_id);
         $input = $request->all();
         $input['slug'] =  make_slug($request->name);
-
-        if ($be->theme_version == 'ecommerce' && $request->filled('image')) {
-          @unlink('assets/front/img/product/categories/' . $data->image);
-          $filename = uniqid() . '.' . $extImage;
-          @copy($image, 'assets/front/img/product/categories/' . $filename);
-          $input['image'] =  $filename;
-        } else {
-          $input['image'] =  $data->image;
-        }
-
         $data->update($input);
 
         Session::flash('success', 'Category Update successfully!');
@@ -96,7 +77,7 @@ class ProductCategory extends Controller
     }
 
     public function deleteFromMegaMenu($category) {
-        $megamenu = Megamenu::where('language_id', $category->language_id)->where('category', 1)->where('type', 'products');
+        $megamenu = Megamenu::where('category', 1)->where('type', 'products');
         if ($megamenu->count() > 0) {
             $megamenu = $megamenu->first();
             $menus = json_decode($megamenu->menus, true);

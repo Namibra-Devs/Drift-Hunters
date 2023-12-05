@@ -66,7 +66,7 @@ class UserController extends Controller
 
         if ($request->filled('image')) {
             $filename = uniqid() .'.'. $extImage;
-            @copy($image, 'assets/admin/img/propics/' . $filename);
+            @copy($image, 'assets/admin/images/propics/' . $filename);
             $user->image = $filename;
         }
 
@@ -126,9 +126,9 @@ class UserController extends Controller
         $user->role_id = $request->role;
 
         if ($request->filled('image')) {
-            @unlink('assets/admin/img/propics/' . $user->image);
+            @unlink('assets/admin/images/propics/' . $user->image);
             $filename = uniqid() .'.'. $extImage;
-            @copy($image, 'assets/admin/img/propics/' . $filename);
+            @copy($image, 'assets/admin/images/propics/' . $filename);
             $user->image = $filename;
         }
 
@@ -146,7 +146,7 @@ class UserController extends Controller
         }
 
         $user = Admin::findOrFail($request->user_id);
-        @unlink('assets/admin/img/propics/' . $user->image);
+        @unlink('assets/admin/images/propics/' . $user->image);
         $user->delete();
 
         Session::flash('success', 'User deleted successfully!');

@@ -30,7 +30,7 @@
           <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
             <div class="avatar-sm">
               {{-- @if (!empty(Auth::guard('admin')->user()->image))
-                <img src="{{asset('assets/admin/img/propics/'.Auth::guard('admin')->user()->image)}}" alt="..." class="avatar-img rounded-circle">
+                <img src="{{asset('assets/admin/images/propics/'.Auth::guard('admin')->user()->image)}}" alt="..." class="avatar-img rounded-circle">
               @else --}}
                 <img src="{{asset('assets/admin/images/blank_user.jpg')}}" alt="..." class="avatar-img rounded-circle">
               {{-- @endif --}}
@@ -42,7 +42,7 @@
                 <div class="user-box">
                   <div class="avatar-lg">
                     {{-- @if (!empty(Auth::guard('admin')->user()->image))
-                      <img src="{{asset('assets/admin/img/propics/'.Auth::guard('admin')->user()->image)}}" alt="..." class="avatar-img rounded">
+                      <img src="{{asset('assets/admin/images/propics/'.Auth::guard('admin')->user()->image)}}" alt="..." class="avatar-img rounded">
                     @else --}}
                       <img src="{{asset('assets/admin/images/blank_user.jpg')}}" alt="..." class="avatar-img rounded">
                     {{-- @endif --}}

@@ -1,8 +1,6 @@
 @extends('admin.layout')
 @section('content')
-@php
-$type = request()->input('type');
-@endphp
+
 <div class="page-header">
     <h4 class="page-title">Add Product</h4>
     <ul class="breadcrumbs">
@@ -57,7 +55,7 @@ $type = request()->input('type');
                             <label for="">Featured Image ** </label>
                             <br>
                             <div class="thumb-preview" id="thumbPreview1">
-                                <img src="{{asset('assets/admin/img/noimage.jpg')}}" alt="Feature Image">
+                                <img src="{{asset('assets/admin/images/noimage.jpg')}}" alt="Feature Image">
                             </div>
                             <br>
                             <br>
@@ -154,45 +152,14 @@ $type = request()->input('type');
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                @if ($type == 'physical')
                                 <div class="form-group">
                                     <label for="">Stock Product **</label>
                                     <input type="number" class="form-control ltr" name="stock" value="" placeholder="Enter Product Stock">
                                     <p id="errstock" class="mb-0 text-danger em"></p>
                                 </div>
-                                @endif
-                                @if ($type == 'digital')
-                                <div class="form-group">
-                                    <label for="">Type **</label>
-                                    <select name="file_type" class="form-control" id="fileType">
-                                        <option value="upload" selected>File Upload</option>
-                                        <option value="link">File Download Link</option>
-                                    </select>
-                                    <p id="errfile_type" class="mb-0 text-danger em"></p>
-                                </div>
-                                @endif
                             </div>
                         </div>
-                        @if ($type == 'digital')
                         <div class="row">
-                            <div class="col-12">
-                                <div id="downloadFile" class="form-group">
-                                    <label for="">Downloadable File **</label>
-                                    <br>
-                                    <input name="download_file" type="file">
-                                    <p class="mb-0 text-warning">Only zip file is allowed.</p>
-                                    <p id="errdownload_file" class="mb-0 text-danger em"></p>
-                                </div>
-                                <div id="downloadLink" class="form-group" style="display: none">
-                                    <label for="">Downloadable Link **</label>
-                                    <input name="download_link" type="text" class="form-control">
-                                    <p id="errdownload_link" class="mb-0 text-danger em"></p>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        <div class="row">
-                            @if ($type == 'physical')
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for=""> Product Sku **</label>
@@ -200,8 +167,7 @@ $type = request()->input('type');
                                     <p id="errsku" class="mb-0 text-danger em"></p>
                                 </div>
                             </div>
-                            @endif
-                            <div class="{{$type == 'physical' ? 'col-lg-6' : 'col-12'}}">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="">Tags </label>
                                     <input type="text" class="form-control" name="tags" value="" data-role="tagsinput" placeholder="Enter tags">
@@ -281,94 +247,9 @@ $type = request()->input('type');
 @endsection
 @section('scripts')
 
-@if($type == 'digital')
-<script>
-    $(document).ready(function() {
-        $("select[name='file_type']").on('change', function() {
-            let type = $(this).val();
-            if (type == 'link') {
-                $("#downloadFile input").attr('disabled', true);
-                $("#downloadFile").hide();
-                $("#downloadLink").show();
-                $("#downloadLink input").removeAttr('disabled');
-            } else {
-                $("#downloadLink input").attr('disabled', true);
-                $("#downloadLink").hide();
-                $("#downloadFile").show();
-                $("#downloadFile input").removeAttr('disabled');
-            }
-        });
-    });
-</script>
-@endif
-
 
 <script>
-    $(document).ready(function() {
-        // services load according to language selection
-        $("select[name='language_id']").on('change', function() {
 
-            $("#category").removeAttr('disabled');
-
-            let langid = $(this).val();
-            let url = "{{url('/')}}/admin/product/" + langid + "/getcategory";
-            // console.log(url);
-            $.get(url, function(data) {
-                // console.log(data);
-                let options = `<option value="" disabled selected>Select a category</option>`;
-                for (let i = 0; i < data.length; i++) {
-                    options += `<option value="${data[i].id}">${data[i].name}</option>`;
-                }
-
-                $(".categoryData").html(options);
-
-            });
-        });
-
-
-        $("select[name='language_id']").on('change', function() {
-            $(".request-loader").addClass("show");
-            let url = "{{url('/')}}/admin/rtlcheck/" + $(this).val();
-            console.log(url);
-            $.get(url, function(data) {
-                $(".request-loader").removeClass("show");
-                if (data == 1) {
-                    $("form input").each(function() {
-                        if (!$(this).hasClass('ltr')) {
-                            $(this).addClass('rtl');
-                        }
-                    });
-                    $("form select").each(function() {
-                        if (!$(this).hasClass('ltr')) {
-                            $(this).addClass('rtl');
-                        }
-                    });
-                    $("form textarea").each(function() {
-                        if (!$(this).hasClass('ltr')) {
-                            $(this).addClass('rtl');
-                        }
-                    });
-                    $("form .summernote").each(function() {
-                        $(this).siblings('.note-editor').find('.note-editable').addClass('rtl text-right');
-                    });
-                } else {
-                    $("form input, form select, form textarea").removeClass('rtl');
-                    $("form .summernote").siblings('.note-editor').find('.note-editable').removeClass('rtl text-right');
-                }
-            })
-        });
-
-        // translatable portfolios will be available if the selected language is not 'Default'
-        $("#language").on('change', function() {
-            let language = $(this).val();
-            // console.log(language);
-            if (language == 0) {
-                $("#translatable").attr('disabled', true);
-            } else {
-                $("#translatable").removeAttr('disabled');
-            }
-        });
-    });
 
     var today = new Date();
     $("#submissionDate").datepicker({

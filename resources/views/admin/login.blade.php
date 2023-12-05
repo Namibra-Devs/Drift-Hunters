@@ -37,11 +37,11 @@
 
 
     <!-- jquery js -->
-    <script src="{{asset('assets/front/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('assets/frontend/js/jquery-3.3.1.min.js')}}"></script>
     <!-- popper js -->
-    <script src="{{asset('assets/front/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets/frontend/js/popper.min.js')}}"></script>
     <!-- bootstrap js -->
-    <script src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/frontend/js/bootstrap.min.js')}}"></script>
     <!-- Bootstrap Notify -->
     <script src="{{asset('assets/admin/js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 

@@ -56,7 +56,7 @@
                           <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>
-                              <img src="{{asset('assets/admin/img/propics/'.$user->image)}}" alt="" width="45">
+                              <img src="{{asset('assets/admin/images/propics/'.$user->image)}}" alt="" width="45">
                             </td>
                             <td>{{$user->username}}</td>
                             <td>{{$user->email}}</td>

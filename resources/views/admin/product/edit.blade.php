@@ -1,21 +1,5 @@
 @extends('admin.layout')
 
-@if(!empty($data->language) && $data->language->rtl == 1)
-@section('styles')
-<style>
-    form input,
-    form textarea,
-    form select {
-        direction: rtl;
-    }
-    .nicEdit-main {
-        direction: rtl;
-        text-align: right;
-    }
-</style>
-@endsection
-@endif
-
 @section('content')
 <div class="page-header">
     <h4 class="page-title">Edit Product</h4>
@@ -77,7 +61,7 @@
                             <label for="">Featured Image ** </label>
                             <br>
                             <div class="thumb-preview" id="thumbPreview1">
-                                <img src="{{asset('assets/front/img/product/featured/' . $data->feature_image)}}" alt="Feature Image">
+                                <img src="{{asset('assets/frontend/images/product/featured/' . $data->feature_image)}}" alt="Feature Image">
                             </div>
                             <br>
                             <br>
@@ -421,7 +405,7 @@
     $(document).ready(function(){
         $.get("{{route('admin.product.images', $data->id)}}", function(data){
             for (var i = 0; i < data.length; i++) {
-                $("#imgtable").append('<tr class="trdb" id="trdb'+data[i].id+'"><td><div class="thumbnail"><img style="width:150px;" src="{{asset('assets/front/img/product/sliders/')}}/'+data[i].image+'" alt="Ad Image"></div></td><td><button type="button" class="btn btn-danger pull-right rmvbtndb" onclick="rmvdbimg('+data[i].id+')"><i class="fa fa-times"></i></button></td></tr>');
+                $("#imgtable").append('<tr class="trdb" id="trdb'+data[i].id+'"><td><div class="thumbnail"><img style="width:150px;" src="{{asset('assets/frontend/images/product/sliders/')}}/'+data[i].image+'" alt="Ad Image"></div></td><td><button type="button" class="btn btn-danger pull-right rmvbtndb" onclick="rmvdbimg('+data[i].id+')"><i class="fa fa-times"></i></button></td></tr>');
             }
         });
     });

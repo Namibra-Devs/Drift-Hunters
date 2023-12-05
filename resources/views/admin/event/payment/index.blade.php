@@ -1,26 +1,5 @@
 @extends('admin.layout')
 
-@php
-    $selLang = \App\Language::where('code', request()->input('language'))->first();
-@endphp
-@if(!empty($selLang) && $selLang->rtl == 1)
-@section('styles')
-    <style>
-        form:not(.modal-form) input,
-        form:not(.modal-form) textarea,
-        form:not(.modal-form) select,
-        select[name='language'] {
-            direction: rtl;
-        }
-
-        form:not(.modal-form) .note-editor.note-frame .note-editing-area .note-editable {
-            direction: rtl;
-            text-align: right;
-        }
-    </style>
-@endsection
-@endif
-
 @section('content')
     <div class="page-header">
         <h4 class="page-title">Event Bookings</h4>
@@ -169,7 +148,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <img
-                                                                src="{{asset('assets/front/img/events/receipt/' . $event->receipt)}}"
+                                                                src="{{asset('assets/frontend/images/events/receipt/' . $event->receipt)}}"
                                                                 alt="Receipt" width="100%">
                                                         </div>
                                                         <div class="modal-footer">
@@ -222,7 +201,7 @@
                                                             @if ($event->status == 'Success')
                                                             <label>Ticket:</label>
                                                             <p class="d-inline-block mb-0">
-                                                                <a href="{{asset('assets/front/invoices/' . urlencode($event->invoice))}}" download="Ticket-{{$event->event->slug}}.pdf" class="btn btn-primary btn-sm">{{__('Download Ticket')}}</a>
+                                                                <a href="{{asset('assets/frontend/invoices/' . urlencode($event->invoice))}}" download="Ticket-{{$event->event->slug}}.pdf" class="btn btn-primary btn-sm">{{__('Download Ticket')}}</a>
                                                             </p>
                                                             <hr>
                                                             @endif
@@ -263,50 +242,4 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-        $(document).ready(function () {
-            // make input fields RTL
-            $("select[name='lang_id']").on('change', function () {
-                $(".request-loader").addClass("show");
-                let url = "{{url('/')}}/admin/rtlcheck/" + $(this).val();
-                $.get(url, function (data) {
-                    $(".request-loader").removeClass("show");
-                    if (data == 1) {
-                        $("form input").each(function () {
-                            if (!$(this).hasClass('ltr')) {
-                                $(this).addClass('rtl');
-                            }
-                        });
-                        $("form select").each(function () {
-                            if (!$(this).hasClass('ltr')) {
-                                $(this).addClass('rtl');
-                            }
-                        });
-                        $("form textarea").each(function () {
-                            if (!$(this).hasClass('ltr')) {
-                                $(this).addClass('rtl');
-                            }
-                        });
-                        $("form .summernote").each(function () {
-                            $(this).siblings('.note-editor').find('.note-editable').addClass('rtl text-right');
-                        });
-
-                    } else {
-                        $("form input, form select, form textarea").removeClass('rtl');
-                        $("form.modal-form .summernote").siblings('.note-editor').find('.note-editable').removeClass('rtl text-right');
-                    }
-                })
-            });
-
-            // translatable portfolios will be available if the selected language is not 'Default'
-            $("#language").on('change', function () {
-                let language = $(this).val();
-                if (language == 0) {
-                    $("#translatable").attr('disabled', true);
-                } else {
-                    $("#translatable").removeAttr('disabled');
-                }
-            });
-        });
-    </script>
 @endsection

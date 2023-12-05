@@ -17,7 +17,7 @@
               <label for="">Image ** </label>
               <br>
               <div class="thumb-preview" id="thumbPreview1">
-                  <img src="{{asset('assets/admin/img/noimage.jpg')}}" alt="User Image">
+                  <img src="{{asset('assets/admin/images/noimage.jpg')}}" alt="User Image">
               </div>
               <br>
               <br>

@@ -16,18 +16,12 @@ class Event extends Model
         'time',
         'cost',
         'available_tickets',
-        'organizer',
-        'organizer_email',
-        'organizer_phone',
-        'organizer_website',
         'venue',
         'venue_location',
         'venue_phone',
         'meta_tags',
         'meta_description',
         'image',
-        'video',
-        'lang_id',
         'cat_id',
     ];
     public function eventCategories(){

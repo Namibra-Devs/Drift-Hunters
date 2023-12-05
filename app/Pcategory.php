@@ -11,8 +11,4 @@ class Pcategory extends Model
     public function products() {
         return $this->hasMany('App\Product','category_id','id');
     }
-
-    // public function language() {
-    //     return $this->belongsTo('App\Language');
-    // }
 }
