@@ -41,10 +41,7 @@ class EventController extends Controller
             }
             return back();
         }
-        $currentLang = session()->has('lang') ? (Language::where('code', session()->get('lang'))->first())
-            : (Language::where('is_default', 1)->first());
-        $bs = $currentLang->basic_setting;
-        $be = $currentLang->basic_extended;
+
         // if (!Auth::check()) {
         //     return redirect()->route('user.login', ['redirected' => 'event']);
         // }
@@ -75,7 +72,7 @@ class EventController extends Controller
             $payStack = new PaystackController;
             return $payStack->paymentProcess($request, $amount, $email, $success_url);
     }
-    public function store($request, $transaction_id, $transaction_details, $amount, $bex)
+    public function store($request, $transaction_id, $transaction_details, $amount)
     {
         $event_details = EventDetail::create([
             'user_id' => Auth::check() ? Auth::user()->id : NULL,
@@ -84,14 +81,13 @@ class EventController extends Controller
             'phone' => $request["phone"],
             'amount' => $amount,
             'quantity' => $request["ticket_quantity"],
-            'currency' => $bex->base_currency_text ? $bex->base_currency_text : "USD",
-            'currency_symbol' => $bex->base_currency_symbol ? $bex->base_currency_symbol : $bex->base_currency_text,
+            'currency' => "GHS",
+            'currency_symbol' => '₵',
             'payment_method' => $request["payment_method"],
             'transaction_id' => uniqid(),
             'status' => $request["status"] ? $request["status"] : "success",
             'receipt' => $request["receipt_name"] ? $request["receipt_name"] : null,
             'transaction_details' => $transaction_details ? $transaction_details : null,
-            'bex_details' => json_encode($bex),
             'event_id' => $request["event_id"],
         ]);
         $event = Event::query()->findOrFail($request["event_id"]);
@@ -115,12 +111,11 @@ class EventController extends Controller
         return $file_name;
     }
 
-    public function sendMailPHPMailer($request, $file_name, $be)
+    public function sendMailPHPMailer($request, $file_name)
     {
         $eventDetailsId = Session::get('event_details_id');
         $eventDetails = EventDetail::findOrFail($eventDetailsId);
         $event = Event::findOrFail($request["event_id"]);
-        $bs = BasicSetting::firstOrFail();
 
         $mailer = new KreativMailer;
         $data = [
@@ -131,7 +126,7 @@ class EventController extends Controller
             'event_name' => $event->title,
             'ticket_id' => $eventDetails->transaction_id,
             'order_link' => Auth::check() ? "<strong>Order Details:</strong> <a href='" . route('user-event-details',$eventDetailsId) . "'>" . route('user-event-details',$eventDetailsId) . "</a>" : "",
-            'website_title' => $bs->website_title,
+            'website_title' => 'Black Bike',
             'templateType' => 'event_ticket',
             'type' => 'eventTicket'
         ];

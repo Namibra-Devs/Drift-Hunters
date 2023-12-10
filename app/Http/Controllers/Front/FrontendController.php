@@ -124,16 +124,6 @@ class FrontendController extends Controller
     }
     public function eventDetails($slug)
     {
-        // if (session()->has('lang')) {
-        //     $currentLang = Language::where('code', session()->get('lang'))->first();
-        // } else {
-        //     $currentLang = Language::where('is_default', 1)->first();
-        // }
-        // $data['bex'] = $currentLang->basic_extra;
-        // $data['bs'] = $currentLang->basic_setting;
-        // $data['currentLang'] = $currentLang;
-        // $be = $currentLang->basic_extended;
-        // $version = $be->theme_version;
         $event = Event::with('eventCategories')->where('slug', $slug)->firstOrFail();
         $data['event'] = $event;
         $online = PaymentGateway::where('status', 1)->get();

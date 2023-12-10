@@ -56,7 +56,7 @@ header {
 
 .hero_left-content h1 {
     color: #f6f6f6;
-    font-size: 70px;
+    font-size: 50px;
     font-family: Oswald;
     font-weight: 700;
     text-transform: uppercase;
@@ -182,6 +182,7 @@ header {
     background: rgba(0, 0, 0, 0.917);
     padding-top: 5rem;
     padding-bottom: 5rem;
+    color: white;
 }
 
 .tickets-section-title .coupe {
@@ -194,6 +195,10 @@ header {
 
 .tickets-section-title .tickets {
     color: #FEED01;
+}
+
+.ticket-header {
+    text-align: center;
 }
 
 /* gold ticket */
@@ -335,7 +340,16 @@ header {
 footer {
     background: #211F1F;
     color: #FFF;
-    padding: 60px 0;
+    padding: 60px 0 0 0;
+}
+
+footer img {
+    max-height: 90px;
+}
+
+footer hr {
+    border: 1px solid;
+    opacity: 25%;
 }
 
 .footer-location {
@@ -442,7 +456,7 @@ footer {
     }
 
     .hero_left-content h1 {
-        font-size: 28px;
+        font-size: 24px;
         padding-bottom: 1rem;
     }
 
@@ -489,3 +503,15 @@ footer {
         padding: 28px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

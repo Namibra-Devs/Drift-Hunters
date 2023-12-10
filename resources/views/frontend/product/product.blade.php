@@ -15,7 +15,7 @@
         <div class="row justify-content-between align-items-center">
             <div class="col-lg-3 col-md-6">
                 <div class="shop-search mt-30">
-                    <input type="text" placeholder="Search Keywords" class="input-search" name="search" value="{{request()->input('search') ? request()->input('search') : ''}}">
+                    <input type="text" placeholder="Search Keywords" class="input-search text-white" name="search" value="{{request()->input('search') ? request()->input('search') : ''}}">
                     <i  class="fas fa-search input-search-btn cursor-pointer"></i>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="shop-sidebar">
                     <div class="shop-box shop-category">
                         <div class="sidebar-title">
-                            <h4 class="title">{{__('Category')}}</h4>
+                            <h4 class="title text-white">{{__('Category')}}</h4>
                         </div>
                         <div class="category-item">
                             <ul>
@@ -37,21 +37,24 @@
                         </div>
                     </div>
 
-                    {{-- <div class="shop-box shop-tag mt-30">
+                    <div class="shop-box shop-tag mt-30">
                         <div class="sidebar-title">
-                            <h4 class="title">{{__('Populer Tags')}}</h4>
+                            <h4 class="title text-white">{{__('Populer Tags')}}</h4>
                         </div>
                         <div class="tag-item">
                             <ul>
                                 <li class="{{ request()->input('tag') == '' ? 'active-search' : '' }}"><a data-href="" class="tag-id cursor-pointer">{{__('All')}}</a></li>
-                            </ul>
-                            <li class="{{ request()->input('tag') == 'red' ? 'active-search' : '' }}"><a data-href="red" class="tag-id cursor-pointer">Red</a></li>
+                                <li class="{{ request()->input('tag') == 'red' ? 'active-search' : '' }}"><a data-href="red" class="tag-id cursor-pointer">Red</a></li>
                             <li class="{{ request()->input('tag') == 'black' ? 'active-search' : '' }}"><a data-href="black" class="tag-id cursor-pointer">Black</a></li>
                             <li class="{{ request()->input('tag') == 'white' ? 'active-search' : '' }}"><a data-href="white" class="tag-id cursor-pointer">white</a></li>
                             <li class="{{ request()->input('tag') == 'long-sleeve' ? 'active-search' : '' }}"><a data-href="long-sleeve" class="tag-id cursor-pointer">Long Sleeve</a></li>
                             <li class="{{ request()->input('tag') == 'short-sleeve' ? 'active-search' : '' }}"><a data-href="short-sleeve" class="tag-id cursor-pointer">Short Sleeve</a></li>
+                            <li class="{{ request()->input('tag') == 'short-sleeve' ? 'active-search' : '' }}"><a data-href="xl" class="tag-id cursor-pointer">XL</a></li>
+                            <li class="{{ request()->input('tag') == 'short-sleeve' ? 'active-search' : '' }}"><a data-href="l" class="tag-id cursor-pointer">L</a></li>
+                            </ul>
+                            
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
             <div class="col-lg-9 order-1 order-lg-2">

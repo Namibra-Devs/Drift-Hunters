@@ -131,27 +131,6 @@
         });
 
 
-        // language dropdown toggle on clicking button
-        $('.language-btn').on('click', function(event) {
-            event.preventDefault();
-            $(this).next('.language-dropdown').toggleClass('open');
-        });
-        $(document).on('click', function(event) {
-            // console.log(event.target);
-            if ($(event.target).hasClass('language-btn') || $(event.target).parent().hasClass('language-btn')) {
-                return;
-            }
-            if($('.language-dropdown').hasClass('open')) {
-              $('.language-dropdown').removeClass('open');
-            }
-        });
-
-        // language dropdown toggle on clicking button
-        $('.shop-dropdown button').on('click', function(event) {
-            event.preventDefault();
-            $(this).next('.language-dropdown').toggleClass('open');
-        });
-
         // slicknav initialization
         $('#mainMenu').slicknav({
             prependTo: '#mobileMenu'

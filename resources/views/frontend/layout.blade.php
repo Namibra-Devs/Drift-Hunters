@@ -53,13 +53,13 @@
                     </div>
                     <div class="footer-location">
                         <span>
-                            Asamoah Gyan Centre, <br>
-                            Kumasi, Ghana.
+                            University of Ghana Sports Enclave <br>
+                            Accra, Ghana.
                         </span>
                     </div>
                     <div>
-                        <p><span class="event-time">9:00AM - 10:00AM</span> <br>
-                            <span class="event-date">11th November, 2023</span>
+                        <p><span class="event-time">4:00PM - Midnight</span> <br>
+                            <span class="event-date">26th - 28th December, 2023</span>
                         </p>
                     </div>
                 </div>

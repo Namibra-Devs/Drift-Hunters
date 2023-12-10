@@ -170,15 +170,14 @@
                                         <input type="text" class="form_control" name="phone"
                                             placeholder="{{ __('Enter your phone') }}" value="{{ $phone }}">
                                     </div>
-                                    <div class="form_group" style="display: flex; flex-direction: column; margin-top: 20px">
-                                        <select name="payment_method" id="payment-method">
+                                    <input type="hidden" name="payment_method" id="payment-method" value="Paystack">
+                                    {{-- <div class="form_group" style="display: flex; flex-direction: column; margin-top: 20px">
+                                        <select name="payment_method" id="payment-method" hid>
                                             <option value="0">{{ __('Choose an option') }}</option>
-                                            @foreach ($payment_gateways as $payment_gateway)
-                                                <option value="{{ $payment_gateway->name }}">{{ $payment_gateway->name }}
+                                                <option value="Paystack">Paystack
                                                 </option>
-                                            @endforeach
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div id="stripe-section" style="display: none">
                                         <div id="stripe-element">
                                             <!-- A Stripe Element will be inserted here. -->
@@ -259,12 +258,6 @@
     <!--====== End Event details Section ======-->
 @endsection
 @section('scripts')
-    <script>
-        let stripe_key = "{{ $stripe_key }}";
-    </script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ asset('assets/frontend/js/event-checkout-stripe.js') }}"></script>
-
     <script src="{{ asset('/assets/frontend/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('/assets/frontend/js/jquery.nice-number.min.js') }}"></script>
     <script src="{{ asset('/assets/frontend/js/jquery.easypiechart.min.js') }}"></script>

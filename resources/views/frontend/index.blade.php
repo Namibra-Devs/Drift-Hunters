@@ -7,12 +7,12 @@
     <div class="container">
         <div class="row hero-content">
             <div class="col-md-6 hero_left-content">
-                <h1>Unity of Two <br> Wheels!</h1>
+                <h1>Bike Life Festival <br> 2023</h1>
                 <a href="#" class="get-ticket-btn">Get Your Tickets</a>
             </div>
             <div class="col-md-6 hero_right-content">
-                <span class="time">9:00AM - 11:00AM</span> <br>
-                <span class="date">24TH NOVEMBER, 2023</span>
+                <span class="time">4:00PM - Midnight</span> <br><br>
+                <span class="date">26TH - 28TH DECEMBER, 2023</span>
                 <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
                     a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
                     landscapes of Ghana.</p>
@@ -35,7 +35,7 @@
 </section>
 
 {{-- feacturing section --}}
-<section class="featuring-section">
+<section id="featuring-section" class="featuring-section">
     <div class="container">
         <div class="section-title text-center mb-4">
             <div class="row">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col">
                         <div class="featuring_card-content content1">
-                            <h3 class="text-center">VENDOR EXPO</h3>
+                            <h3 class="text-center">DINNER AT INSUNAM</h3>
                             <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
                                 and the scent
                                 of leather and engine oil in the air. It's not just a shopping excursion; it's a
@@ -81,7 +81,7 @@
                     </div>
                     <div class="col">
                         <div class="featuring_card-content content2">
-                            <h3 class="text-center">CUSTOM BIKE SHOWS</h3>
+                            <h3 class="text-center">DREAM CHASERS WRITING</h3>
                             <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
                                 and the scent
                                 of leather and engine oil in the air. It's not just a shopping excursion; it's a
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col">
                         <div class="featuring_card-content content3">
-                            <h3 class="text-center">VENDOR EXPO</h3>
+                            <h3 class="text-center">BACK LIFE FESTIVAL</h3>
                             <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
                                 and the scent
                                 of leather and engine oil in the air. It's not just a shopping excursion; it's a
@@ -160,7 +160,7 @@
                         <span> <i></i>Activities and access to live entertainment</span>
                     </div>
                     <div class="text-center">
-                        <a href="#" class="get-ticket-btn">BUY NOW</a>
+                        <a href="{{route('front.event_details', 'platinum')}}" class="get-ticket-btn">BUY NOW</a>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                         <span> <i></i>Activities and access to live entertainment</span>
                     </div>
                     <div class="text-center">
-                        <a href="#" class="get-ticket-btn">BUY NOW</a>
+                        <a href="{{route('front.event_details', 'diamond')}}" class="get-ticket-btn">BUY NOW</a>
                     </div>
                 </div>
             </div>
@@ -284,25 +284,6 @@
         </div>
 
         <div class="row">
-            {{-- products --}}
-            {{-- <div class="col-md-4 mb-4">
-                <div class="product-item">
-                    <div class="product_image-wrap">
-                       <img src="{{ asset('assets/frontend/images/product1.png') }}" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="mt-3 product-description">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="text-left">Bike Life Dream Chasers Short Sleeves</h5>
-                            <h3 class="product-price">$50</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="#" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
-                    </div>
-                </div>
-            </div>     --}}
-            
         </div>
         <div class="row">
             @foreach ($products as $product)
