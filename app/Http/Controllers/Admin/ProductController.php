@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
@@ -32,6 +33,8 @@ class ProductController extends Controller
         $categories = Pcategory::where('status',1)->get();
         return view('admin.product.create', compact('categories'));
     }
+
+    
 
 
     public function uploadUpdate(Request $request, $id)
@@ -226,11 +229,9 @@ class ProductController extends Controller
             'status' => 'required'
         ];
 
-        $bex = BasicExtra::firstOrFail();
-        if ($bex->catalog_mode == 0) {
+
             $rules['current_price'] = 'required|numeric';
             $rules['previous_price'] = 'nullable|numeric';
-        }
 
         if ($request->filled('slider')) {
             $rules['slider'] = [
@@ -508,26 +509,6 @@ class ProductController extends Controller
          }
 
         Session::flash('success', 'Payment Status updated!');
-        return back();
-    }
-
-    public function settings() {
-        $data['abex'] = BasicExtra::first();
-        return view('admin.product.settings', $data);
-    }
-
-    public function updateSettings(Request $request) {
-        $bexs = BasicExtra::all();
-        foreach($bexs as $bex) {
-            $bex->product_rating_system = $request->product_rating_system;
-            $bex->product_guest_checkout = $request->product_guest_checkout;
-            $bex->is_shop = $request->is_shop;
-            $bex->catalog_mode = $request->catalog_mode;
-            $bex->tax = $request->tax ? $request->tax : 0.00;
-            $bex->save();
-        }
-
-        $request->session()->flash('success', 'Settings updated successfully!');
         return back();
     }
 }

@@ -1,5 +1,5 @@
 {{-- Start: Paystack Area --}}
-<div class="option-block">
+<div class="option-block" hidden>
   <div class="radio-block">
     <div class="checkbox">
       <label>

@@ -30,6 +30,85 @@
         {{-- Main custom styles --}}
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+
+        {{-- Styles for Product details sizes --}}
+        <style>
+
+        .product-sizes {
+            padding-top: 30px
+        }
+        .checkbox-alphanumeric::after,
+        .checkbox-alphanumeric::before {
+            content: '';
+            display: table;
+        }
+
+        .checkbox-alphanumeric::after {
+            clear: both;
+        }
+
+        .checkbox-alphanumeric input {
+            left: -9999px;
+            position: absolute;
+        }
+
+        .checkbox-alphanumeric label {
+            width: 2.25rem;
+            height: 2.25rem;
+            float: left;
+            padding: 0.375rem 0;
+            margin-right: 0.375rem;
+            display: block;
+            color: #818a91;
+            font-size: 0.875rem;
+            font-weight: 400;
+            text-align: center;
+            background: transparent;
+            text-transform: uppercase;
+            border: 1px solid #e6e6e6;
+            border-radius: 2px;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            transform: scale(0.95);
+        }
+
+        .checkbox-alphanumeric-circle label {
+            border-radius: 100%;
+        }
+
+        .checkbox-alphanumeric label > img {
+            max-width: 100%;
+        }
+
+        .checkbox-alphanumeric label:hover {
+            cursor: pointer;
+            border-color: #ff8000;
+        }
+
+        .checkbox-alphanumeric input:checked ~ label {
+            transform: scale(1.1);
+            border-color: red !important;
+        }
+
+        .checkbox-alphanumeric--style-1 label {
+            width: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 2px;
+        }
+
+        .d-table.checkbox-alphanumeric--style-1 {
+            width: 100%;
+        }
+
+        .d-table.checkbox-alphanumeric--style-1 label {
+            width: 100%;
+        }
+        </style>
+
 </head>
 
 <body>
