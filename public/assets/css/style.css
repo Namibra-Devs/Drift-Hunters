@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    color: #FFF;
 }
 
 header {
@@ -21,9 +22,9 @@ header {
     color: #dfdfdf;
 }
 
-section {
+/* section {
     padding: 30px 278px;
-}
+} */
 
 .get-ticket-btn {
     background-color: #ddfe01;
@@ -35,20 +36,27 @@ section {
     color: black;
 }
 
+.get-ticket-btn:hover {
+    background-color: #dcfe018a;
+    color: black;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
 .hero-section {
     padding-top: 15rem;
     background: url("../frontend/images/hero-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-left: 15%;
+    /* padding-left: 15%; */
     height: 70vh;
     position: relative;
 }
 
 .hero_left-content h1 {
     color: #f6f6f6;
-    font-size: 70px;
+    font-size: 50px;
     font-family: Oswald;
     font-weight: 700;
     text-transform: uppercase;
@@ -83,8 +91,7 @@ section {
     color: #fff;
     padding-top: 5rem;
     position: absolute;
-    width: 21%;
-    left: 50%;
+    left: -1%;
 }
 
 .ticket-strock-section {
@@ -164,6 +171,10 @@ section {
     background-position: center;
 }
 
+.tickets-section-title h1 {
+    padding: 5rem 20px;
+}
+
 
 /* tickets section start */
 
@@ -171,6 +182,7 @@ section {
     background: rgba(0, 0, 0, 0.917);
     padding-top: 5rem;
     padding-bottom: 5rem;
+    color: white;
 }
 
 .tickets-section-title .coupe {
@@ -183,6 +195,10 @@ section {
 
 .tickets-section-title .tickets {
     color: #FEED01;
+}
+
+.ticket-header {
+    text-align: center;
 }
 
 /* gold ticket */
@@ -272,6 +288,39 @@ section {
 }
 
 
+.products-section {
+    background: #212121;
+}
+
+.products-section .magenta {
+    color: #B771F4;
+}
+
+.products-section .yellow {
+    color: #DBFE01;
+}
+
+.products-section .margin-left {
+    margin-left: 7rem;
+}
+
+.product_image-wrap {
+    background: linear-gradient(112deg, #BAC0C9 0%, #BCC2CC 100%);;
+}
+
+.product-description {
+    color: #FFF;
+    padding: 30px 0 30px 0;
+}
+
+.product-item {
+    padding: 30px;
+}
+
+.product-price {
+    color: #DBFE01;
+}
+
 /* sponsors section styles */
 .sponsors-section {
     background: #252525;
@@ -291,9 +340,178 @@ section {
 footer {
     background: #211F1F;
     color: #FFF;
-    padding: 60px 275px 0 257px;
+    padding: 60px 0 0 0;
+}
+
+footer img {
+    max-height: 90px;
+}
+
+footer hr {
+    border: 1px solid;
+    opacity: 25%;
 }
 
 .footer-location {
     padding: 1rem 0;
 }
+
+.footer-socials i {
+    font-size: 26px;
+    border: 1px solid #DBFE01;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+
+/* Front End login styles starts */
+
+.login-title {
+    margin-bottom: 30px;
+  }
+  
+  .login-area {
+    padding-top: 15rem;
+    padding-bottom: 120px;
+    background: url('../frontend/images/blackbike-icon.png');
+  }
+  
+  .login-area .login-content .login-title .title {
+    font-weight: 700;
+    color: #FFF;
+    font-size: 30px;
+  }
+
+  .login-area .login-content {
+    color: #FFF;
+  }
+  
+  .login-area .login-content .input-box input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    padding-left: 30px;
+  }
+  
+  .login-area .login-content .input-box span {
+    padding-bottom: 15px;
+    font-size: 15px;
+    display: inline-block;
+  }
+  
+  .login-area .login-content .input-box {
+    margin-top: 20px;
+  }
+  
+  .login-area .login-content .input-btn button {
+    width: 100%;
+  }
+
+  .login-area .login-content .input-btn p {
+    padding-top: 20px;
+  }
+  
+  .login-area .login-content .input-text p {
+    font-size: 15px;
+    font-weight: 400;
+    color: #666;
+    line-height: 26px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  
+  .login-area .login-content .input-text p a {
+    color: #DBFE01;
+  }
+
+  .login-btn {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+
+
+  /* Responsive styles */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+    section, footer {
+        padding: 20px;
+    }
+
+    .hero-section {
+        height: 100vh;
+        padding-top: 10rem;
+    }
+
+    .hero-content p {
+        left: auto;
+    }
+
+    .hero_right-content {
+        padding-left: 1rem;
+    }
+
+    .hero_left-content h1 {
+        font-size: 24px;
+        padding-bottom: 1rem;
+    }
+
+    .hero_right-content {
+        padding-top: 2rem;
+    }
+
+    .time, .date {
+        font-size: 26px;
+        line-height: normal;
+    }
+
+
+    /* ticket Strocks */
+    .ticket-strocks {
+        height: 10vh;
+    }
+
+    .ticket-strocks h1 {
+        font-size: 9px;
+    }
+
+    .section-title .left, .section-title .right {
+        padding-left: 0;
+    }
+
+    .celebrity-section {
+        padding: 20px;
+    }
+
+    .celebrity-images {
+        padding-top: 5rem;
+    }
+
+    .celebrity-images {
+        justify-content: start !important;
+    }
+
+    .celebrity-images img {
+        max-width: 195px;
+    }
+
+    .get-involved_card-content {
+        padding: 28px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
