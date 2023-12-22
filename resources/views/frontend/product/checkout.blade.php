@@ -325,8 +325,8 @@
                                 <table class="cart-table">
                                     <thead class="cart-header">
                                         <tr>
-                                            <th class="product-column">{{ __('Product') }}</th>
-                                            <th>&nbsp;</th>
+                                            <th class="product-column" >{{ __('Product') }}</th>
+                                            <th>Size</th>
                                             <th>{{ __('Quantity') }}</th>
                                             <th class="price">{{ __('Total') }}</th>
                                         </tr>
@@ -344,7 +344,7 @@
 
                                                 @endphp
                                                 <tr>
-                                                    <td colspan="2" class="product-column">
+                                                    <td class="product-column">
                                                         <div class="column-box">
                                                             <div class="product-title">
                                                                 <a target="_blank"
@@ -354,6 +354,9 @@
                                                                 </a>
                                                             </div>
                                                         </div>
+                                                    </td>
+                                                    <td class="size">
+                                                        <span>{{ $item['size'] }}</span>
                                                     </td>
                                                     <td class="qty">
                                                         <input class="quantity-spinner" disabled type="text"

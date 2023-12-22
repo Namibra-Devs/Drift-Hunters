@@ -109,6 +109,7 @@ class ProductController extends Controller
             $data = explode(',,,', $id);
             $id = $data[0];
             $qty = $data[1];
+            $size = $data[2];
 
             $product = Product::findOrFail($id);
 
@@ -137,7 +138,8 @@ class ProductController extends Controller
                         "qty" => $qty,
                         "price" => $product->current_price,
                         "photo" => $product->feature_image,
-                        "type" => $product->type
+                        "type" => $product->type,
+                        "size" => '$size'
                     ]
                 ];
 
@@ -159,7 +161,8 @@ class ProductController extends Controller
                 "qty" => $qty,
                 "price" => $product->current_price,
                 "photo" => $product->feature_image,
-                "type" => $product->type
+                "type" => $product->type,
+                "size" => '$size'
             ];
         } else {
 
@@ -192,7 +195,8 @@ class ProductController extends Controller
                         "qty" => 1,
                         "price" => $product->current_price,
                         "photo" => $product->feature_image,
-                        "type" => $product->type
+                        "type" => $product->type,
+                        "size" => "L"
                     ]
                 ];
 
@@ -213,7 +217,8 @@ class ProductController extends Controller
                 "qty" => 1,
                 "price" => $product->current_price,
                 "photo" => $product->feature_image,
-                "type" => $product->type
+                "type" => $product->type,
+                "size" => "L"
             ];
         }
 
@@ -228,11 +233,9 @@ class ProductController extends Controller
             $cart = Session::get('cart');
             foreach ($request->product_id as $key => $id) {
                 $product = Product::findOrFail($id);
-                if ($product->type != 'digital') {
                     if ($product->stock < $request->qty[$key]) {
                         return response()->json(['error' => $product->title . ' stock not available']);
                     }
-                }
                 if (isset($cart[$id])) {
                     $cart[$id]['qty'] =  $request->qty[$key];
                     Session::put('cart', $cart);
@@ -296,23 +299,9 @@ class ProductController extends Controller
         } else {
             $data['cart'] = null;
         }
-        $data['stripe'] = PaymentGateway::find(14);
-        $data['paypal'] = PaymentGateway::find(15);
         $data['paystackData'] = PaymentGateway::whereKeyword('paystack')->first();
         $data['paystack'] = $data['paystackData']->convertAutoData();
-        $data['flutterwave'] = PaymentGateway::find(6);
-        $data['razorpay'] = PaymentGateway::find(9);
-        $data['instamojo'] = PaymentGateway::find(13);
-        $data['paytm'] = PaymentGateway::find(11);
-        $data['mollie'] = PaymentGateway::find(17);
-        $data['mercadopago'] = PaymentGateway::find(19);
-        $data['payumoney'] = PaymentGateway::find(18);
         $data['discount'] = session()->has('coupon') && !empty(session()->get('coupon')) ? session()->get('coupon') : 0;
-
-        $stripeData = PaymentGateway::whereKeyword('stripe')->first();
-        $stripe = $stripeData->convertAutoData();
-        $data['stripe_key'] =  $stripe['key'];
-
 
         return view('frontend.product.checkout', $data);
     }
@@ -324,6 +313,12 @@ class ProductController extends Controller
 
         if (!$product) {
             abort(404);
+        }
+
+        if ($request->choice_1) {
+            $size = $request->choice_1;
+        } else {
+            $size = "L";
         }
 
         if ($request->qty) {
@@ -348,7 +343,8 @@ class ProductController extends Controller
                     "qty" => $qty,
                     "price" => $product->current_price,
                     "photo" => $product->feature_image,
-                    'type' => $product->type
+                    'type' => $product->type,
+                    'size' => $size,
                 ]
             ];
 
@@ -390,7 +386,8 @@ class ProductController extends Controller
             "qty" => $qty,
             "price" => $product->current_price,
             "photo" => $product->feature_image,
-            'type' => $product->type
+            'type' => $product->type,
+            'size' => $size
         ];
         Session::put('cart', $cart);
 

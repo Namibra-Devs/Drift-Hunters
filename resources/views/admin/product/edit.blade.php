@@ -159,48 +159,15 @@
                             </div>
 
                             <div class="col-lg-6">
-                                @if ($data->type == 'physical')
                                 <div class="form-group">
                                     <label for="">Stock Product **</label>
                                     <input type="number" class="form-control ltr" name="stock"  placeholder="Enter Product Stock" value="{{$data->stock}}">
                                     <p id="errstock" class="mb-0 text-danger em"></p>
                                 </div>
-                                @endif
-
-                                @if ($data->type == 'digital')
-                                <div class="form-group">
-                                    <label for="">Type **</label>
-                                    <select name="file_type" class="form-control" id="fileType" onchange="toggleFileUpload();">
-                                        <option value="upload" {{!empty($data->download_file) ? 'selected' : ''}}>File Upload</option>
-                                        <option value="link" {{!empty($data->download_link) ? 'selected' : ''}}>File Download Link</option>
-                                    </select>
-                                    <p id="errfile_type" class="mb-0 text-danger em"></p>
-                                </div>
-                                @endif
                             </div>
                         </div>
 
-                        @if ($data->type == 'digital')
                         <div class="row">
-                            <div class="col-12">
-                                <div id="downloadFile" class="form-group">
-                                    <label for="">Downloadable File **</label>
-                                    <br>
-                                    <input name="download_file" type="file">
-                                    <p class="mb-0 text-warning">Only zip file is allowed.</p>
-                                    <p id="errdownload_file" class="mb-0 text-danger em"></p>
-                                </div>
-                                <div id="downloadLink" class="form-group" style="display: none">
-                                    <label for="">Downloadable Link **</label>
-                                    <input name="download_link" type="text" class="form-control" value="{{$data->download_link}}">
-                                    <p id="errdownload_link" class="mb-0 text-danger em"></p>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-
-                        <div class="row">
-                            @if ($data->type == 'physical')
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for=""> Product Sku **</label>
@@ -208,7 +175,6 @@
                                     <p id="errsku" class="mb-0 text-danger em"></p>
                                 </div>
                             </div>
-                            @endif
                             <div class="{{$data->type == 'physical' ? 'col-lg-6' : 'col-lg-12'}}">
                                 <div class="form-group">
                                     <label for="">Tags </label>

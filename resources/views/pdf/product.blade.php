@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Product Invoice</title>
     <style>
         /*!
     * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8142,7 +8142,7 @@
                                 {{ $order->method }}
                             </p>
                         </div>
-                        <div class="pull-left" style="width: 33.33%">
+                        {{-- <div class="pull-left" style="width: 33.33%">
                             <p>
                                 <strong>Name:</strong>
                                 {{ $order->shpping_fname }} {{ $order->shpping_lname }}
@@ -8167,7 +8167,7 @@
                                 <strong>Country:</strong>
                                 {{ $order->shpping_country }}
                             </p>
-                        </div>
+                        </div> --}}
                         <div class="pull-left" style="width: 33.33%">
                             <div>
                                 <h4><strong>Billing Details</strong></h4>

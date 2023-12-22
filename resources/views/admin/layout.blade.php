@@ -24,9 +24,7 @@
     href="{{asset('assets/frontend/images/logo.png')}}"
     >
     @includeif('admin.partials.styles')
-    @php
-    $selLang = \App\Language::where('code', request()->input('language'))->first();
-    @endphp
+    
 
     @yield('styles')
 

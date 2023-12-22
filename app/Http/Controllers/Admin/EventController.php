@@ -536,18 +536,6 @@ class EventController extends Controller
     }
 
 
-    public function updateSettings(Request $request) {
-        $bexs = BasicExtra::all();
-        foreach($bexs as $bex) {
-            $bex->event_guest_checkout = $request->event_guest_checkout;
-            $bex->is_event = $request->is_event;
-            $bex->save();
-        }
-
-        $request->session()->flash('success', 'Settings updated successfully!');
-        return back();
-    }
-
     public function images($eventid)
     {
         $event = Event::find($eventid);

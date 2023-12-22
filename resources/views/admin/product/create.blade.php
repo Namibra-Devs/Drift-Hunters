@@ -247,9 +247,58 @@
 @endsection
 @section('scripts')
 
+<script type="text/javascript">
 
-<script>
+$('input[name="colors_active"]').on('change', function() {
+        if(!$('input[name="colors_active"]').is(':checked')) {
+            $('#colors').prop('disabled', true);
+            AIZ.plugins.bootstrapSelect('refresh');
+        }
+        else {
+            $('#colors').prop('disabled', false);
+            AIZ.plugins.bootstrapSelect('refresh');
+        }
+        update_sku();
+    });
 
+    $(document).on("change", ".attribute_choice",function() {
+        update_sku();
+    });
+
+    $('#colors').on('change', function() {
+        update_sku();
+    });
+
+    $('input[name="unit_price"]').on('keyup', function() {
+        update_sku();
+    });
+
+    $('input[name="name"]').on('keyup', function() {
+        update_sku();
+    });
+
+    function delete_row(em){
+        $(em).closest('.form-group row').remove();
+        update_sku();
+    }
+
+    function delete_variant(em){
+        $(em).closest('.variant').remove();
+    }
+
+
+
+    $('#choice_attributes').on('change', function() {
+        $('#customer_choice_options').html(null);
+        $.each($("#choice_attributes option:selected"), function(){
+            add_more_customer_choice_option($(this).val(), $(this).text());
+        });
+
+        update_sku();
+    });
+
+
+    
 
     var today = new Date();
     $("#submissionDate").datepicker({

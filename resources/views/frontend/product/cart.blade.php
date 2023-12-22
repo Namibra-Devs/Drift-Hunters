@@ -52,6 +52,7 @@
                             <tr>
                                 <th class="prod-column">{{__('Products')}}</th>
                                 <th class="hide-column"></th>
+                                <th class="prod-size">size</th>
                                 <th>{{__('Quantity')}}</th>
                                 <th class="availability">{{__('Availability')}}</th>
                                 <th class="price">{{__('Price')}}</th>
@@ -74,6 +75,9 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td class="prod-size">
+                                    <span>{{ $item['size'] }}</span>
+                                </td>
                                 <td class="qty">
                                     <div class="product-quantity d-flex mb-35" id="quantity">
                                         <button type="button" id="sub" class="sub">-</button>
@@ -84,15 +88,11 @@
                                 <input type="hidden" value="{{$id}}" class="product_id">
                                 <td class="unit-price">
                                     <div class="available-info">
-                                        @if ($product->type == 'digital')
-                                            <span class="icon fa fa-check thm-bg-clr"></span>{{__('Item(s)')}}<br>{{__('Avilable Now')}}
-                                        @else
                                             @if($product->stock >= $item['qty'])
                                                 <span class="icon fa fa-check thm-bg-clr"></span>{{__('Item(s)')}}<br>{{__('Avilable Now')}}
                                             @else
                                                 <span class="icon fa fa-times thm-bg-rmv"></span>{{__('Item(s)')}}<br>{{__('Out Of Stock')}}
                                             @endif
-                                        @endif
                                     </div>
                                 </td>
                                 <td class="price cart_price">  <span>{{$item['price']}}</span>  </td>
