@@ -23,6 +23,6 @@
 <link rel="stylesheet" href="{{asset('assets/admin/css/summernote-bs4.css')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/css/atlantis.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}">
-<link rel="stylesheet" href="{{asset('assets/admin/css/vendors.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('assets/admin/css/vendors.css')}}"> --}}
 
 @yield('styles')
