@@ -75,9 +75,9 @@
                                         </div>
                                     </div>
                                 </td>
-                                {{-- <td class="prod-size">
+                                <td class="prod-size">
                                     <span>{{ $item['size'] }}</span>
-                                </td> --}}
+                                </td>
                                 <td class="qty">
                                     <div class="product-quantity d-flex mb-35" id="quantity">
                                         <button type="button" id="sub" class="sub">-</button>

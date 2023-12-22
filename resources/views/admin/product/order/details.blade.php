@@ -61,21 +61,21 @@
                      </div>
                  </div>
 
-                 <div class="row mb-2">
+                 {{-- <div class="row mb-2">
                      <div class="col-lg-6">
                          <strong>{{__('Shipping Method')}} :</strong>
                      </div>
                      <div class="col-lg-6">
                         {{$order->shipping_method}}
                      </div>
-                 </div>
+                 </div> --}}
 
                  <div class="row mb-2">
                      <div class="col-lg-6">
                          <strong>{{__('Cart Total')}} :</strong>
                      </div>
                      <div class="col-lg-6">
-                        {{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{$order->cart_total}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}
+                         {{$order->cart_total}} 
                      </div>
                  </div>
 
@@ -85,7 +85,7 @@
                             <span style="font-size: 10px;">(<i class="fas fa-minus"></i>)</span> :</strong>
                      </div>
                      <div class="col-lg-6">
-                        {{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{$order->discount}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}
+                         {{$order->discount}} 
                      </div>
                  </div>
 
@@ -94,27 +94,27 @@
                          <strong>{{__('Subtotal')}} :</strong>
                      </div>
                      <div class="col-lg-6">
-                        {{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{round($order->cart_total - $order->discount, 2)}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}
+                         {{round($order->cart_total - $order->discount, 2)}} 
                      </div>
                  </div>
-
+{{-- 
                  <div class="row mb-2">
                      <div class="col-lg-6">
                          <strong class="text-danger">{{__('Shipping Charge')}}
                             <span style="font-size: 10px;">(<i class="fas fa-plus"></i>)</span>  :</strong>
                      </div>
                      <div class="col-lg-6">
-                        {{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{$order->shipping_charge}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}
+                         {{$order->shipping_charge}} 
                      </div>
-                 </div>
+                 </div> --}}
 
                  <div class="row mb-2">
-                     <div class="col-lg-6">
+                     {{-- <div class="col-lg-6">
                          <strong class="text-danger">{{__('Tax')}} ({{$bex->tax}}%)
                             <span style="font-size: 10px;">(<i class="fas fa-plus"></i>)</span> :</strong>
-                     </div>
+                     </div> --}}
                      <div class="col-lg-6">
-                        {{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{$order->tax}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}
+                         {{$order->tax}} 
                      </div>
                  </div>
 
@@ -123,7 +123,7 @@
                          <strong>{{__('Total')}} :</strong>
                      </div>
                      <div class="col-lg-6">
-                        {{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}} {{$order->total}} {{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}
+                         {{$order->total}} 
                      </div>
                  </div>
 
@@ -152,10 +152,10 @@
 
     </div>
 
-    <div class="col-md-4">
+    {{-- <div class="col-md-4">
        <div class="card">
           <div class="card-header">
-             <div class="card-title d-inline-block">Shipping Details</div>
+             <div class="card-title d-inline-block">Address</div>
 
           </div>
           <div class="card-body pt-5 pb-5">
@@ -210,7 +210,7 @@
           </div>
        </div>
 
-    </div>
+    </div> --}}
 
     <div class="col-md-4">
        <div class="card">
@@ -286,6 +286,7 @@
                       <th>{{__('Image')}}</th>
                       <th>{{__('Name')}}</th>
                       <th>{{__('Details')}}</th>
+                      <th>{{__('Size')}}</th>
                       <th>{{__('Price')}}</th>
                       <th>{{__('Total')}}</th>
                    </tr>
@@ -299,8 +300,9 @@
                       <td>
                          <b>{{__('Quantity')}}:</b> <span>{{$item->qty}}</span><br>
                       </td>
-                      <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}}{{$item->price}}{{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
-                      <td>{{$bex->base_currency_symbol_position == 'left' ? $bex->base_currency_symbol : ''}}{{$item->price * $item->qty}}{{$bex->base_currency_symbol_position == 'right' ? $bex->base_currency_symbol : ''}}</td>
+                      <td>{{$item->product_size}}</td>
+                      <td>{{$item->price}}</td>
+                      <td>{{$item->price * $item->qty}}</td>
                    </tr>
                    @endforeach
                 </tbody>

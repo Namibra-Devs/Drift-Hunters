@@ -95,8 +95,10 @@ class PaymentController extends Controller
         $cart = Session::get('cart');
         $products = [];
         $qty = [];
+        $size = [];
         foreach ($cart as $id => $item) {
             $qty[] = $item['qty'];
+            $size[] = $item['size'];
             $products[] = Product::findOrFail($id);
         }
 
@@ -121,7 +123,8 @@ class PaymentController extends Controller
                 'image' => $product->feature_image,
                 'summary' => $product->summary,
                 'description' => $product->description,
-                'created_at' => Carbon::now()
+                'created_at' => Carbon::now(),
+                'product_size' => $size[$key],
             ]);
         }
 
