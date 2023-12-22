@@ -62,7 +62,7 @@
 
 
         @if (empty($admin->role) || (!empty($permissions) && in_array('Events Management', $permissions)))
-            <div class="col-sm-6 col-md-3">
+            {{-- <div class="col-sm-6 col-md-3">
                 <a href="{{ route('admin.event.index') }}" class="d-block">
                     <div class="card card-stats card-info card-round">
                         <div class="card-body ">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> --}}
             <div class="col-sm-6 col-md-3">
                 <a href="{{ route('admin.event.payment.log') }}" class="d-block">
                     <div class="card card-stats card-primary card-round">
