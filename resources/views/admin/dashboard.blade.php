@@ -1,7 +1,7 @@
 @extends('admin.layout')
 @section('content')
     @php
-        $default = \App\Language::where('is_default', 1)->first();
+        // $default = \App\Language::where('is_default', 1)->first();
         $admin = Auth::guard('admin')->user();
         if (!empty($admin->role)) {
             $permissions = $admin->role->permissions;
@@ -27,7 +27,7 @@
                                 <div class="col-9 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Merch</p>
-                                        <h4 class="card-title">{{ $default->products()->count() }}</h4>
+                                        <h4 class="card-title">{{ \App\Product::count() }}</h4>
                                     </div>
                                 </div>
                             </div>
