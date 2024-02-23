@@ -3,64 +3,67 @@
 
 @section('content')
 {{-- hero section starts --}}
-<section class="hero-section"">
+<section class="hero-section">
+    <div class="hero-container">
     <div class="container">
-        <div class="row hero-content">
-            <div class="col-md-6 hero_left-content">
-                <h1>Bike Life Festival <br> 2023</h1>
-                <a href="#" class="get-ticket-btn">Get Your Tickets</a>
+        <div class="hero-content">
+            <div class="text-right-datetime">
+            <span class="time">09:00AM - 11:00PM</span> <br>
+            <span class="date">24th DECEMBER, 2023</span>
             </div>
-            <div class="col-md-6 hero_right-content">
-                <span class="time">4:00PM - Midnight</span> <br><br>
-                <span class="date">26TH - 28TH DECEMBER, 2023</span>
-                <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
-                    a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
-                    landscapes of Ghana.</p>
+            <div class="hero_left-content">
+                <h1>Where the Rubber Meets the Road</h1>
+                <div class="row justify-between align-content-center">
+
+                    <div class="header-get-tickets-btn col-lg-7 col-12">
+                        <a href="#" class="get-ticket-btn">Get Your Tickets</a>
+                    </div>
+                    <div class="hero-text-content col-lg-5 col-12 text-white mt-lg-0 mt-5">
+                    <p>Get ready to be swept away by the thunderous roar of engines, the smell of burning rubber, and the exhilarating spectacle of precision driving.</p>   
+                        </div>
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
 </section>
 {{-- hero section ends --}}
 
 
-<section class="ticket-strock-section">
-    <div class="row ticket-strocks">
-        <div class="purple-text">
-            <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</h1>
-        </div>
-        <div class="yellow-text">
-            <h1>TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</h1>
-        </div>
+<section class="ticket-strock-section w-100">
+    <div class="ticket-strocks">
+        <!-- <div class="purple-text"> -->
+            <marquee class="purple-text">TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</marquee>
+        <!-- </div> -->
+        <!-- <div class="yellow-text"> -->
+            <marquee class="yellow-text">TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</marquee>
+        <!-- </div> -->
     </div>
 </section>
 
 {{-- feacturing section --}}
 <section id="featuring-section" class="featuring-section">
     <div class="container">
-        <div class="section-title text-center mb-4">
-            <div class="row">
-                <div class="col-md-8 left">
-                    <img src="{{ asset('assets/frontend/images/white-play.png') }}" alt="" class="py-3">
-                    <h2 class="text-white">FEATURING</h2>
-                </div>
-                <div class="col-md-4 right">
-                    <img src="{{ asset('assets/frontend/images/rider.png') }}" alt="" width="250px">
+        <div class="section-title text-center mb-5">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="{{ asset('assets/frontend/images/flag.png') }}" alt="" class="py-3 featured-img">
+                    <h2 class="text-white feature">WHAT TO EXPECT</h2>
+                    <img src="{{ asset('assets/frontend/images/flag.png') }}" alt="" class="py-3  featured-img">
                 </div>
             </div>
-        </div>
-
         <div class="row">
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 mb-4">
                 <div class="row featuring-card">
                     <div class="col-auto">
                         <div class="feature-image">
-                            <img src="{{ asset('assets/frontend/images/feature-img1.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/content1.jpg') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
                     <div class="col">
                         <div class="featuring_card-content content1">
-                            <h3 class="text-center">DINNER AT INSUNAM</h3>
+                            <h3 class="text-center">VENDOR EXPO</h3>
                             <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
                                 and the scent
                                 of leather and engine oil in the air. It's not just a shopping excursion; it's a
@@ -71,17 +74,17 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 mb-4 w-100">
                 <div class="row featuring-card">
                     <div class="col-auto">
                         <div class="feature-image">
-                            <img src="{{ asset('assets/frontend/images/feature-img2.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/content2.jpg') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
                     <div class="col">
                         <div class="featuring_card-content content2">
-                            <h3 class="text-center">DREAM CHASERS WRITING</h3>
+                            <h3 class="text-center text-uppercase">Car Show Extravaganza</h3>
                             <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
                                 and the scent
                                 of leather and engine oil in the air. It's not just a shopping excursion; it's a
@@ -92,17 +95,17 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 mb-4">
                 <div class="row featuring-card">
                     <div class="col-auto">
                         <div class="feature-image">
-                            <img src="{{ asset('assets/frontend/images/feature-img3.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/content3.jpg') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
                     <div class="col">
                         <div class="featuring_card-content content3">
-                            <h3 class="text-center">BACK LIFE FESTIVAL</h3>
+                            <h3 class="text-center">EPIC RIDES</h3>
                             <p>As you wander through the Expo, take in the vibrant colors, the hum of conversations,
                                 and the scent
                                 of leather and engine oil in the air. It's not just a shopping excursion; it's a
@@ -121,13 +124,17 @@
 {{-- tickets section --}}
 <div class="tickets-section-title text-center">
     <h1>
-        <span class="coupe">COUPE</span>
+        <span class="coupe">GRAB</span>
         <span class="your">YOUR</span>
         <span class="tickets">TICKETS!</span>
     </h1>
+    <div class="grab-arrow">
+        <img src="{{ asset('assets/frontend/images/grab-arrow-down.png') }}" alt="">
+    </div>
 </div>
 <section class="tickets-section">
     <div class="container">
+        <img src="{{ asset('assets/frontend/images/tire.png') }}" alt="" class="image-fluid tire-img">
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="gold-ticket">
@@ -136,13 +143,14 @@
                         <h2>$100</h2>
                     </div>
                     <div class="description">
-                        <span> <i></i>Entry to all areas</span><br>
-                        <span> <i></i>Participated in non tickets</span><br>
-                        <span> <i></i>Access to live entertainment</span><br>
-                        <span> <i></i>Activities and access to live entertainment</span>
+                      <ul>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Entry to all general areas.</li>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Participation in non-ticketed activities, and access to live entertainment.</li>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Access to live entertainment.</li>
+                      </ul>
                     </div>
                     <div class="text-center">
-                        <a href="{{route('front.event_details', 'gold')}}" class="get-ticket-btn">BUY NOW</a>
+                        <a href="{{route('front.event_details', 'gold')}}" class="get-ticket-btn w-100 btn">BUY NOW</a>
                     </div>
                 </div>
             </div>
@@ -154,31 +162,34 @@
                         <h2>$200</h2>
                     </div>
                     <div class="description">
-                        <span> <i></i>Entry to all areas</span><br>
-                        <span> <i></i>Participated in non tickets</span><br>
-                        <span> <i></i>Access to live entertainment</span><br>
-                        <span> <i></i>Activities and access to live entertainment</span>
+                      <ul>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">VIP lounge access and priority seating.</li>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Complimentary refreshments and exclusive merchandise</li>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Special invitations to VIP events.</li>
+                      </ul>
                     </div>
                     <div class="text-center">
-                        <a href="{{route('front.event_details', 'platinum')}}" class="get-ticket-btn">BUY NOW</a>
+                        <a href="{{route('front.event_details', 'platinum')}}" class="get-ticket-btn w-100 btn">BUY NOW</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 mb-4">
+            <img src="{{ asset('assets/frontend/images/tire.png') }}" alt="" class="image-fluid tire-img2">
                 <div class="diamond-ticket">
                     <div class="ticket-header">
                         <h3>DIAMOND</h3>
                         <h2>$500</h2>
                     </div>
                     <div class="description">
-                        <span> <i></i>Entry to all areas</span><br>
-                        <span> <i></i>Participated in non tickets</span><br>
-                        <span> <i></i>Access to live entertainment</span>bra
-                        <span> <i></i>Activities and access to live entertainment</span>
+                      <ul>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">VIP lounge access and priority seating.</li>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Complimentary refreshments and exclusive merchandise</li>
+                        <li class="d-flex align-items-start"><img src="{{ asset('assets/frontend/images/check.svg') }}" alt="" class="mt-1 check">Special invitations to VIP events.</li>
+                      </ul>
                     </div>
                     <div class="text-center">
-                        <a href="{{route('front.event_details', 'diamond')}}" class="get-ticket-btn">BUY NOW</a>
+                        <a href="{{route('front.event_details', 'diamond')}}" class="get-ticket-btn w-100 btn">BUY NOW</a>
                     </div>
                 </div>
             </div>
@@ -188,9 +199,11 @@
 </section>
 {{-- Tickets section end --}}
 
-<section class="celebrity-section">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-6 mb-4 celebrity-text">
+<section class="celebrity-section w-100">
+    <div class="celebrities">
+        <img src="{{ asset('assets/frontend/images/celebrities.png') }}" alt="">
+    </div>
+        <div class="mb-4 celebrity-text">
             <h1>LIVE GUEST CELEBRITY <br> LINE UP</h1>
             <p>Get ready for an adrenaline-fueled journey! This annual extravaganza isn't just a gathering; it's
                 a celebration of freedom, unity, and the roaring symphony of bikes echoing against the vibrant
@@ -198,15 +211,10 @@
             <a href="#" class="get-ticket-btn">GET YOUR TICKET</a>
         </div>
 
-        <div class="col-md-6 celebrity-images d-flex flex-wrap justify-content-end">
-            <div><img src="{{ asset('assets/frontend/images/celeb-img7.png') }}" alt=""></div>
-            <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
-            <div><img src="{{ asset('assets/frontend/images/celeb-img3.png') }}" alt=""></div>
-            <div><img src="{{ asset('assets/frontend/images/celeb-img4.png') }}" alt=""></div>
-            <div><img src="{{ asset('assets/frontend/images/celeb-img5.png') }}" alt=""></div>
-            <div><img src="{{ asset('assets/frontend/images/celeb-img6.png') }}" alt=""></div>
+        <div class="celebrity-images">
+            <div><img src="{{ asset('assets/frontend/images/artiest1.png') }}" alt=""></div>
+            <div><img src="{{ asset('assets/frontend/images/artiest2.png') }}" alt=""></div>
         </div>
-    </div>
 </section>
 
 <section class="get-involved-section">

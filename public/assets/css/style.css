@@ -1,6 +1,6 @@
 a {
     text-decoration: none;
-    color: #FFF;
+    color: #fff;
 }
 
 header {
@@ -20,6 +20,7 @@ header {
 
 .nav-item a {
     color: #dfdfdf;
+    font-family: "Racing Sans One", sans-serif;
 }
 
 /* section {
@@ -27,58 +28,63 @@ header {
 } */
 
 .get-ticket-btn {
-    background-color: #ddfe01;
+    background-color: #de2a2c;
     padding: 10px 24px;
     text-transform: uppercase;
-    border-right: 5px solid #f12e94;
-    border-bottom: 5px solid #f12e94;
+    border-right: 5px solid #e1d3da;
+    border-bottom: 5px solid #e1d3da;
     border-bottom-right-radius: 4px;
-    color: black;
+    color: #fff;
 }
 
 .get-ticket-btn:hover {
-    background-color: #dcfe018a;
-    color: black;
+    /* background-color: #F77E2E; */
+    color: #000000 !important;
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }
 
 .hero-section {
-    padding-top: 15rem;
-    background: url("../frontend/images/hero-bg.png");
+    padding-top: 10rem;
+    background-image: url("../frontend/images/hero-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* padding-left: 15%; */
-    height: 70vh;
+    height: 100vh;
     position: relative;
 }
 
+
 .hero_left-content h1 {
     color: #f6f6f6;
-    font-size: 50px;
-    font-family: Oswald;
+    font-size: 6rem;
+    font-family: "Racing Sans One", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
+    margin-left: 2rem;
+}
+
+.hero-text-content {
+    margin-top: -1.5rem;
+}
+
+.text-right-datetime {
+    text-align: right;
+    margin-right: 10rem;
 }
 
 .time {
     color: #efefef;
-
-    font-family: Space Grotesk;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 24px; /* 75% */
+    font-size: 1.2rem;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
 .date {
-    color: #ddfe01;
-    font-family: Space Grotesk;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 24px; /* 75% */
+    color: #f77e2e;
+    font-size: 1.2rem;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -96,65 +102,91 @@ header {
 
 .ticket-strock-section {
     background: url('../frontend/images/tickets-strocks-bg.png');
-    width: 100%;
+    width: 100vw;
     padding: 0;
     display: flex;
     justify-content: center;
+    height: 50vh;
 }
 
 .ticket-strocks {
     position: relative;
-    height: 30vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100vw;
+    text-align: center;
+    font-family: 'Faster One', sans-serif;
+}
+
+.ticket-strocks marquee {
+    font-size: 1.5rem !important;
+    width: 100vw;
 }
 
 .purple-text {
-    background: #b771f4;
+    background: #CC3A3A;
     text-align: center;
-    transform: rotate(-7deg);
-    width: 100%;
+    transform: rotate(-12deg);
+    width: 100vw;
     position: absolute;
     box-sizing: content-box;
-
 }
 
 .yellow-text {
-    background: #ddfe01;
-    transform: rotate(7deg);
-    width: 100%;
+    background: #F77E2E;
+    transform: rotate(12deg);
+    width: 100vw;
     box-sizing: content-box;
 }
-
 
 /* Featuring starts */
 
 .featuring-section {
-    background: url('../frontend/images/blackbike-icon.png');
+    background: url("../frontend/images/drif-hunters.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: hsl(0, 59%, 51%, .99);
+    padding: 5rem 0;
 }
 
-.featuring-card {
-
+.featuring-card h3 {
+    font-family: 'Racing Sans One', sans-serif;
+    margin-bottom: .5rem;
 }
 
 .featuring_card-content {
     padding: 20px;
-    background-color: #DBFE01;
+    background-color: #dbfe01;
+}
+.section-title h2 {
+    font-family: "Racing Sans One", sans-serif !important;
+    font-size: 2rem;
 }
 
+.featured-img {
+    width: 7rem;
+}
 .content1 {
-    background-color: #DBFE01;
+    background-color: #67C6DB;
 }
 
 .content2 {
-    background-color: #01C8AF;
+    background-color: #F77E2E;
 }
 
 .content3 {
     background-color: #B771F4;
 }
 
+.feature-image img {
+    width: 100rem;
+}
 
 .section-title .left {
     padding-left: 25rem;
@@ -167,34 +199,47 @@ header {
 .tickets-section-title {
     height: 25vh;
     padding: 0 !important;
-    background: linear-gradient(0deg, rgba(33, 31, 31, 0.73) 0%, rgba(33, 31, 31, 0.73) 100%), url('../frontend/images/coup-bg.jpeg'), lightgray 0px -457.872px / 100% 380.851% no-repeat;
+    background: linear-gradient(
+            0deg,
+            rgba(33, 31, 31, 0.73) 0%,
+            rgba(33, 31, 31, 0.73) 100%
+        ),
+        url("../frontend/images/grab-bg.png"),
+        lightgray 0px -457.872px / 100% 380.851% no-repeat;
     background-position: center;
 }
 
-.tickets-section-title h1 {
-    padding: 5rem 20px;
+.grab-arrow {
+    margin-top: -2rem;
 }
 
+.tickets-section-title h1 {
+    padding: 3rem 20px;
+    margin-top: -5rem;
+}
 
 /* tickets section start */
 
 .tickets-section {
-    background: rgba(0, 0, 0, 0.917);
+    background: #fff;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    color: white;
+    color: #000000;
 }
 
 .tickets-section-title .coupe {
-    color: #C686FF;
+    color: #c686ff;
+    font-family: 'Racing Sans One', sans-serif;
 }
 
 .tickets-section-title .your {
-    color: #F6F6F6;
+    color: #f6f6f6;
+    font-family: 'Racing Sans One', sans-serif;
 }
 
 .tickets-section-title .tickets {
-    color: #FEED01;
+    color: #feed01;
+    font-family: 'Racing Sans One', sans-serif;
 }
 
 .ticket-header {
@@ -204,20 +249,41 @@ header {
 /* gold ticket */
 
 .gold-ticket {
-    background-color: #2D2E2B;
+    background-color: #2d2e2b;
     padding: 30px 20px 60px 20px;
+    /* border-bottom-right-radius: 2rem; */
 }
 
 .gold-ticket h3 {
-    color: #DBFE01;
+    color: #fff;
     text-align: center;
+    font-family: 'Faster One', sans-serif;
+}
+.gold-ticket h2, .platinum-ticket h2, .diamond-ticket h2 {
+    color: #CC3A3A;
+    margin-top: 1rem;
 }
 
+.check {
+    margin-right: .5rem;
+}
+.tire-img {
+    width: 15rem;
+    margin-top: -5.2rem;
+    margin-left: -5rem;
+}
+
+.tire-img2 {
+    width: 15rem;
+    margin-top: -11.1rem;
+    margin-left: 10rem;
+    /* background: red; */
+}
 .description {
     padding-bottom: 50px;
     padding-top: 30px;
     line-height: 30px;
-    color: #FFF;
+    color: #fff;
 }
 /* platinum ticket */
 
@@ -227,51 +293,76 @@ header {
 }
 
 .platinum-ticket h3 {
-    color: #DBFE01;
+    color: #B771F4;
     text-align: center;
+    font-family: 'Faster One', sans-serif;
+
 }
 
 /* diamond ticket */
 
 .diamond-ticket {
-    background-color: #262B1D;
+    margin-top: -1.5rem;
+    background-color: #262b1d;
     padding: 30px 20px 60px 20px;
 }
 
 .diamond-ticket h3 {
-    color: #DBFE01;
+    color: #F77E2E;
     text-align: center;
+    font-family: 'Faster One', sans-serif;
 }
-
 
 /* celebrity section */
 
 .celebrity-section {
-    background: url('../frontend/images/celeb-bg.png');
+    background: url("../frontend/images/celeb-bg.png");
     padding: 5rem 0 5rem 18rem;
 }
 
+.celebrities {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    margin-top: -5rem;
+    margin-left: -20rem;
+}
+
 .celebrity-text {
-    color: #FFF;
+    color: #fff;
+    max-width: 35rem;
+    margin-left: 2rem;
+}
+
+.celebrity-text h1 {
+    font-family: 'Racing Sans One', sans-serif;
+    font-size: 3rem;
 }
 
 .celebrity-text p {
-    padding: 20px 0;
+    margin: 2rem 0;
 }
 
-.celebrity-text a {
+.celebrity-images {
+    margin-bottom: -5rem;
+    margin-left: 46.5rem;
+    width: 100%;
+    /* margin-right: -10rem !important; */
+}
+
+/* .celebrity-text a {
     position: absolute;
     transform: rotate(-7deg);
-}
+} */
 
 .celebrity-images img {
     max-width: 245px;
 }
 
-
 /* Get involved section */
 .get-involved-section {
-    background: url('../frontend/images/blackbike-icon.png');
+    background: url("../frontend/images/blackbike-icon.png");
 }
 
 .get-involved-card img {
@@ -279,7 +370,7 @@ header {
 }
 
 .get-involved-section .section-title {
-    color: #FFF;
+    color: #fff;
     padding-bottom: 30px;
 }
 
@@ -287,17 +378,16 @@ header {
     padding: 50px;
 }
 
-
 .products-section {
     background: #212121;
 }
 
 .products-section .magenta {
-    color: #B771F4;
+    color: #b771f4;
 }
 
 .products-section .yellow {
-    color: #DBFE01;
+    color: #dbfe01;
 }
 
 .products-section .margin-left {
@@ -305,11 +395,11 @@ header {
 }
 
 .product_image-wrap {
-    background: linear-gradient(112deg, #BAC0C9 0%, #BCC2CC 100%);;
+    background: linear-gradient(112deg, #bac0c9 0%, #bcc2cc 100%);
 }
 
 .product-description {
-    color: #FFF;
+    color: #fff;
     padding: 30px 0 30px 0;
 }
 
@@ -318,13 +408,13 @@ header {
 }
 
 .product-price {
-    color: #DBFE01;
+    color: #dbfe01;
 }
 
 /* sponsors section styles */
 .sponsors-section {
     background: #252525;
-    color: #FFF;
+    color: #fff;
 }
 
 .sponsors-section .section-title {
@@ -338,8 +428,8 @@ header {
 /* footer styles starts */
 
 footer {
-    background: #211F1F;
-    color: #FFF;
+    background: #211f1f;
+    color: #fff;
     padding: 60px 0 0 0;
 }
 
@@ -358,87 +448,100 @@ footer hr {
 
 .footer-socials i {
     font-size: 26px;
-    border: 1px solid #DBFE01;
+    border: 1px solid #dbfe01;
     padding: 10px;
     margin: 10px;
 }
-
-
 
 /* Front End login styles starts */
 
 .login-title {
     margin-bottom: 30px;
-  }
-  
-  .login-area {
+}
+
+.login-area {
     padding-top: 15rem;
     padding-bottom: 120px;
-    background: url('../frontend/images/blackbike-icon.png');
-  }
-  
-  .login-area .login-content .login-title .title {
-    font-weight: 700;
-    color: #FFF;
-    font-size: 30px;
-  }
+    background: url("../frontend/images/blackbike-icon.png");
+}
 
-  .login-area .login-content {
-    color: #FFF;
-  }
-  
-  .login-area .login-content .input-box input {
+.login-area .login-content .login-title .title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 30px;
+}
+
+.login-area .login-content {
+    color: #fff;
+}
+
+.login-area .login-content .input-box input {
     width: 100%;
     height: 50px;
     border: 1px solid #ccc;
     padding-left: 30px;
-  }
-  
-  .login-area .login-content .input-box span {
+}
+
+.login-area .login-content .input-box span {
     padding-bottom: 15px;
     font-size: 15px;
     display: inline-block;
-  }
-  
-  .login-area .login-content .input-box {
-    margin-top: 20px;
-  }
-  
-  .login-area .login-content .input-btn button {
-    width: 100%;
-  }
+}
 
-  .login-area .login-content .input-btn p {
+.login-area .login-content .input-box {
+    margin-top: 20px;
+}
+
+.login-area .login-content .input-btn button {
+    width: 100%;
+}
+
+.login-area .login-content .input-btn p {
     padding-top: 20px;
-  }
-  
-  .login-area .login-content .input-text p {
+}
+
+.login-area .login-content .input-text p {
     font-size: 15px;
     font-weight: 400;
     color: #666;
     line-height: 26px;
     padding-bottom: 15px;
     padding-top: 15px;
-  }
-  
-  .login-area .login-content .input-text p a {
-    color: #DBFE01;
-  }
+}
 
-  .login-btn {
+.login-area .login-content .input-text p a {
+    color: #dbfe01;
+}
+
+.login-btn {
     display: inline-block;
     margin-left: 15px;
-  }
+}
+
+/* Responsive styles */
 
 
+@media (max-width : 980px) {
+    .hero_left-content h1 {
+        font-size: 4rem !important;
+        margin-left: 0rem;
+    }
+}
 
-  /* Responsive styles */
+@media (min-width : 768px) and (max-width : 979px) {
+    .hero_left-content h1 {
+        font-size: 3.5rem !important;
+        margin-left: 0rem;
+    }
+    
+}
 
 @media (max-width: 768px) {
     h1 {
         font-size: 28px;
     }
-    section, footer {
+    section,
+    footer {
         padding: 20px;
     }
 
@@ -454,32 +557,53 @@ footer hr {
     .hero_right-content {
         padding-left: 1rem;
     }
+        .hero_left-content h1 {
+            font-size: 2.5rem !important;
+            margin-left: 0rem;
+        }
 
-    .hero_left-content h1 {
-        font-size: 24px;
-        padding-bottom: 1rem;
+        .hero-text-content {
+            margin-top: 7rem !important;
+        }
+        
+
+    .text-right-datetime {
+        margin-right: 1rem;
     }
 
     .hero_right-content {
-        padding-top: 2rem;
+        padding-top: 1rem;
     }
 
-    .time, .date {
-        font-size: 26px;
+    .time,
+    .date {
+        font-size: 1rem;
         line-height: normal;
     }
 
-
     /* ticket Strocks */
+    .ticket-strock-section {
+        height: 30vh;
+    }
     .ticket-strocks {
-        height: 10vh;
+        height: 30vh;
+        width: 100vw;
     }
 
     .ticket-strocks h1 {
         font-size: 9px;
     }
 
-    .section-title .left, .section-title .right {
+    .tire-img2 {
+        display: none;
+    }
+
+    .diamond-ticket {
+        margin-top: auto;
+    }
+
+    .section-title .left,
+    .section-title .right {
         padding-left: 0;
     }
 
@@ -487,12 +611,21 @@ footer hr {
         padding: 20px;
     }
 
-    .celebrity-images {
-        padding-top: 5rem;
+    .celebrities {
+        margin-top: -1.2rem;
+        margin-left: -5rem;
     }
 
+    .celebrity-text h1 {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+    
+
     .celebrity-images {
-        justify-content: start !important;
+        padding-top: 0rem;
+        margin-bottom: .5rem;
+            margin-left: 15rem;
     }
 
     .celebrity-images img {
@@ -505,13 +638,19 @@ footer hr {
 }
 
 
+@media (max-width : 480px) {
+    .hero-section {
+        height: 100vh;
+        padding-top: 10rem;
+    }
 
+    .hero-text-content h1{
+        font-size: 1.5rem;
+        background-color: red;
+    }
 
-
-
-
-
-
-
-
-
+    .hero-text-content {
+        margin-top: 2rem !important;
+    }
+    
+}

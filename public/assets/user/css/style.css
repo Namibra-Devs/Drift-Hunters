@@ -789,13 +789,14 @@ ul.language-dropdown li:last-child a {
     padding: 29px 0px 28px 0px;
     border-bottom: 1px solid #94a7b2;
     position: relative;
+    font-family: 'Racing Sans One', sans-serif;
 }
 
 .sticky-navbar {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #0a3041;
+    background-color: #161515;
     border: none;
     -webkit-animation: navFadeIn 1s;
     animation: navFadeIn 1s;
@@ -836,6 +837,7 @@ ul.language-dropdown li:last-child a {
 .sticky-navbar .header-navbar {
     border: none;
     padding: 10px 0px;
+    font-family: 'Racing Sans One', sans-serif;
 }
 
 .sticky-navbar .main-menu {

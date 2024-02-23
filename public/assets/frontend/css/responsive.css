@@ -90,14 +90,15 @@
     }
     .main-menu li a {
         padding: 16px 5px;
-        font-size: 14px
+        font-size: 14px;
     }
     .main-menu li a.boxed-btn {
         padding: 12px;
-        margin-left: 7px
+        margin-left: 7px;
     }
     .header-navbar {
-        padding: 30px 0 27px 0
+        padding: 30px 0 27px 0;
+
     }
     .case-lists .single-case {
         height: 250px
@@ -190,11 +191,12 @@
         padding: 12px 0
     }
     .header-navbar {
-        padding: 21px 0 26px
+        padding: 21px 0 26px;
     }
     ul.main-menu {
-        display: none
+        display: none;
     }
+
     #mobileMenu {
         display: block
     }
@@ -204,7 +206,7 @@
         position: static
     }
     ul.slicknav_nav {
-        background-color: #0a3041;
+        background-color: #161515;
         text-align: left;
         position: absolute;
         top: 106px;
@@ -234,7 +236,7 @@
         font-weight: 400
     }
     ul.slicknav_nav li a.boxed-btn:hover {
-        background-color: #25d06f
+        background-color: #F77E2E;
     }
     .slicknav_nav .slicknav_row,
     .slicknav_nav a,
@@ -260,17 +262,17 @@
         margin-bottom: 5px
     }
     .slicknav_nav .slicknav_row:hover {
-        background: #25d06f;
+        background: #F77E2E;
         border-radius: 0
     }
     .slicknav_nav a:hover {
-        background: #25d06f;
+        background: #F77E2E;
         color: #fff;
         border-radius: 0
     }
     .slicknav_nav ul.dropdown-lists {
         margin: 0 15px;
-        background-color: #0e3e53;
+        background-color: #161515;
         overflow-y: scroll;
         max-height: 300px;
         padding-left: 20px;
@@ -286,6 +288,7 @@
     li.submenus::after {
         display: none
     }
+
     .single-hero-feature {
         padding: 25px 35px
     }
@@ -502,7 +505,7 @@
         display: none
     }
     h5.service-title {
-        color: #25d06f;
+        color: #F77E2E;
         margin-top: 8px
     }
     .gallery-section div[class*=col-]:nth-last-child(2) .single-pic,
@@ -584,6 +587,7 @@
     .intro-txt a:hover::after {
         right: 25px
     }
+
     .single-case {
         height: 325px
     }
@@ -1135,7 +1139,7 @@
     .case-types ul li a {
         display: block;
         width: 100%;
-        background-color: #25d06f;
+        background-color: #F77E2E;
         padding: 12px 0;
         color: #fff;
         border-radius: 5px
@@ -1155,7 +1159,7 @@
         height: auto
     }
     .case-types ul li a {
-        border: 1px solid #25d06f;
+        border: 1px solid #F77E2E;
         color: #fff
     }
     .case-types ul li a:hover {
@@ -1365,7 +1369,7 @@
     }
     .single-contact-info i {
         margin-right: 15px;
-        color: #25d06f;
+        color: #F77E2E;
         font-size: 20px
     }
     .blog-details-title {
@@ -1403,7 +1407,7 @@
         color: #fff;
         text-transform: uppercase;
         font-weight: 700;
-        background-color: #0a3041;
+        background-color: #161515;
         border: none;
         text-decoration: none;
         font-size: 14px

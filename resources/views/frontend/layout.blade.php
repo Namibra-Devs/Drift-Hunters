@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Black Bike</title>
+    <title>Drift Hunters</title>
 
     {{-- bootstrap links --}}
         <link rel="stylesheet" href="{{ asset('assets/user/css/bootstrap.min.css') }}">
@@ -160,7 +160,7 @@
             </div>
             <hr>
             <div class="col-md-12 text-center" style="padding: 2rem 0">
-                <p>&copy; Black Bike 2023</p>
+                <p>&copy; Drift Hunters 2023</p>
             </div>
         </div>
     </footer>
