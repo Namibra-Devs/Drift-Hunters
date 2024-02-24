@@ -28,7 +28,7 @@ header {
 } */
 
 .get-ticket-btn {
-    background-color: #de2a2c;
+    background-color: #DE2A2C;
     padding: 10px 24px;
     text-transform: uppercase;
     border-right: 5px solid #e1d3da;
@@ -571,12 +571,17 @@ footer h3 {
 
 .login-title {
     margin-bottom: 30px;
+    font-family: "Racing Sans One", sans-serif;
+}
+
+.login-title .title {
+    color: #CC3A3A !important;
 }
 
 .login-area {
     padding-top: 15rem;
     padding-bottom: 120px;
-    background: url("../frontend/images/blackbike-icon.png");
+    background: url("../frontend/images/drift-hunters-bg.png");
 }
 
 .login-area .login-content .login-title .title {

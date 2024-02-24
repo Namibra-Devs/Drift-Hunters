@@ -12,6 +12,13 @@
 <!--    product section start    -->
 <div class="product-area">
     <div class="container">
+    <div class="text-white production-titles">
+                <img src="{{ asset('assets/frontend/images/pngwing.png') }}" alt="" class="img-fluid">
+                <div class="production-title">
+                    <h1>DRIFT IN <span class="magenta">STYLE!</span></h1>
+                    <h1 class="margin-left">SLIDE IN <span class="yellow">STYLE!</span></h1>
+                </div>
+            </div>
         <div class="row justify-content-between align-items-center">
             <div class="col-lg-3 col-md-6">
                 <div class="shop-search mt-30">
@@ -70,17 +77,20 @@
                                 <li><a href="{{route('front.product.details',$product->slug)}}" data-toggle="tooltip" data-placement="top" title="{{__('View Details')}}"><i class="fas fa-eye"></i></a></li>
                             </ul>
                         </div>
-                        <div class="shop-content text-center">
+                        <div class="shop-content d-flex justify-content-between align-items-baseline w-100">
                             <a class="mt-3" href="{{route('front.product.details',$product->slug)}}">
                                 {{strlen($product->title) > 40 ? mb_substr($product->title,0,40,'utf-8') . '...' : $product->title}}
                             </a> <br>
 
-                                <span>
+                                <span class="mt-3">$
                                     {{$product->current_price}}
                                     @if (!empty($product->previous_price))
                                         <del>  <span class="prepice"> {{$product->previous_price}}</span></del>
                                     @endif
                                 </span>
+                        </div>
+                        <div>
+                            <a href="{{ route('front.product.details', $product->slug) }}" class="get-ticket-btn view-product">VIEW PRODUCT</a>
                         </div>
                     </div>
                 </div>

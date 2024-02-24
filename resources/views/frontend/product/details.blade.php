@@ -54,7 +54,7 @@
                             <h4 class="title pb-0">{{ convertUtf8($product->title) }}</h4>
                             <div class="d-flex justify-content-between">
                                 @if ($product->stock > 0)
-                                    <h4 class="badge badge-success">
+                                    <h4 class="badge badge-color">
                                         <i class="far fa-check-circle"></i> {{ __('In Stock') }}
                                     </h4>
                                 @else
@@ -64,7 +64,7 @@
                                 @endif
                             </div>
 
-                            <span>{{ $product->current_price }}
+                            <span>${{ $product->current_price }}
                                 @if (!empty($product->previous_price))
                                     <del> <span class="prepice"> {{ $product->previous_price }}</span></del>
                                 @endif

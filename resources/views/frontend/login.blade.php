@@ -26,7 +26,7 @@
                         <form id="loginForm" action="{{ route('user.login') }}" method="POST">
                             @csrf
                             <div class="input-box">
-                                <span>{{ __('Email') }} *</span>
+                                <span class="text-uppercase">{{ __('Email Address') }} <span class="text-danger">*</span></span>
                                 <input type="email" name="email" value="{{ Request::old('email') }}" placeholder="Enter your user email">
                                 @if (Session::has('err'))
                                     <p class="text-danger mb-2 mt-2">{{ Session::get('err') }}</p>
@@ -36,7 +36,7 @@
                                 @enderror
                             </div>
                             <div class="input-box mb-4">
-                                <span>{{ __('Password') }} *</span>
+                                <span class="text-uppercase password">{{ __('Password') }} <span class="text-danger">*</span></span>
                                 <input type="password" name="password" value="{{ Request::old('password') }}" placeholder="Enter your user password">
                                 @error('password')
                                     <p class="text-danger mb-2 mt-2">{{ convertUtf8($message) }}</p>

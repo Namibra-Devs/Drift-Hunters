@@ -881,24 +881,24 @@ p.gateway-desc {
     padding-right: 20px;
 }
 .cart-area .cart-table tbody .available-info {
-    position: relative;
+    /* position: relative; */
     font-size: 15px;
     font-weight: 600;
     line-height: 20px;
     padding-left: 50px;
 }
 .cart-area .cart-table tbody .available-info .icon {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     color: #fff;
-    font-size: 18px;
-    line-height: 40px;
+    font-size: 15px;
+    /* line-height: 40px; */
     text-align: center;
-    background: #25d06f;
+    background: #F77E2E;
 }
 .cart-area .cart-table tbody .available-info .icon.thm-bg-rmv {
     background: #ff3737;
@@ -934,7 +934,7 @@ p.gateway-desc {
     transition: 0.5s ease;
 }
 .cart-area .cart-table tbody tr td .remove span:hover {
-    color: #25d06f;
+    color: #DE2A2C;
 }
 .cart-middle {
     padding-top: 30px;
@@ -981,8 +981,8 @@ p.gateway-desc {
     background-color: transparent;
 }
 .cart-middle .update-cart button {
-    border: 1px solid #25d06f;
-    background: #25d06f;
+    border: 1px solid #F77E2E;
+    background: #F77E2E;
     color: #fff;
     line-height: 50px;
     padding: 0 20px;
@@ -990,7 +990,7 @@ p.gateway-desc {
     cursor: pointer;
 }
 .cart-middle .update-cart button:hover {
-    color: #25d06f;
+    color: #F77E2E;
     background-color: transparent;
 }
 .cart-bottom {
@@ -1079,7 +1079,7 @@ p.gateway-desc {
     margin-left: 15px;
 }
 .review-show {
-    color: #25d06f;
+    color: #F77E2E;
 }
 .review-none {
     color: #ccc;
@@ -1088,14 +1088,15 @@ a.proceed-checkout-btn {
     padding: 13px 20px;
     height: 50px;
     line-height: 50px;
-    border: 1px solid #25d06f;
+    border: 1px solid #F77E2E;
     text-decoration: none;
-    color: #25d06f;
+    color: #F77E2E;
+    border-radius: 3px;
     background-color: #fff;
     transition: 0.5s;
 }
 a.proceed-checkout-btn:hover {
-    background-color: #25d06f;
+    background-color: #F77E2E;
     color: #fff;
 }
 .checkout-message {

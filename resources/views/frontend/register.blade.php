@@ -16,33 +16,33 @@
                             </div>
                         @endif
                         <div class="login-title text-center">
-                            <h3 class="title">{{ __('Register') }}</h3>
+                            <h3 class="title text-uppercase">{{ __('Register') }}</h3>
                         </div>
 
                         <form action="{{ route('user-register-submit') }}" method="POST">@csrf
                             <div class="input-box">
-                                <span>{{ __('Username') }} *</span>
+                                <span class="text-uppercase">{{ __('Username') }}  <span class="text-danger">*</span></span>
                                 <input type="text" name="username" value="{{ Request::old('username') }}">
                                 @if ($errors->has('username'))
                                     <p class="text-danger mb-0 mt-2">{{ $errors->first('username') }}</p>
                                 @endif
                             </div>
                             <div class="input-box">
-                                <span>{{ __('Email') }} *</span>
+                                <span class="text-uppercase">{{ __('Email address') }}  <span class="text-danger">*</span></span>
                                 <input type="email" name="email" value="{{ Request::old('email') }}">
                                 @if ($errors->has('email'))
                                     <p class="text-danger mb-0 mt-2">{{ $errors->first('email') }}</p>
                                 @endif
                             </div>
                             <div class="input-box">
-                                <span>{{ __('Password') }} *</span>
+                                <span class="text-uppercase">{{ __('Password') }}  <span class="text-danger">*</span></span>
                                 <input type="password" name="password" value="{{ Request::old('password') }}">
                                 @if ($errors->has('password'))
                                     <p class="text-danger mb-0 mt-2">{{ $errors->first('password') }}</p>
                                 @endif
                             </div>
                             <div class="input-box mb-4">
-                                <span>{{ __('Confirmation Password') }} *</span>
+                                <span class="text-uppercase">{{ __('Confirmation Password') }}  <span class="text-danger">*</span></span>
                                 <input type="password" name="password_confirmation"
                                     value="{{ Request::old('password_confirmation') }}">
                                 @if ($errors->has('password_confirmation'))
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="input-btn">
-                                <button type="submit" class="get-ticket-btn">{{ __('Register') }}</button>
+                                <button type="submit" class="get-ticket-btn class="text-uppercase"">{{ __('Register') }}</button>
                                 <p>{{ __('Already have an account ?') }} <a class="mr-3"
                                         href="{{ route('user.login') }}">{{ __('Click Here') }}</a> {{ __('to login') }}.
                                 </p>

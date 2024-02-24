@@ -170,13 +170,14 @@
 
     <div id="cartIconWrapper">
         <a class="d-block" id="cartIcon" href="{{route('front.cart')}}">
-            <div class="cart-length">
-                <i class="fas fa-cart-plus"></i>
-                <span class="length">{{cartLength()}} {{__('ITEMS')}}</span>
-            </div>
-            <div class="cart-total">
+        <div class="cart-total">
                 {{cartTotal()}}
             </div>
+            <div class="cart-length">
+                <i class="fas fa-cart-plus"></i>
+                <!-- <span class="length">{{cartLength()}}</span> -->
+            </div>
+            
         </a>
     </div>
 
