@@ -33,11 +33,11 @@
 
 <section class="ticket-strock-section w-100">
     <div class="ticket-strocks">
-        <!-- <div class="purple-text"> -->
-            <marquee class="purple-text">TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</marquee>
+    <img src="{{ asset('assets/frontend/images/strocks.svg') }}" alt="">        <!-- <div class="purple-text"> -->
+            <!-- <marquee class="purple-text">TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</marquee> -->
         <!-- </div> -->
         <!-- <div class="yellow-text"> -->
-            <marquee class="yellow-text">TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</marquee>
+            <!-- <marquee class="yellow-text">TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS NOW AVAILABLE TICKETS</marquee> -->
         <!-- </div> -->
     </div>
 </section>
@@ -217,11 +217,27 @@
         </div>
 </section>
 
+<section class="drift-experience-section">
+    <div class="container">
+        <div class="d-flex flex-column-reverse flex-lg-row experience-container">
+            <div class="col-lg-4 col-12 experience-text m-0 h-100">
+                <h1>IMMERSE YOURSELF IN THE DRIFT EXPERIENCE</h1>
+            </div>
+            <div class="col-lg-8 col-12 experience-img p-0 m-0 h-100">
+                <img src="{{ asset('assets/frontend/images/get-involved.jpg') }}" alt="" class="image-fluid w-100 experience-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- get involved section --}}
+
 <section class="get-involved-section">
     <div class="container">
         <div class="section-title text-center">
-            <img src="{{ asset('assets/frontend/images/wine-play.png') }}" alt="">
+            <img src="{{ asset('assets/frontend/images/playflag.png') }}" alt="">
             <h2>GET INVOLVED</h2>
+            <img src="{{ asset('assets/frontend/images/playflag.png') }}" alt="">
         </div>
 
         <div class="row">
@@ -229,7 +245,7 @@
                 <div class="row flex-column get-involved-card">
                     <div class="col">
                         <div>
-                            <img src="{{ asset('assets/frontend/images/bike1.png') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/get-involved-img1.jpg') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -240,8 +256,8 @@
                                 <p> Become a sponsor and align your brand with the spirit of adventure, unity, and
                                     freedom that defines this extraordinary event.</p>
                             </div>
-                            <div class="text-center">
-                                <a href="#" class="get-ticket-btn bg-black">REGISTER YOUR INTERESTS</a>
+                            <div class="text-center buy-btn">
+                                <a href="#" class="get-ticket-btn buy-now register-i-btn">REGISTER YOUR INTERESTS</a>
                             </div>
                         </div>
 
@@ -253,7 +269,7 @@
                 <div class="row flex-column get-involved-card">
                     <div class="col-auto">
                         <div>
-                            <img src="{{ asset('assets/frontend/images/bike2.png') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/get-involved-img2.jpg') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -264,8 +280,8 @@
                                 <p>Join the vibrant Vendor Expo at Ghana Black Bike Week and put your products or
                                     services in front of a diverse and engaged audience.</p>
                             </div>
-                            <div class="text-center">
-                                <a href="#" class="get-ticket-btn bg-black">BUY NOW</a>
+                            <div class="text-center buy-btn">
+                                <a href="#" class="get-ticket-btn buy-now">BUY NOW</a>
                             </div>
                         </div>
 
@@ -281,9 +297,12 @@
 <section class="products-section product-area">
     <div class="container">
         <div class="row justify-content-center align-items-center section-title text-center">
-            <div class="text-white">
-                <h1>BIKE IN <span class="magenta">STYLE!</span></h1>
-                <h1 class="margin-left">ROKE IN <span class="yellow">STYLE</span></h1>
+            <div class="text-white production-titles">
+                <img src="{{ asset('assets/frontend/images/pngwing.png') }}" alt="" class="img-fluid">
+                <div class="production-title">
+                    <h1>DRIFT IN <span class="magenta">STYLE!</span></h1>
+                    <h1 class="margin-left">SLIDE IN <span class="yellow">STYLE!</span></h1>
+                </div>
             </div>
 
             <div>
@@ -310,15 +329,15 @@
 
                         <div class="mt-3 product-description">
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{ route('front.product.details', $product->slug) }}"><h3 class="text-left">{{ strlen($product->title) > 40 ? mb_substr($product->title, 0, 40, 'utf-8') . '...' : $product->title }}</h3></a>
-                                <h5 class="product-price">{{ $product->current_price }}
+                                <a href="{{ route('front.product.details', $product->slug) }}"><h3 class="text-left product-item-title">{{ strlen($product->title) > 40 ? mb_substr($product->title, 0, 40, 'utf-8') . '...' : $product->title }}</h3></a>
+                                <h5 class="product-price">${{ $product->current_price }}
                                     @if (!empty($product->previous_price))
                                         <del> <span class="prepice"> {{ $product->previous_price }}</span></del>
                                     @endif</h5>
                             </div>
                         </div>
                         <div>
-                            <a href="{{ route('front.product.details', $product->slug) }}" class="get-ticket-btn bg-white">VIEW PRODUCT</a>
+                            <a href="{{ route('front.product.details', $product->slug) }}" class="get-ticket-btn view-product">VIEW PRODUCT</a>
                         </div>
                     </div>
                 </div>
@@ -329,40 +348,39 @@
 
 
 {{-- sponsors section --}}
-<section class="sponsors-section">
+<section class="sponsors-section d-flex vw-100">
+    <img src="{{ asset('assets/frontend/images/pngwing2.png') }}" alt="" class="img-fluid road-tire one">
     <div class="container">
-        <div class="section-title text-center">
-            <h2>OUR SPONSORS</h2>
-        </div>
 
         {{-- sponsors --}}
         <div class="row sponsors">
-            <div class="col-md-3">
-                <h2>RACELORDS</h2>
+            <div class="col-3">
+                <h2 class="racelords">RACELORDS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RITROFITS</h2>
+            <div class="col-3">
+                <h2 class="riftrofits">RITROFITS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RACELORDS</h2>
+            <div class="col-3">
+                <h2 class="racelords">RACELORDS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RITROFITS</h2>
+            <div class="col-3">
+                <h2 class="riftrofits">RITROFITS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RACELORDS</h2>
+            <div class="col-3">
+                <h2 class="racelords">RACELORDS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RITROFITS</h2>
+            <div class="col-3">
+                <h2 class="riftrofits">RITROFITS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RACELORDS</h2>
+            <div class="col-3">
+                <h2 class="racelords">RACELORDS</h2>
             </div>
-            <div class="col-md-3">
-                <h2>RITROFITS</h2>
+            <div class="col-3">
+                <h2 class="riftrofits">RITROFITS</h2>
             </div>
         </div>
     </div>
+    <img src="{{ asset('assets/frontend/images/pngwing2.png') }}" alt="" class="road-tire two">
 </section>
     
 @endsection

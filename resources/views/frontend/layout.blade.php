@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-md-4 d-flex flex-column justify-content-between">
                     <div>
-                        <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="">
+                        <img src="{{ asset('assets/frontend/images/logo.svg') }}" alt="">
                     </div>
                     <div class="footer-location">
                         <span>
@@ -145,7 +145,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h3>STAY CONNECTED</h3>
+                    <h3
+                     class="stay-connected">STAY CONNECTED</h3>
                     <div class="footer-socials">
                         <a href=""><i class="fab fa-twitter"></i></a>
                         <a href=""><i class="fab fa-linkedin"></i></a>
@@ -154,8 +155,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h3>REGISTER FOR THE EVENT</h3>
-                    <a href="#" class="get-ticket-btn bg-white">GET YOUR TICKETS</a>
+                    <h3 class="mb-4">REGISTER FOR THE EVENT</h3>
+                    <div class="mb-2">
+                        <a href="#" class="get-ticket-btn">GET YOUR TICKETS</a>
+                    </div>
                 </div>
             </div>
             <hr>
