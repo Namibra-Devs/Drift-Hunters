@@ -39,11 +39,11 @@
                                             <div class="upload-img">
                                                 @if (strpos($user->photo, 'facebook') !== false || strpos($user->photo, 'google'))
                                                     <div class="img-box">
-                                                        <img class="showimage" src="{{$user->photo ? $user->photo : asset('assets/frontend/images/user/profile.jpg')}}" alt="user-image">
+                                                        <img class="showimage" src="{{$user->photo ? $user->photo : asset('assets/frontend/images/user/profile.png')}}" alt="user-image">
                                                     </div>
                                                 @else
                                                     <div class="img-box">
-                                                        <img class="showimage" src="{{$user->photo ? asset('assets/frontend/images/user/'.$user->photo) : asset('assets/frontend/images/user/profile.jpg')}}" alt="user-image">
+                                                        <img class="showimage" src="{{$user->photo ? asset('assets/frontend/images/user/'.$user->photo) : asset('assets/frontend/images/user/profile.png')}}" alt="user-image">
                                                     </div>
                                                 @endif
                                                 <div class="file-upload-area">

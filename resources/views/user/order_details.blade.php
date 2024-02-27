@@ -6,7 +6,7 @@
 
 @section('content')
     <!--   hero area start   -->
-    <div class="breadcrumb-area services service-bg" style="background-image: url('{{asset  ('assets/frontend/images/logo.png')}}');background-size:cover;">
+    <div class="breadcrumb-area services service-bg">
         <div class="container">
             <div class="breadcrumb-txt">
                 <div class="row">
@@ -39,18 +39,18 @@
                                             <ul class="progress-steps">
                                                 <li class="{{$data->order_status == 'pending' ? 'active' : ''}}">
                                                     <div class="icon"></div>
-                                                    <div class="progress-title">{{__('Pending')}}</div>
+                                                    <div class="progress-title pending">{{__('Pending')}}</div>
                                                 </li>
                                                 <li class="{{$data->order_status == 'processing' ? 'active' : ''}}">
                                                     <div class="icon"></div>
-                                                    <div class="progress-title">{{__('Processing')}}</div>
+                                                    <div class="progress-title processing">{{__('Processing')}}</div>
                                                 </li>
                                                 <li class="{{$data->order_status == 'completed' ? 'active' : ''}}">
                                                     <div class="icon"></div>
-                                                    <div class="progress-title">{{__('Completed')}}</div>
+                                                    <div class="progress-title completed">{{__('Completed')}}</div>
                                                 </li>
                                                 <li class="{{$data->order_status == 'reject' ? 'active' : ''}}">
-                                                    <div class="icon"></div>
+                                                    <div class="icon rejected"></div>
                                                     <div class="progress-title">{{__('Rejected')}}</div>
                                                 </li>
                                             </ul>

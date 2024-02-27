@@ -7,7 +7,7 @@
 @section('content')
 
     <!--   hero area start   -->
-    <div class="breadcrumb-area services service-bg" style="background-image: url('{{asset  ('assets/frontend/images/hero-bg.png')}}');background-size:cover;">
+    <div class="breadcrumb-area services service-bg">
         <div class="container">
             <div class="breadcrumb-txt">
                 <div class="row">
@@ -91,8 +91,8 @@
                                 </div>
                                 <div class="main-info">
                                     <div class="main-table">
-                                        <div class="table-responsiv">
-                                            <table id="ordersTable" class="dataTables_wrapper dt-responsive table-striped dt-bootstrap4" style="width:100%">
+                                        <div class="table-responsive">
+                                            <table id="ordersTable" class="dataTables_wrapper dt-responsive table-striped table-dark dt-bootstrap4" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th>{{__('Order number')}}</th>
@@ -104,7 +104,7 @@
                                                 <tbody>
                                                         @if($orders)
                                                         @foreach ($orders as $order)
-                                                        <tr>
+                                                        <tr class="bg-dark border border-1 table-row">
                                                         <td>{{$order->order_number}}</td>
                                                             <td>{{$order->created_at->format('d-m-Y')}}</td>
                                                             <td> {{$order->total}}</td>

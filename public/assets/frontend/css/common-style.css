@@ -193,6 +193,7 @@ ul.breadcumb li:first-child {
 
 ul.breadcumb li:last-child {
   font-weight: 600;
+  font-family: "Racing Sans One";
 }
 
 ul.breadcumb li:last-child::after {
@@ -2098,6 +2099,8 @@ button.filter-button:hover {
 
 .product-details-area {
   padding-top: 120px;
+  background: url('../images/celeb-bg.png')
+
 }
 
 .product-details-area .product-details-slide-item {
@@ -2153,7 +2156,7 @@ button.filter-button:hover {
   width: 40px;
   text-align: center;
   line-height: 40px;
-  background: #25d06f;
+  background: #DE2A2C;
   color: #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -2177,7 +2180,7 @@ button.filter-button:hover {
   width: 40px;
   text-align: center;
   line-height: 40px;
-  background: #25d06f;
+  background: #DE2A2C;
   color: #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -2304,13 +2307,13 @@ button.filter-button:hover {
 }
 
 .product-details-area .product-details-content .product-icons-item-1 ul li a:hover {
-  color: #25d06f;
+  color: #DE2A2C;
 }
 
 .product-details-area .product-details-content .product-icons-item-1 ul li:first-child a {
   padding: 0 15px;
-  border-left: 1px dashed #25d06f;
-  border-right: 1px dashed #25d06f;
+  border-left: 1px dashed #DE2A2C;
+  border-right: 1px dashed #DE2A2C;
   line-height: 20px;
   margin-right: 9px;
 }
@@ -2393,7 +2396,7 @@ button.filter-button:hover {
   margin-left: 25px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  border: 1px solid #25d06f;
+  border: 1px solid #DE2A2C;
   display: block;
   position: relative;
   padding: 15px 10px;
@@ -2404,12 +2407,12 @@ button.filter-button:hover {
   text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  background: #25d06f;
+  background: #DE2A2C;
 }
 
 .product-btns .btns a:hover {
   background-color: transparent;
-  color: #25d06f;
+  color: #DE2A2C;
 }
 
 .shop-tab-area {
@@ -2435,6 +2438,10 @@ button.filter-button:hover {
   .shop-tab-area .nav .nav-item .nav-link {
     margin-right: 20px;
   }
+}
+
+.shop-tab-area {
+  background: url('../images/celeb-bg.png')
 }
 
 .shop-tab-area .nav .nav-item .nav-link::before {
@@ -3739,8 +3746,8 @@ a#cartIcon .cart-length {
   background: #F77E2E;
   font-weight: 600;
   color: #FFF;
-  border-bottom-left-radius: 10px;
-  padding-bottom: .5rem !important;
+  border-top-left-radius: 10px;
+  padding-top: .5rem !important;
 }
 
 a#cartIcon .cart-length i {
@@ -3753,9 +3760,9 @@ a#cartIcon .cart-total {
   text-align: center;
   font-weight: 600;
   color: inherit;
-  border-top-left-radius: 10px;
-  padding-top: .5rem;
-  border-bottom: 1px solid #DE2A2C;
+  border-bottom-left-radius: 10px;
+  padding-bottom: .5rem;
+  border-top: 1px solid #DE2A2C;
 
 }
 
@@ -8051,8 +8058,10 @@ div#particles-js canvas {
   padding: 120px 0 120px;
 }
 .service-bg {
-  background-image: url(../img/services/header-bg.jpg);
+  background-image: url('../images/service-bg.png');
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .service-section .section-title {
   color: #afb2be;

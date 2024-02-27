@@ -214,7 +214,7 @@
         width: 100%
     }
     .sticky-navbar ul.slicknav_nav {
-        top: 89px
+        top: 89px;
     }
     .slicknav_menu .slicknav_menutxt {
         display: none
@@ -222,9 +222,10 @@
     .slicknav_btn {
         background-color: transparent;
         border: 1px solid #fff
+        
     }
     .slicknav_menu .slicknav_icon {
-        margin: 0
+        margin: 0;
     }
     ul.slicknav_nav li a.boxed-btn {
         display: block;
@@ -266,7 +267,7 @@
         border-radius: 0
     }
     .slicknav_nav a:hover {
-        background: #F77E2E;
+        background: #F77E2E !important;
         color: #fff;
         border-radius: 0
     }

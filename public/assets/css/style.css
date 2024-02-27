@@ -51,6 +51,8 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-blend-mode: color-dodge;
+    background-color: hsla(0, 0%, 0%, 0.7);
     height: 100vh;
     position: relative;
 }
@@ -565,8 +567,12 @@ footer hr {
 
 footer h3 {
     font-family: "Racing Sans One", sans-serif;
+    margin: 2rem auto;
 }
 
+.stay-connected {
+    margin-bottom: .5rem;
+}
 /* Front End login styles starts */
 
 .login-title {
@@ -706,6 +712,7 @@ footer h3 {
 
     .hero-content p {
         left: auto;
+        /* margin-top: 5rem; */
     }
 
     .hero_right-content {

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blac Bike @yield('pagename')</title>
+    <title>Drift Hunters @yield('pagename')</title>
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/frontend/images/logo.png') }}" type="image/x-icon">
     <!-- bootstrap css -->
@@ -67,12 +67,12 @@
         <div id="cartIconWrapper">
             <a class="d-block" id="cartIcon" href="{{ route('front.cart') }}">
                 <div class="cart-length">
-                    <i class="fas fa-cart-plus"></i>
-                    <span class="length">{{cartLength()}} {{ __('ITEMS') }}</span>
+                    {{cartLength()}}                
                 </div>
                 <div class="cart-total">
-                   {{cartTotal()}}
+                    <i class="fas fa-cart-plus"></i>
                 </div>
+               
             </a>
         </div>
 

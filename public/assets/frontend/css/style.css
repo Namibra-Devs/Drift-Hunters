@@ -150,7 +150,7 @@ ul.breadcumb li a {
     transition: 0.5s;
 }
 ul.breadcumb li a:hover {
-    color: #25d06f;
+    color: #F77E2E;
 }
 ul.breadcumb li::after {
     position: absolute;
@@ -337,14 +337,14 @@ ul.breadcumb li:last-child::after {
     width: 100%;
 }
 .main-menu li a:hover {
-    color: #25d06f;
+    color: #DE2A2C;
 }
 .main-menu li a.boxed-btn::after,
 .main-menu li a.boxed-btn::before {
     display: none;
 }
 .main-menu li.active a {
-    color: #25d06f;
+    color: #DE2A2C;
 }
 .main-menu li a.boxed-btn {
     font-weight: 600;
@@ -387,7 +387,7 @@ ul.breadcumb li:last-child::after {
     width: 2px;
     height: 100%;
     content: "";
-    background: #25d06f;
+    background: #161616;
 }
 .checkout-area .exisitng-customer h5 {
     color: #222;

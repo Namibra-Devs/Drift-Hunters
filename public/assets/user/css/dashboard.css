@@ -1,5 +1,7 @@
 .user-dashbord {
     padding: 120px 0;
+    background-color: #2b2a2a;
+    color: #ddd !important;
 }
 
 .user-sidebar {
@@ -23,16 +25,22 @@
 .user-sidebar .links li a {
     display: block;
     padding: 15px 0;
-    color: #676767;
+    color: #EC7424;
+    text-transform: uppercase;
+    font-family: "Racing Sans One", sans-serif;
 }
 
 .user-sidebar .links li a.active {
-    color: #25D06F;
+    color: #DE2A2C;
     font-weight: 600;
 }
 
 .user-sidebar .links li:hover>a {
-    color: #25D06F;
+    color: hsl(359, 96%, 39%);
+}
+
+.account-info h4{
+    font-family: "Racing Sans One", sans-serif;
 }
 
 .order-details,
@@ -105,7 +113,7 @@ a.card-box {
 }
 
 .card-box.box-1 {
-    background: #6963FF;
+    background: #DE2A2C;
 }
 
 .card-box.box-2 {
@@ -119,6 +127,8 @@ a.card-box {
 .card-box .card-info h4 {
     color: #fff;
     margin-bottom: 10px;
+    font-family: "Racing Sans One", sans-serif;
+    text-transform: uppercase;
 }
 
 .card-box .card-info p {
@@ -175,9 +185,11 @@ a.card-box {
 }
 
 .progress-steps li .progress-title {
-    padding-top: 10px;
+    /* padding-top: 10px; */
 }
-
+/* .icon.rejected {
+    background-color: #DE2A2C !important;
+} */
 .main-table .dataTables_wrapper .row:last-child,
 .main-table .dataTables_wrapper .row:first-child {
     margin-bottom: 30px;
@@ -206,12 +218,13 @@ a.card-box {
 }
 
 .main-table .dataTables_wrapper td a.btn {
-    border: 1px solid #25D06F;
+    border: 1px solid #EC7424;
     transition: all .3s;
+    color: #ddd;
 }
 
 .main-table .dataTables_wrapper td a.btn:hover {
-    background: #25D06F;
+    background: #f0690f;
     border-color: transparent;
     color: #fff;
 }
@@ -238,7 +251,7 @@ a.card-box {
 }
 
 .paginate_button.active .page-link {
-    background-color: #25D06F !important;
+    background-color: #EC7424 !important;
     border-color: transparent;
 }
 
@@ -246,7 +259,7 @@ a.card-box {
     box-shadow: none;
     border-radius: 0;
     color: #fff;
-    background-color: #25D06F !important;
+    background-color: #f16a10 !important;
 }
 
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
@@ -267,7 +280,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before 
 }
 
 .order-info-area .prinit .btn {
-    background: #25D06F;
+    background: #EC7424;
     color: #fff;
 }
 
@@ -374,7 +387,7 @@ textarea.form_control {
     left: 0;
     width: 150px;
     height: 40px;
-    background: #25D06F;
+    background: #EC7424;
     z-index: -1;
     cursor: pointer;
     text-align: center;

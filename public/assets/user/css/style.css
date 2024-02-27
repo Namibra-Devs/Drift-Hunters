@@ -290,7 +290,7 @@ ul.breadcumb li a {
 }
 
 ul.breadcumb li a:hover {
-    color: #25d06f;
+    color: #F77E2E;
 }
 
 ul.breadcumb li::after {
@@ -870,7 +870,7 @@ ul.language-dropdown li:last-child a {
     content: "";
     width: 0px;
     height: 3px;
-    background-color: #25d06f;
+    background-color: #d6061e;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -882,7 +882,7 @@ ul.language-dropdown li:last-child a {
     content: "";
     width: 0px;
     height: 3px;
-    background-color: #25d06f;
+    background-color: #d6061e;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -899,7 +899,7 @@ ul.language-dropdown li:last-child a {
 }
 
 .main-menu li a:hover {
-    color: #25d06f;
+    color: #d6061e;
 }
 
 .main-menu li a.boxed-btn::after,
@@ -908,7 +908,7 @@ ul.language-dropdown li:last-child a {
 }
 
 .main-menu li.active a {
-    color: #25d06f;
+    color: #d6061e;
 }
 
 .main-menu li a.boxed-btn {
@@ -917,13 +917,13 @@ ul.language-dropdown li:last-child a {
     margin-left: 25px;
     -webkit-transition: .5s;
     transition: .5s;
-    border: 1px solid #25d06f;
+    border: 1px solid #d6061e;
 }
 
 .main-menu li a.boxed-btn:hover {
     background-color: #fff;
-    border: 1px solid #25d06f;
-    color: #25d06f;
+    border: 1px solid #d6061e;
+    color: #d6061e;
 }
 
 .main-menu li.dropdown {
@@ -945,7 +945,7 @@ ul.language-dropdown li:last-child a {
 }
 
 .main-menu li.dropdown.active::after {
-    color: #25d06f;
+    color: #d6061e;
 }
 
 .main-menu li.dropdown ul.dropdown-lists {
@@ -971,7 +971,7 @@ ul.language-dropdown li:last-child a {
 }
 
 .main-menu li.dropdown:hover a {
-    color: #25d06f;
+    color: #d6061e;
 }
 
 .main-menu li.dropdown:hover a.dropdown-btn::after {
@@ -983,7 +983,7 @@ ul.language-dropdown li:last-child a {
 }
 
 .main-menu li.dropdown:hover::after {
-    color: #25d06f;
+    color: #d6061e;
 }
 
 .main-menu li.dropdown ul.dropdown-lists li {
@@ -1015,7 +1015,7 @@ ul.language-dropdown li:last-child a {
     left: 0;
     height: 100%;
     width: 0%;
-    background-color: #25d06f;
+    background-color: #d6061e;
     z-index: -1;
     -webkit-transition: .5s;
     transition: .5s;
@@ -2662,7 +2662,7 @@ div#particles-js canvas {
 }
 
 .service-bg {
-    background-image: url('../img/services/header-bg.jpg');
+    background-image: url('../images/service-bg.png');
     background-size: cover;
 }
 

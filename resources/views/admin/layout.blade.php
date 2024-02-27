@@ -18,10 +18,10 @@
     content='width=device-width, initial-scale=1.0, shrink-to-fit=no'
     name='viewport'
     />
-    <title>Black Bike</title>
+    <title>Drift Hunters</title>
     <link
     rel="icon"
-    href="{{asset('assets/frontend/images/logo.png')}}"
+    href="{{asset('assets/frontend/images/logo.svg')}}"
     >
     @includeif('admin.partials.styles')
     

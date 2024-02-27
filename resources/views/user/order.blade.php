@@ -40,10 +40,10 @@
                                 </div>
                                 <div class="main-info">
                                     <div class="main-table">
-                                    <div class="table-responsiv">
-                                        <table id="ordersTable" class="dataTables_wrapper dt-responsive table-striped dt-bootstrap4" style="width:100%">
+                                    <div class="table-responsive">
+                                        <table id="ordersTable" class="dataTables_wrapper dt-responsive table-striped table-dark dt-bootstrap4" style="width:100%">
                                             <thead>
-                                                <tr>
+                                                <tr class="bg-dark">
                                                     <th>{{__('Order number')}}</th>
                                                     <th>{{__('Date')}}</th>
                                                     <th>{{__('Total Price')}}</th>
@@ -53,7 +53,7 @@
                                             <tbody>
                                                 @if($orders)
                                                 @foreach ($orders as $order)
-                                                <tr>
+                                                <tr class="bg-dark">
                                                 <td>{{$order->order_number}}</td>
                                                      <td>{{$order->created_at->format('d-m-Y')}}</td>
                                                     <td>left{{$order->total}}</td>

@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="breadcrumb-area services service-bg"
-        style="background-image: url('{{ asset('assets/frontend/images/hero-bg.png') }}');background-size:cover;">
+    <div class="breadcrumb-area services service-bg">
         <div class="container">
             <div class="breadcrumb-txt">
                 <div class="row">
