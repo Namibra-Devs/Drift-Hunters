@@ -57,7 +57,7 @@
                 <div class="row featuring-card">
                     <div class="col-auto">
                         <div class="feature-image">
-                            <img src="{{ asset('assets/frontend/images/content1.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/content1.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                 <div class="row featuring-card">
                     <div class="col-auto">
                         <div class="feature-image">
-                            <img src="{{ asset('assets/frontend/images/content2.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/content2.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                 <div class="row featuring-card">
                     <div class="col-auto">
                         <div class="feature-image">
-                            <img src="{{ asset('assets/frontend/images/content3.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/content3.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -120,6 +120,23 @@
 </section>
 
 {{-- featuring section ends --}}
+
+
+<section class="drift-experience-section">
+    <!-- <div class="container"> -->
+        <div class="d-flex flex-column flex-lg-row experience-container">
+           
+            <div class="col-lg-8 col-12 experience-img p-0 m-0 h-100 w-100">
+                <img src="{{ asset('assets/frontend/images/get-involved.png') }}" alt="" class="image-fluid w-100 experience-img">
+            </div>
+            <div class="col-lg-3 col-12 experience-text1 m-0 h-100">
+                <h1 class="join-header">Join the Drift Revolution</h1>
+                <p class="text-white">A movement that celebrates the spirit of freedom, innovation, and the pursuit of automotive excellence. Rev up your engines, feel the G-force, and be part of a journey where every turn is a story and every drift is a work of art.</p>
+            </div>
+        </div>
+    <!-- </div> -->
+</section>
+
 
 {{-- tickets section --}}
 <div class="tickets-section-title text-center">
@@ -224,7 +241,7 @@
                 <h1>IMMERSE YOURSELF IN THE DRIFT EXPERIENCE</h1>
             </div>
             <div class="col-lg-8 col-12 experience-img p-0 m-0 h-100">
-                <img src="{{ asset('assets/frontend/images/get-involved.jpg') }}" alt="" class="image-fluid w-100 experience-img">
+                <img src="{{ asset('assets/frontend/images/get-involved.png') }}" alt="" class="image-fluid w-100 experience-img">
             </div>
         </div>
     </div>
@@ -245,7 +262,7 @@
                 <div class="row flex-column get-involved-card">
                     <div class="col">
                         <div>
-                            <img src="{{ asset('assets/frontend/images/get-involved-img1.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/get-involved-img1.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -269,7 +286,7 @@
                 <div class="row flex-column get-involved-card">
                     <div class="col-auto">
                         <div>
-                            <img src="{{ asset('assets/frontend/images/get-involved-img2.jpg') }}" alt=""
+                            <img src="{{ asset('assets/frontend/images/get-involved-img2.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>

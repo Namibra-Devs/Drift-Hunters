@@ -103,6 +103,24 @@ header {
     left: -1%;
 }
 
+.experience-text1 {
+    background-color: #474747;
+    padding: 3.5rem 1rem !important;
+}
+
+.join-header {
+    font-size: 2rem !important;
+    font-family: "Racing Sans One", sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px #fff;
+    color: #CC3A3A;
+    margin-bottom: 2rem;
+}
+
+.experience-text1 p {
+    font-family: inherit;
+}
+
 .ticket-strock-section {
     background: url('../frontend/images/tickets-strocks-bg.png');
     width: 100vw;
